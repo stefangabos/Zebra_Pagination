@@ -1,0 +1,8 @@
+body { text-align: left; padding: 10px }
+a { color: #0000FF }
+table.countries { width: 400px; border:1px solid #AAA; margin-bottom: 20px }
+table.countries tr.even { background: #EFEFEF }
+table.countries th { background: #222; color: #FFF; font-weight: bold }
+table.countries td,
+table.countries th { padding: 4px }
+table.countries td:hover { background: #FFFFCC }
