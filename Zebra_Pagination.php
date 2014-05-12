@@ -1027,6 +1027,20 @@ class Zebra_Pagination
 
     }
 
+    /**
+     * It slices a given array to the correct size of the pagination.
+     * Caution: The function modifies the given array.
+     *
+     * @param array $input The complete array, passed by reference.
+     *
+     * @return void
+     */
+    public function slice(&$input)
+    {
+        $input = array_slice(
+            $input,
+            (($this->get_page() - 1) * $this->_properties['records_per_page']),
+            $this->_properties['records_per_page']
+        );
+    }
 }
-
-?>
