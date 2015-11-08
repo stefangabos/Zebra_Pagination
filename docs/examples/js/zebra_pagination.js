@@ -8,10 +8,3 @@ $(document).ready(function () {
         b.attr("href", b.attr("href") + "#" + a[1]);
     });
 });
-$(document).ready(function () {
-    $('.toggle-pagination').click(function (f) {
-        $(this).next('.pagination-responsive').slideToggle();
-        $(this).toggleClass('active');
-        f.preventDefault();
-    });
-});
