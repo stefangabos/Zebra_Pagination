@@ -57,7 +57,7 @@ Set position of the next/previous page links
 
 ```php
     $pagination->navigation_position(isset($_GET['navigation_position']) && in_array($_GET['navigation_position'], array('left', 'right')) ? $_GET['navigation_position'] : 'outside');
-``
+```
 
 See `example.php` to view how this work.
 
