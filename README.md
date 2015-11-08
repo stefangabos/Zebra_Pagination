@@ -12,13 +12,14 @@ The code is heavily commented and generates no warnings/errors/notices when PHP'
 
 ##Features
 
-- it is a generic library: can be used to paginate records both from an array or from a database
-- it automatically generates navigation links, given the total number of items and the number of items per page (examples of best practices are also included)
-- navigation links can be generated in natural or in reverse order
-- is SEO-friendly – it uses `rel="next"` and `rel="prev"` and solves the problem of duplicate content on the first page without navigation and the first page having the page number in the URL
-- appearance is easily customizable through CSS
-- code is heavily commented and generates no warnings/errors/notices when PHP’s error reporting level is set to `E_ALL`
-- has comprehensive documentation
+- it is a generic library: can be used to paginate records both from an array or from a database.
+- it automatically generates navigation links, given the total number of items and the number of items per page (examples of best practices are also included).
+- navigation links can be generated in natural or in reverse order.
+- is SEO-friendly – it uses `rel="next"` and `rel="prev"` and solves the problem of duplicate content on the first page without navigation and the first page having the page number in the URL.
+- appearance is easily customizable through CSS.
+- code is heavily commented and generates no warnings/errors/notices when PHP’s error reporting level is set to `E_ALL`.
+- has comprehensive documentation.
+- boostrap pagination styles.
 
 ## Requirements
 
