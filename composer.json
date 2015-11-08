@@ -11,12 +11,18 @@
             "email": "contact@stefangabos.ro",
             "homepage": "http://stefangabos.ro/",
             "role": "Developer"
+        },
+        {
+            "name": "Angel Cruz",
+            "email": "me@abr4xas.org",
+            "homepage": "http://abr4xas.org",
+            "role": "Contribuitor"
         }
     ],
     "require": {
-        "php": ">=5"
+        "php": ">=5.2.0"
     },
-    "version": "2.1.1",
+    "version": "2.1.2",
     "autoload": {
         "psr-0": { "Zebra_Pagination": "" }
     }
