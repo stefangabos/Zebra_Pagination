@@ -47,7 +47,7 @@ class Zebra_Pagination
         'method'                    =>  'get',
 
         // string for "next page"
-        'next'                      =>  'Next page',
+        'next'                      =>  '&raquo;',
 
         // by default, prefix page number with zeroes
         'padding'                   =>  true,
@@ -64,7 +64,7 @@ class Zebra_Pagination
         'preserve_query_string'     =>  0,
 
         // string for "previous page"
-        'previous'                  =>  'Previous page',
+        'previous'                  =>  '&laquo;',
 
         // by default, we assume there are no records
         // we expect this number to be set after the class is instantiated
@@ -533,7 +533,7 @@ class Zebra_Pagination
         if ($this->_properties['total_pages'] <= 1) return '';
 
         // start building output
-        $output = '<div class="Zebra_Pagination"><ul>';
+        $output = '<nav><ul class="pagination">';
 
         // if we're showing records in reverse order
         if ($this->_properties['reverse']) {
@@ -572,7 +572,7 @@ class Zebra_Pagination
         }
 
         // finish generating the output
-        $output .= '</ul></div>';
+        $output .= '</ul></nav>';
 
         // if $return_output is TRUE
         // return the generated content
@@ -854,10 +854,8 @@ class Zebra_Pagination
             )
 
                 // render the link for each page
-                $output .= '<li><a href="' . $this->_build_uri($i) . '" ' .
-
                 // make sure to highlight the currently selected page
-                ($this->_properties['page'] == $i ? 'class="current"' : '') . '>' .
+                $output .= '<li '.($this->_properties['page'] == $i ? 'class="active"' : '').'><a href="' . $this->_build_uri($i) . '">' .
 
                 // apply padding if required
                 ($this->_properties['padding'] ? str_pad($i, strlen($this->_properties['total_pages']), '0', STR_PAD_LEFT) : $i) .
@@ -868,11 +866,8 @@ class Zebra_Pagination
         } else {
 
             // start with a link to the first or last page, depending if we're displaying links in reverse order or not
-            $output .= '<li><a href="' . $this->_build_uri($this->_properties['reverse'] ? $this->_properties['total_pages'] : 1) . '" ' .
-
-                // highlight if the page is currently selected
-                ($this->_properties['page'] == ($this->_properties['reverse'] ? $this->_properties['total_pages'] : 1) ? 'class="current"' : '') . '>' .
-
+            // highlight if the page is currently selected
+            $output .= '<li '.($this->_properties['page'] == ($this->_properties['reverse'] ? $this->_properties['total_pages'] : 1) ? 'class="active"' : '') . '><a href="' . $this->_build_uri($this->_properties['reverse'] ? $this->_properties['total_pages'] : 1) . '" ' .'>'.
                 // if padding is required
                 ($this->_properties['padding'] ?
 
@@ -955,10 +950,8 @@ class Zebra_Pagination
             // render pagination links
             for ($i = $starting_page; $this->_properties['reverse'] ? $i >= $ending_page : $i <= $ending_page; $this->_properties['reverse'] ? $i-- : $i++)
 
-                $output .= '<li><a href="' . $this->_build_uri($i) . '" ' .
-
                 // highlight the currently selected page
-                ($this->_properties['page'] == $i ? 'class="current"' : '') . '>' .
+                $output .= '<li '.($this->_properties['page'] == $i ? 'class="active"' : '').'><a href="' . $this->_build_uri($i) . '">' .
 
                 // apply padding if required
                 ($this->_properties['padding'] ? str_pad($i, strlen($this->_properties['total_pages']), '0', STR_PAD_LEFT) : $i) .
@@ -975,21 +968,14 @@ class Zebra_Pagination
             ) $output .= '<li><span>&hellip;</span></li>';
 
             // put a link to the last/first page (depending on whether we're showing links in reverse order or not)
-            $output .= '<li><a href="' . $this->_build_uri($this->_properties['reverse'] ? 1 : $this->_properties['total_pages']) . '" ' .
-
-                // highlight if it is the currently selected page
-                ($this->_properties['page'] == $i ? 'class="current"' : '') . '>' .
-
+            // highlight if it is the currently selected page
+            $output .= '<li '.($this->_properties['page'] == $i ? 'class="active"' : '').'><a href="' . $this->_build_uri($this->_properties['reverse'] ? 1 : $this->_properties['total_pages']) . '">' .
                 // also, apply padding if necessary
                 ($this->_properties['padding'] ? str_pad(($this->_properties['reverse'] ? 1 : $this->_properties['total_pages']), strlen($this->_properties['total_pages']), '0', STR_PAD_LEFT) : ($this->_properties['reverse'] ? 1 : $this->_properties['total_pages'])) .
-
                 '</a></li>';
-
         }
-
         // return the resulting string
         return $output;
-
     }
 
     /**
