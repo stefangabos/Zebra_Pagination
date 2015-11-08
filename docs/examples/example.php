@@ -3,6 +3,7 @@
     require '../../Zebra_Pagination.php';
     // instantiate the pagination object
     $pagination = new Zebra_Pagination();
+
     // how many records should be displayed on a page?
     $records_per_page = 10;
     //Establish connection using mysqli api
@@ -50,8 +51,8 @@
             <div class="jumbotron">
               <h1>Zebra_Pagination, database example</h1>
                 <p>For this example, you need to first import the <strong><code>countries.sql</code></strong> file from the examples folder and to edit the <strong>example2.php file and change your database connection related settings.</strong></p>
-                <p>Show next/previous page links on the <a href="example2.php?navigation_position=left">left</a> or on the
-        <a href="example2.php?navigation_position=right">right</a>. Or revert to the <a href="example2.php">default style</a></p>
+                <p>Show next/previous page links on the <a href="example.php?navigation_position=left">left</a> or on the
+        <a href="example.php?navigation_position=right">right</a>. Or revert to the <a href="example.php">default style</a></p>
 
             </div>
             <div class="table-responsive">
