@@ -4,11 +4,11 @@ CHANGELOG
 ## 2.1.2 - 2015-11-07
 
 ### New
-
+---
 Added:
 
 * Boostrap pagination styles
-* Method "slice()" by @calebeoliveira
+* Method "`slice()`" by @calebeoliveira
 
 
 ---
