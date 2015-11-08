@@ -33,7 +33,7 @@
 
     while($row = $result->fetch_assoc()){
 
-        echo 'Id'.$row['country'].'<br/>';
+        echo $row['country'].'<br/>';
 
     }
 

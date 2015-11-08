@@ -8,16 +8,16 @@ Adheres to pagination best practices (provides large clickable areas, doesn't us
 
 Please note that this is a *generic* pagination script, meaning that it does not display any records and it does not have any dependencies on database connections or SQL queries, making it very flexible! It is up to the developer to fetch the actual data and display it based on the information returned by this pagination script. The advantage is that it can be used to paginate over records coming from any source like arrays or databases.
 
-The code is heavily commented and generates no warnings/errors/notices when PHP's error reporting level is set to E_ALL.
+The code is heavily commented and generates no warnings/errors/notices when PHP's error reporting level is set to `E_ALL`.
 
 ##Features
 
 - it is a generic library: can be used to paginate records both from an array or from a database
 - it automatically generates navigation links, given the total number of items and the number of items per page (examples of best practices are also included)
 - navigation links can be generated in natural or in reverse order
-- is SEO-friendly – it uses rel=”next” and rel=”prev” and solves the problem of duplicate content on the first page without navigation and the first page having the page number in the URL
+- is SEO-friendly – it uses `rel="next"` and `rel="prev"` and solves the problem of duplicate content on the first page without navigation and the first page having the page number in the URL
 - appearance is easily customizable through CSS
-- code is heavily commented and generates no warnings/errors/notices when PHP’s error reporting level is set to E_ALL
+- code is heavily commented and generates no warnings/errors/notices when PHP’s error reporting level is set to `E_ALL`
 - has comprehensive documentation
 
 ## Requirements
@@ -26,7 +26,7 @@ PHP `>=5.2.0`
 
 ## How to use
 
-### TODO
+[Docs File](docs/DOCS.md).
 
 
 Visit the **[project's homepage](http://stefangabos.ro/php-libraries/zebra-pagination/)** for more information.
