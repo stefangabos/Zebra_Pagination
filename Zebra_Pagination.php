@@ -12,6 +12,8 @@
  *  easily, localized, supports different positions for next/previous page buttons, supports page propagation via GET or
  *  via URL rewriting, is SEO-friendly, and the appearance is easily customizable through CSS.
  *
+ *  The library is compatible with Twitter Bootstrap.
+ *
  *  Please note that this is a *generic* pagination script, meaning that it does not display any records and it does not
  *  have any dependencies on database connections or SQL queries, making it very flexible! It is up to the developer to
  *  fetch the actual data and display it based on the information returned by this pagination script. The advantage is
