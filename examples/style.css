@@ -1,6 +1,7 @@
-body { text-align: left; padding: 10px }
+body { text-align: left; padding: 10px; font-family: Tahoma }
 a { color: #0000FF }
-table.countries { width: 400px; border:1px solid #AAA; margin-bottom: 20px }
+h2, p { text-align: center; }
+table.countries { width: 400px; border:1px solid #AAA; margin-bottom: 20px; border-collapse: collapse; margin: 50px auto; }
 table.countries tr.even { background: #EFEFEF }
 table.countries th { background: #222; color: #FFF; font-weight: bold }
 table.countries td,
