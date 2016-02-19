@@ -1,6 +1,13 @@
-##Zebra_Pagination
+# Zebra_Pagination
 
-####A generic, Twitter Bootstrap compatible, pagination library that automatically generates navigation links
+#### A generic, Twitter Bootstrap compatible, pagination library that automatically generates navigation links
+
+----
+
+[Packagist](https://packagist.org/) stats
+
+[![Latest Stable Version](https://poser.pugx.org/stefangabos/zebra_pagination/v/stable)](https://packagist.org/packages/stefangabos/zebra_pagination) [![Total Downloads](https://poser.pugx.org/stefangabos/zebra_pagination/downloads)](https://packagist.org/packages/stefangabos/zebra_pagination) [![Monthly Downloads](https://poser.pugx.org/stefangabos/zebra_pagination/d/monthly)](https://packagist.org/packages/stefangabos/zebra_pagination) [![Daily Downloads](https://poser.pugx.org/stefangabos/zebra_pagination/d/daily)](https://packagist.org/packages/stefangabos/zebra_pagination) [![License](https://poser.pugx.org/stefangabos/zebra_pagination/license)](https://packagist.org/packages/stefangabos/zebra_pagination)
+
 
 A generic pagination script that automatically generates navigation links as well as next/previous page links, given the total number of records and the number of records to be shown per page. Useful for breaking large sets of data into smaller chunks, reducing network traffic and, at the same time, improving readability, aesthetics and usability.
 
