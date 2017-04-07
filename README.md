@@ -18,7 +18,7 @@ Please note that this is a *generic* pagination script, meaning that it does not
 
 The code is heavily commented and generates no warnings/errors/notices when PHP's error reporting level is set to E_ALL.
 
-##Features
+## Features
 
 - it is a generic library: can be used to paginate records both from an array or from a database
 - it automatically generates navigation links, given the total number of items and the number of items per page (examples of best practices are also included)
