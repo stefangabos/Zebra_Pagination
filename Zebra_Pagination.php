@@ -706,7 +706,7 @@ class Zebra_Pagination {
         if ($this->_properties['method'] == 'url') {
 
             // see if the current page is already set in the URL
-            if (preg_match('/\b' . $this->_properties['variable_name'] . '([0-9]+)\b/i', $this->_properties['base_url'], $matches) > 0) {
+            if (preg_match('/\b' . $this->_properties['variable_name'] . '([0-9]+)\b/i', $this->_properties['base_url']) > 0) {
 
                 // build string
                 $url = str_replace('//', '/', preg_replace(
