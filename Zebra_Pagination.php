@@ -27,14 +27,13 @@
  *  For more resources visit {@link http://stefangabos.ro/}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.2.1 (last revision: February 19, 2016)
- *  @copyright  (c) 2009 - 2016 Stefan Gabos
+ *  @version    2.2.2 (last revision: April 26, 2016)
+ *  @copyright  (c) 2009 - 2017 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pagination
  */
 
-class Zebra_Pagination
-{
+class Zebra_Pagination {
 
     // set defaults and initialize some private variables
     private $_properties = array(
@@ -100,8 +99,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    function __construct()
-    {
+    public function __construct() {
 
         // set the default base url
         $this->base_url();
@@ -112,7 +110,7 @@ class Zebra_Pagination
      *  By default, the "previous page" and "next page" links are always shown.
      *
      *  By disabling this feature the "previous page" and "next page" links will only be shown if there are more pages
-     *  than set through {@link selectable_pages()}.
+     *  than {@link selectable_pages}.
      *
      *  <code>
      *  // show "previous page" / "next page" only if there are more pages
@@ -121,7 +119,7 @@ class Zebra_Pagination
      *  </code>
      *
      *  @param  boolean     $show   (Optional) If set to FALSE, the "previous page" and "next page" links will only be
-     *                              shown if there are more pages than set through {@link selectable_pages()}.
+     *                              shown if there are more pages than {@link selectable_pages}.
      *
      *                              Default is TRUE.
      *
@@ -129,8 +127,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    public function always_show_navigation($show = true)
-    {
+    public function always_show_navigation($show = true) {
 
         // set property
         $this->_properties['always_show_navigation'] = $show;
@@ -145,10 +142,10 @@ class Zebra_Pagination
      *  penalized for that.
      *
      *  So, by default, in order to avoid this, the library will have for the first page (or last, if you are displaying
-     *  links in {@link reverse() reverse} order) the same path as you have for when you are accessing the page for the
-     *  first (unpaginated) time.
+     *  links in {@link reverse} order) the same path as you have for when you are accessing the page for the
+     *  first (un-paginated) time.
      *
-     *  If you want to disable this behaviour call this method with its argument set to FALSE.
+     *  If you want to disable this behavior call this method with its argument set to FALSE.
      *
      *  <code>
      *  // don't avoid duplicate content
@@ -156,9 +153,9 @@ class Zebra_Pagination
      *  </code>
      *
      *  @param  boolean     $avoid_duplicate_content    (Optional) If set to FALSE, the library will have for the first
-     *                                                  page (or last, if you are displaying links in {@link reverse() reverse}
+     *                                                  page (or last, if you are displaying links in {@link reverse}
      *                                                  order) a different path than the one you have when you are accessing
-     *                                                  the page for the first (unpaginated) time.
+     *                                                  the page for the first (un-paginated) time.
      *
      *                                                  Default is TRUE.
      *
@@ -166,8 +163,7 @@ class Zebra_Pagination
      *
      *  @since  2.0
      */
-    function avoid_duplicate_content($avoid_duplicate_content = true)
-    {
+    public function avoid_duplicate_content($avoid_duplicate_content = true) {
 
         // set property
         $this->_properties['avoid_duplicate_content'] = $avoid_duplicate_content;
@@ -186,11 +182,11 @@ class Zebra_Pagination
      *
      *  Because of the way this script works, the pagination links would become:
      *
-     *  -   <i>http://youwebsite/mypage/?action=updated&page=[page number]</i> when {@link method()} is "get" and
-     *      {@link variable_name()} is "page";
+     *  -   <i>http://youwebsite/mypage/?action=updated&page=[page number]</i> when {@link method} is "get" and
+     *      {@link variable_name} is "page";
      *
-     *  -   <i>http://youwebsite/mypage/page[page number]/?action=updated</i> when {@link method()} is "url" and
-     *      {@link variable_name()} is "page").
+     *  -   <i>http://youwebsite/mypage/page[page number]/?action=updated</i> when {@link method} is "url" and
+     *      {@link variable_name} is "page").
      *
      *  Because of this, whenever the user would paginate, the message would be shown to him again and again because
      *  <i>action</i> will be preserved in the URL!
@@ -198,10 +194,10 @@ class Zebra_Pagination
      *  The solution is to set the <i>base_url</i> to <i>http://youwebsite/mypage/</i> and in this way, regardless of
      *  however will the URL be changed, the pagination links will always be in the form of
      *
-     *  -   <i>http://youwebsite/mypage/?page=[page number]</i> when {@link method()} is "get" and {@link variable_name()}
+     *  -   <i>http://youwebsite/mypage/?page=[page number]</i> when {@link method} is "get" and {@link variable_name}
      *      is "page";
      *
-     *  -   <i>http://youwebsite/mypage/page[page number]/</i> when {@link method()} is "url" and {@link variable_name()} is "page").
+     *  -   <i>http://youwebsite/mypage/page[page number]/</i> when {@link method} is "url" and {@link variable_name} is "page").
      *
      *  Of course, you may still have query strings in the value of the $base_url if you wish so, and these will be
      *  preserved when paginating.
@@ -221,8 +217,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    public function base_url($base_url = '', $preserve_query_string = true)
-    {
+    public function base_url($base_url = '', $preserve_query_string = true) {
 
         // set the base URL
         $base_url = ($base_url == '' ? $_SERVER['REQUEST_URI'] : $base_url);
@@ -254,8 +249,7 @@ class Zebra_Pagination
      *
      *  @return integer     Returns the current page's number
      */
-    public function get_page()
-    {
+    public function get_page() {
 
         // unless page was not specifically set through the "set_page" method
         if (!$this->_properties['page_set']) {
@@ -327,8 +321,7 @@ class Zebra_Pagination
      *  @return integer     Returns the total number of pages, based on the total number of records and the number of
      *                      records to be shown per page.
      */
-    public function get_pages()
-    {
+    public function get_pages() {
 
         // return the total number of pages based on the total number of records and number of records to be shown per page
         return @ceil($this->_properties['records'] / $this->_properties['records_per_page']);
@@ -354,8 +347,7 @@ class Zebra_Pagination
      *
      *  @since  2.0
      */
-    public function labels($previous = '&laquo;', $next = '&raquo;')
-    {
+    public function labels($previous = '&laquo;', $next = '&raquo;') {
 
         // set the labels
         $this->_properties['previous'] = $previous;
@@ -382,22 +374,21 @@ class Zebra_Pagination
      *
      *                              When using this method, the current page will be passed in the URL as
      *                              <i>http://youwebsite.com/yourpage/[variable name][page number]/</i> where
-     *                              <i>[variable name]</i> is set by {@link variable_name()} and <i>[page number]</i>
+     *                              <i>[variable name]</i> is set by {@link variable_name} and <i>[page number]</i>
      *                              represents the current page.
      *
      *                              - <b>get</b> - page propagation is done through GET;
      *
      *                              When using this method, the current page will be passed in the URL as
      *                              <i>http://youwebsite.com/yourpage?[variable name]=[page number]</i> where
-     *                              <i>[variable name]</i> is set by {@link variable_name()} and <i>[page number]</i>
+     *                              <i>[variable name]</i> is set by {@link variable_name} and <i>[page number]</i>
      *                              represents the current page.
      *
      *                              Default is "get".
      *
      *  @returns void
      */
-    public function method($method = 'get')
-    {
+    public function method($method = 'get') {
 
         // set the page propagation method
         $this->_properties['method'] = (strtolower($method) == 'url' ? 'url' : 'get') ;
@@ -421,8 +412,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    function navigation_position($position)
-    {
+    public function navigation_position($position) {
 
         // set the positioning of next/previous page links
         $this->_properties['navigation_position'] = (in_array(strtolower($position), array('left', 'right')) ? strtolower($position) : 'outside') ;
@@ -446,8 +436,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    public function padding($enabled = true)
-    {
+    public function padding($enabled = true) {
 
         // set padding
         $this->_properties['padding'] = $enabled;
@@ -457,10 +446,7 @@ class Zebra_Pagination
     /**
      *  Sets the total number of records that need to be paginated.
      *
-     *  Based on this and on the value of {@link records_per_page()}, the script will know how many pages there are.
-     *
-     *  The total number of pages is given by the fraction between the total number records (set through {@link records()})
-     *  and the number of records that are shown on a page (set through {@link records_per_page()}).
+     *  Based on this and on the value of {@link records_per_page}, the script will know how many pages there are.
      *
      *  <code>
      *  // tell the script that there are 100 total records
@@ -471,8 +457,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    public function records($records)
-    {
+    public function records($records) {
 
         // the number of records
         // make sure we save it as an integer
@@ -483,9 +468,7 @@ class Zebra_Pagination
     /**
      *  Sets the number of records that are displayed on one page.
      *
-     *  Based on this and on the value of {@link records()}, the script will know how many pages there are: the total
-     *  number of pages is given by the fraction between the total number of records and the number of records that are
-     *  shown on one page.
+     *  Based on this and on the value of {@link records}, the script will know how many pages there are.
      *
      *  <code>
      *  //  tell the class that there are 20 records displayed on one page
@@ -498,8 +481,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    public function records_per_page($records_per_page)
-    {
+    public function records_per_page($records_per_page) {
 
         // the number of records displayed on one page
         // make sure we save it as an integer
@@ -510,11 +492,11 @@ class Zebra_Pagination
     /**
      *  Generates the output.
      *
-     *  <i>Make sure your script references the CSS file!</i>
+     *  <i>Make sure your script references the CSS file unless you are using {@link http://getbootstrap.com/ Twitter Bootstrap}!</i>
      *
      *  <code>
      *  //  generate output but don't echo it
-     *  //  but return it instead
+     *  //  and return it instead
      *  $output = $pagination->render(true);
      *  </code>
      *
@@ -525,8 +507,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    public function render($return_output = false)
-    {
+    public function render($return_output = false) {
 
         // get some properties of the class
         $this->get_page();
@@ -604,8 +585,7 @@ class Zebra_Pagination
      *
      *  @since  2.0
      */
-    public function reverse($reverse = false)
-    {
+    public function reverse($reverse = false) {
 
         // set how the pagination links should be generated
         $this->_properties['reverse'] = $reverse;
@@ -613,15 +593,15 @@ class Zebra_Pagination
     }
 
     /**
-     *  Sets the number of links to be displayed at once (besides the "previous page" and "next page" links)
+     *  Sets the number of links to be displayed at once (besides "previous" and "next" links)
      *
      *  <code>
      *  // display links to 15 pages
      *  $pagination->selectable_pages(15);
      *  </code>
      *
-     *  @param  integer     $selectable_pages   The number of links to be displayed at once (besides the "previous page"
-     *                                          and "next page" links).
+     *  @param  integer     $selectable_pages   The number of links to be displayed at once (besides "previous" and
+     *                                          "next" links).
      *
      *                                          <i>You should set this to an odd number so that the same number of links
      *                                          will be shown to the left and to the right of the current page.</i>
@@ -630,8 +610,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    public function selectable_pages($selectable_pages)
-    {
+    public function selectable_pages($selectable_pages) {
 
         // the number of selectable pages
         // make sure we save it as an integer
@@ -652,14 +631,9 @@ class Zebra_Pagination
      *                                      A number lower than <b>1</b> will be interpreted as <b>1</b>, while a number
      *                                      greater than the total number of pages will be interpreted as the last page.
      *
-     *                                      The total number of pages is given by the fraction between the total number
-     *                                      records (set through {@link records()}) and the number of records that are
-     *                                      shown on one page (set through {@link records_per_page()}).
-     *
      *  @return void
      */
-    public function set_page($page)
-    {
+    public function set_page($page) {
 
         // set the current page
         // make sure we save it as an integer
@@ -675,7 +649,7 @@ class Zebra_Pagination
     }
 
     /**
-     *  Enables or disabled trailing slash on the generated URLs when {@link method} is "url".
+     *  Enables or disables trailing slash on the generated URLs when {@link method} is "url".
      *
      *  Read more on the subject on {@link http://googlewebmastercentral.blogspot.com/2010/04/to-slash-or-not-to-slash.html Google Webmasters's official blog}.
      *
@@ -691,8 +665,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    public function trailing_slash($enabled)
-    {
+    public function trailing_slash($enabled) {
 
         // set the state of trailing slashes
         $this->_properties['trailing_slash'] = $enabled;
@@ -715,8 +688,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    public function variable_name($variable_name)
-    {
+    public function variable_name($variable_name) {
 
         // set the variable name
         $this->_properties['variable_name'] = strtolower($variable_name);
@@ -726,12 +698,9 @@ class Zebra_Pagination
     /**
      *  Generate the link for the page given as argument.
      *
-     *  @access private
-     *
      *  @return void
      */
-    private function _build_uri($page)
-    {
+    private function _build_uri($page) {
 
         // if page propagation method is through SEO friendly URLs
         if ($this->_properties['method'] == 'url') {
@@ -799,11 +768,8 @@ class Zebra_Pagination
 
     /**
      *  Generates the "next page" link, depending on whether the pagination links are shown in natural or reversed order.
-     *
-     *  @access private
      */
-    private function _show_next()
-    {
+    private function _show_next() {
 
         $output = '';
 
@@ -832,11 +798,8 @@ class Zebra_Pagination
     /**
      *  Generates the pagination links (minus "next" and "previous"), depending on whether the pagination links are shown
      *  in natural or reversed order.
-     *
-     *  @access private
      */
-    private function _show_pages()
-    {
+    private function _show_pages() {
 
         $output = '';
 
@@ -984,11 +947,8 @@ class Zebra_Pagination
 
     /**
      *  Generates the "previous page" link, depending on whether the pagination links are shown in natural or reversed order.
-     *
-     *  @access private
      */
-    private function _show_previous()
-    {
+    private function _show_previous() {
 
         $output = '';
 
@@ -1015,5 +975,3 @@ class Zebra_Pagination
     }
 
 }
-
-?>
