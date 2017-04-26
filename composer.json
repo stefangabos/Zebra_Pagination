@@ -16,7 +16,6 @@
     "require": {
         "php": ">=5"
     },
-    "version": "2.2.1",
     "autoload": {
         "classmap": [
             "Zebra_Pagination.php"
