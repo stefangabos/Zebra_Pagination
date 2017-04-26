@@ -8,6 +8,12 @@
 
 [![Latest Stable Version](https://poser.pugx.org/stefangabos/zebra_pagination/v/stable)](https://packagist.org/packages/stefangabos/zebra_pagination) [![Total Downloads](https://poser.pugx.org/stefangabos/zebra_pagination/downloads)](https://packagist.org/packages/stefangabos/zebra_pagination) [![Monthly Downloads](https://poser.pugx.org/stefangabos/zebra_pagination/d/monthly)](https://packagist.org/packages/stefangabos/zebra_pagination) [![Daily Downloads](https://poser.pugx.org/stefangabos/zebra_pagination/d/daily)](https://packagist.org/packages/stefangabos/zebra_pagination) [![License](https://poser.pugx.org/stefangabos/zebra_pagination/license)](https://packagist.org/packages/stefangabos/zebra_pagination)
 
+## Support the development of this library
+
+This library is developed during my free time and a lot of time and effort has been put into it.
+
+[![Donate](https://img.shields.io/badge/Be%20kind%20%7C%20Donate%20with%20-%20PayPal%20-brightgreen.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SKXN7C6PPH6FL)
+
 A generic pagination script that automatically generates navigation links as well as next/previous page links, given the total number of records and the number of records to be shown per page. Useful for breaking large sets of data into smaller chunks, reducing network traffic and, at the same time, improving readability, aesthetics and usability.
 
 Adheres to pagination best practices (provides large clickable areas, doesn't use underlines, the selected page is clearly highlighted, page links are spaced out, provides "previous page" and "next page" links, provides "first page" and "last page" links - as outlined in an article by Faruk Ates from 2007, which can now be found [here](https://gist.github.com/622561), can generate links both in natural as well as in reverse order, can be easily, localized, supports different positions for next/previous page buttons, supports page propagation via GET or via URL rewriting, is SEO-friendly, and the appearance is easily customizable through CSS.
@@ -27,11 +33,25 @@ The code is heavily commented and generates no warnings/errors/notices when PHP'
 - appearance is easily customizable through CSS
 - compatible with [Twitter Bootstrap](http://getbootstrap.com)
 - code is heavily commented and generates no warnings/errors/notices when PHP’s error reporting level is set to E_ALL
-- has comprehensive documentation
+- has [awesome documentation](http://stefangabos.ro/wp-content/docs/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)
 
 ## Requirements
 
 PHP 5+
+
+### Installation
+
+Download the latest version, unpack it, and load it in your project
+
+```php
+require_once ('Zebra_Pagination.php');
+```
+
+### Installation with Composer
+You can install Zebra_Pagination via [Composer](https://packagist.org/packages/stefangabos/zebra_pagination)
+```
+composer require stefangabos/zebra_pagination:dev-master
+```
 
 ## How to use
 
@@ -53,6 +73,7 @@ Paginate data from an array:
 
 ```php
 <?php
+
 // let's paginate data from an array...
 $countries = array(
     // array of countries
@@ -73,7 +94,7 @@ $pagination->records(count($countries));
 // records per page
 $pagination->records_per_page($records_per_page);
 
-// here's the magick: we need to display *only* the records for the current page
+// here's the magic: we need to display *only* the records for the current page
 $countries = array_slice(
     $countries,
     (($pagination->get_page() - 1) * $records_per_page),
@@ -88,11 +109,11 @@ $countries = array_slice(
 
     <?php foreach ($countries as $index => $country):?>
 
-    <tr<?php echo $index % 2 ? ' class="even"' : '')?>>
-        <td><?php echo $country?></td>
+    <tr<?php echo $index % 2 ? ' class="even"' : ''); ?>>
+        <td><?php echo $country; ?></td>
     </tr>
 
-    <?php endforeach?>
+    <?php endforeach; ?>
 
 </table>
 
@@ -108,6 +129,7 @@ Paginate data from MySQL:
 
 ```php
 <?php
+
 // how many records should be displayed on a page?
 $records_per_page = 10;
 
@@ -122,7 +144,7 @@ $pagination = new Zebra_Pagination();
 // also, note the "SQL_CALC_FOUND_ROWS"
 // this is to get the number of rows that would've been returned if there was no LIMIT
 // see http://dev.mysql.com/doc/refman/5.0/en/information-functions.html#function_found-rows
-$MySQL = '
+$sql = '
     SELECT
         SQL_CALC_FOUND_ROWS
         country
@@ -132,13 +154,9 @@ $MySQL = '
         ' . (($pagination->get_page() - 1) * $records_per_page) . ', ' . $records_per_page . '
 ';
 
-// if query could not be executed
-if (!($result = @mysql_query($MySQL))) {
-
-    // stop execution and display error message
-    die(mysql_error());
-
-}
+// execute the MySQL query
+// (you will use mysqli or PDO here, but you get the idea)
+$result = mysql_query($sql))) or die(mysql_error());
 
 // fetch the total number of records in the table
 $rows = mysql_fetch_assoc(mysql_query('SELECT FOUND_ROWS() AS rows'));
@@ -151,19 +169,17 @@ $pagination->records_per_page($records_per_page);
 
 ?>
 
-<table class="countries" border="1">
+<table>
 
     <tr><th>Country</th></tr>
 
-    <?php $index = 0?>
+    <?php $index = 0; while ($row = mysql_fetch_assoc($result)):?>
 
-    <?php while ($row = mysql_fetch_assoc($result)):?>
-
-    <tr<?php echo $index++ % 2 ? ' class="even"' : ''?>>
-        <td><?php echo $row['country']?></td>
+    <tr<?php echo $index++ % 2 ? ' class="even"' : ''; ?>>
+        <td><?php echo $row['country']; ?></td>
     </tr>
 
-    <?php endwhile?>
+    <?php endwhile; ?>
 
 </table>
 
@@ -179,6 +195,7 @@ Paginate data from MySQL in reverse order:
 
 ```php
 <?php
+
 // how many records should be displayed on a page?
 $records_per_page = 10;
 
@@ -193,9 +210,7 @@ $pagination->reverse(true);
 
 // when showing records in reverse order, we need to know the total number
 // of records from the beginning
-if (!($result = @mysql_query('SELECT COUNT(id) AS records FROM countries')))
-
-    die (mysql_error());
+$result = mysql_query('SELECT COUNT(id) AS records FROM countries'))) or die (mysql_error());
 
 // pass the total number of records to the pagination class
 $pagination->records(array_pop(mysql_fetch_assoc($result)));
@@ -207,7 +222,7 @@ $pagination->records_per_page($records_per_page);
 // note the LIMIT - use it exactly like that!
 // also note that we're ordering data descendingly - most important when we're
 // showing records in reverse order!
-$MySQL = '
+$sql = '
     SELECT
         country
     FROM
@@ -218,27 +233,22 @@ $MySQL = '
         ' . (($pagination->get_pages() - $pagination->get_page()) * $records_per_page) . ', ' . $records_per_page . '
 ';
 
-// if query could not be executed
-if (!($result = @mysql_query($MySQL)))
-
-    // stop execution and display error message
-    die(mysql_error());
+// run the query
+mysql_query($sql) or die(mysql_error());
 
 ?>
 
-<table class="countries" border="1">
+<table>
 
     <tr><th>Country</th></tr>
 
-    <?php $index = 0?>
+    <?php $index = 0; while ($row = mysql_fetch_assoc($result)): ?>
 
-    <?php while ($row = mysql_fetch_assoc($result)):?>
-
-    <tr<?php echo $index++ % 2 ? ' class="even"' : ''?>>
-        <td><?php echo $row['country']?></td>
+    <tr<?php echo $index++ % 2 ? ' class="even"' : ''; ?>>
+        <td><?php echo $row['country']; ?></td>
     </tr>
 
-    <?php endwhile?>
+    <?php endwhile; ?>
 
 </table>
 
