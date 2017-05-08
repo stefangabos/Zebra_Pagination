@@ -117,6 +117,29 @@ $countries = array_slice(
 $pagination->render();
 ```
 
+Would result is something like
+
+![Zebra_Pagination](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-natural.png)
+
+You can set the navigation links' position to the left or to the right of the pagination links using the [navigation_position()](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html#methodnavigation_position) method:
+
+```php
+$pagination->navigation_position('left');
+```
+![Zebra_Pagination](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-buttons-left.png)
+
+```php
+$pagination->navigation_position('right');
+```
+![Zebra_Pagination](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-buttons-right.png)
+
+Labels for "Previous" and "Next" links can be changed with the [labels()](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html#methodlabels) method:
+
+```php
+$pagination->labels('Previous', 'Next');
+```
+![Zebra_Pagination](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-labels.png)
+
 Paginate data from MySQL:
 
 ```php
@@ -237,5 +260,10 @@ mysql_query($sql) or die(mysql_error());
 // render the pagination links
 $pagination->render();
 ```
+
+Would result in something like
+
+![Zebra_Pagination](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-reversed.png)
+
 
 :books: Checkout the [awesome documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)!
