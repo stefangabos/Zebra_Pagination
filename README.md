@@ -1,45 +1,41 @@
+<img src="https://github.com/stefangabos/zebrajs/blob/master/docs/images/logo.png" alt="zebrajs" align="right">
+
 # Zebra_Pagination
 
-#### A generic, Twitter Bootstrap compatible, pagination library that automatically generates navigation links
-
-----
-
-[Packagist](https://packagist.org/) stats
+*A generic, Twitter Bootstrap compatible, pagination library that automatically generates navigation links*
 
 [![Latest Stable Version](https://poser.pugx.org/stefangabos/zebra_pagination/v/stable)](https://packagist.org/packages/stefangabos/zebra_pagination) [![Total Downloads](https://poser.pugx.org/stefangabos/zebra_pagination/downloads)](https://packagist.org/packages/stefangabos/zebra_pagination) [![Monthly Downloads](https://poser.pugx.org/stefangabos/zebra_pagination/d/monthly)](https://packagist.org/packages/stefangabos/zebra_pagination) [![Daily Downloads](https://poser.pugx.org/stefangabos/zebra_pagination/d/daily)](https://packagist.org/packages/stefangabos/zebra_pagination) [![License](https://poser.pugx.org/stefangabos/zebra_pagination/license)](https://packagist.org/packages/stefangabos/zebra_pagination)
 
-## Support the development of this library
-
-This library is developed during my free time and a lot of time and effort has been put into it.
-
-[![Donate](https://img.shields.io/badge/Be%20kind%20%7C%20Donate%20with%20-%20PayPal%20-brightgreen.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SKXN7C6PPH6FL)
-
-A generic pagination script that automatically generates navigation links as well as next/previous page links, given the total number of records and the number of records to be shown per page. Useful for breaking large sets of data into smaller chunks, reducing network traffic and, at the same time, improving readability, aesthetics and usability.
+A generic, [Twitter Bootstrap](http://getbootstrap.com) compatible, pagination script that automatically generates navigation links as well as next/previous page links, given the total number of records and the number of records to be shown per page. Useful for breaking large sets of data into smaller chunks, reducing network traffic and, at the same time, improving readability, aesthetics and usability.
 
 Adheres to pagination best practices (provides large clickable areas, doesn't use underlines, the selected page is clearly highlighted, page links are spaced out, provides "previous page" and "next page" links, provides "first page" and "last page" links - as outlined in an article by Faruk Ates from 2007, which can now be found [here](https://gist.github.com/622561), can generate links both in natural as well as in reverse order, can be easily, localized, supports different positions for next/previous page buttons, supports page propagation via GET or via URL rewriting, is SEO-friendly, and the appearance is easily customizable through CSS.
 
-The library is compatible with [Twitter Bootstrap](http://getbootstrap.com).
-
-Please note that this is a *generic* pagination script, meaning that it does not display any records and it does not have any dependencies on database connections or SQL queries, making it very flexible! It is up to the developer to fetch the actual data and display it based on the information returned by this pagination script. The advantage is that it can be used to paginate over records coming from any source like arrays or databases.
+> Please note that this is a *generic* pagination script, meaning that it does not display any records and it does not have any dependencies on database connections or SQL queries, making it very flexible! It is up to the developer to fetch the actual data and display it based on the information returned by this pagination script. The advantage is that it can be used to paginate over records coming from any source like arrays or databases.
 
 The code is heavily commented and generates no warnings/errors/notices when PHP's error reporting level is set to E_ALL.
+
+:books: [Documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)!
+
+## Support the development of this library
+
+[![Donate](https://img.shields.io/badge/Be%20kind%20%7C%20Donate%20$3%20with%20-%20PayPal%20-brightgreen.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SKXN7C6PPH6FL)
 
 ## Features
 
 - it is a generic library: can be used to paginate records both from an array or from a database
 - it automatically generates navigation links, given the total number of items and the number of items per page (examples of best practices are also included)
 - navigation links can be generated in natural or in reverse order
-- is SEO-friendly – it uses rel=”next” and rel=”prev” and solves the problem of duplicate content on the first page without navigation and the first page having the page number in the URL
+- it is SEO-friendly – it uses rel="next" and rel="prev" and solves the problem of duplicate content on the first page without navigation and the first page having the page number in the URL
 - appearance is easily customizable through CSS
 - compatible with [Twitter Bootstrap](http://getbootstrap.com)
 - code is heavily commented and generates no warnings/errors/notices when PHP’s error reporting level is set to E_ALL
-- has [awesome documentation](http://stefangabos.ro/wp-content/docs/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)
+- has [awesome documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)
 
 ## Requirements
 
 PHP 5+
 
-### Installation
+## Installation
 
 Download the latest version, unpack it, and load it in your project
 
@@ -47,7 +43,8 @@ Download the latest version, unpack it, and load it in your project
 require_once ('Zebra_Pagination.php');
 ```
 
-### Installation with Composer
+## Installation with Composer
+
 You can install Zebra_Pagination via [Composer](https://packagist.org/packages/stefangabos/zebra_pagination)
 ```
 composer require stefangabos/zebra_pagination:dev-master
@@ -70,6 +67,8 @@ If you want to preserve hashes in the URL, also include the JavaScript file – 
 ```
 
 Paginate data from an array:
+
+**The PHP**
 
 ```php
 <?php
@@ -104,25 +103,18 @@ $countries = array_slice(
 ?>
 
 <table>
-
     <tr><th>Country</th></tr>
-
     <?php foreach ($countries as $index => $country):?>
-
     <tr<?php echo $index % 2 ? ' class="even"' : ''); ?>>
         <td><?php echo $country; ?></td>
     </tr>
-
     <?php endforeach; ?>
-
 </table>
 
 <?php
 
 // render the pagination links
 $pagination->render();
-
-?>
 ```
 
 Paginate data from MySQL:
@@ -170,25 +162,18 @@ $pagination->records_per_page($records_per_page);
 ?>
 
 <table>
-
     <tr><th>Country</th></tr>
-
     <?php $index = 0; while ($row = mysql_fetch_assoc($result)):?>
-
     <tr<?php echo $index++ % 2 ? ' class="even"' : ''; ?>>
         <td><?php echo $row['country']; ?></td>
     </tr>
-
     <?php endwhile; ?>
-
 </table>
 
 <?php
 
 // render the pagination links
 $pagination->render();
-
-?>
 ```
 
 Paginate data from MySQL in reverse order:
@@ -239,25 +224,18 @@ mysql_query($sql) or die(mysql_error());
 ?>
 
 <table>
-
     <tr><th>Country</th></tr>
-
     <?php $index = 0; while ($row = mysql_fetch_assoc($result)): ?>
-
     <tr<?php echo $index++ % 2 ? ' class="even"' : ''; ?>>
         <td><?php echo $row['country']; ?></td>
     </tr>
-
     <?php endwhile; ?>
-
 </table>
 
 <?php
 
 // render the pagination links
 $pagination->render();
-
-?>
 ```
 
-Visit the **[project's homepage](http://stefangabos.ro/php-libraries/zebra-pagination/)** for more information.
+:books: Checkout the [awesome documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)!

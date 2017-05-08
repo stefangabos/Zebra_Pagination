@@ -1,30 +1,12 @@
 <?php
 
 /**
- *  A generic pagination script that automatically generates navigation links as well as next/previous page links, given
- *  the total number of records and the number of records to be shown per page. Useful for breaking large sets of data
- *  into smaller chunks, reducing network traffic and, at the same time, improving readability, aesthetics and usability.
+ *  A generic, Twitter Bootstrap compatible, pagination script that automatically generates navigation links as well as
+ *  next/previous page links, given the total number of records and the number of records to be shown per page. Useful for
+ *  breaking large sets of data into smaller chunks, reducing network traffic and, at the same time, improving readability,
+ *  aesthetics and usability.
  *
- *  Adheres to pagination best practices (provides large clickable areas, doesn't use underlines, the selected page is
- *  clearly highlighted, page links are spaced out, provides "previous page" and "next page" links, provides "first page"
- *  and "last page" links - as outlined in an article by Faruk Ates from 2007, which can now be found
- *  {@link https://gist.github.com/622561 here}), can generate links both in natural as well as in reverse order, can be
- *  easily, localized, supports different positions for next/previous page buttons, supports page propagation via GET or
- *  via URL rewriting, is SEO-friendly, and the appearance is easily customizable through CSS.
- *
- *  The library is compatible with {@link http://getbootstrap.com/ Twitter Bootstrap}.
- *
- *  Please note that this is a *generic* pagination script, meaning that it does not display any records and it does not
- *  have any dependencies on database connections or SQL queries, making it very flexible! It is up to the developer to
- *  fetch the actual data and display it based on the information returned by this pagination script. The advantage is
- *  that it can be used to paginate over records coming from any source like arrays or databases.
- *
- *  The code is heavily commented and generates no warnings/errors/notices when PHP's error reporting level is set to
- *  E_ALL.
- *
- *  Visit {@link http://stefangabos.ro/php-libraries/zebra-pagination/} for more information.
- *
- *  For more resources visit {@link http://stefangabos.ro/}
+ *  Read more {@link https://github.com/stefangabos/Zebra_Pagination/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
  *  @version    2.2.2 (last revision: April 26, 2016)
@@ -32,7 +14,6 @@
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pagination
  */
-
 class Zebra_Pagination {
 
     // set defaults and initialize some private variables
