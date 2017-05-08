@@ -14,7 +14,7 @@ Adheres to pagination best practices (provides large clickable areas, doesn't us
 
 The code is heavily commented and generates no warnings/errors/notices when PHP's error reporting level is set to E_ALL.
 
-:books: [Documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)!
+:books: [Documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)
 
 ## Support the development of this library
 
