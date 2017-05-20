@@ -9,7 +9,7 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Pagination/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.2.2 (last revision: May 17, 2017)
+ *  @version    2.2.3 (last revision: May 20, 2017)
  *  @copyright  (c) 2009 - 2017 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pagination
@@ -632,7 +632,7 @@ class Zebra_Pagination {
     /**
      *  Enables or disables trailing slash on the generated URLs when {@link method} is "url".
      *
-     *  Read more on the subject on {@link http://googlewebmastercentral.blogspot.com/2010/04/to-slash-or-not-to-slash.html Google Webmasters's official blog}.
+     *  Read more on the subject on {@link http://googlewebmastercentral.blogspot.com/2010/04/to-slash-or-not-to-slash.html Google Webmaster's official blog}.
      *
      *  <code>
      *  // disables trailing slashes on generated URLs
