@@ -47,7 +47,7 @@ require_once ('Zebra_Pagination.php');
 
 You can install Zebra_Pagination via [Composer](https://packagist.org/packages/stefangabos/zebra_pagination)
 ```
-composer require stefangabos/zebra_pagination:dev-master
+composer require stefangabos/zebra_pagination
 ```
 
 ## How to use
