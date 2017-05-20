@@ -3,3 +3,4 @@
 
 /docs export-ignore
 /.gitattributes export-ignore
+/composer.json export-ignore
