@@ -1,3 +1,7 @@
+## version 2.2.3 (May 20, 2017)
+
+- unnecessary files are no more included when downloading from GitHub or via Composer
+
 ## version 2.2.2 (May 17, 2017)
 
 - minor source code tweaks
