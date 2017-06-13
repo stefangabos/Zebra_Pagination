@@ -499,7 +499,7 @@ class Zebra_Pagination {
         if ($this->_properties['total_pages'] <= 1) return '';
 
         // start building output
-        $output = '<div class="Zebra_Pagination"><ul class="pagination">';
+        $output = '<nav><ul class="pagination pagination-sm">';
 
         // if we're showing records in reverse order
         if ($this->_properties['reverse']) {
@@ -538,7 +538,7 @@ class Zebra_Pagination {
         }
 
         // finish generating the output
-        $output .= '</ul></div>';
+        $output .= '</ul></nav>';
 
         // if $return_output is TRUE
         // return the generated content
