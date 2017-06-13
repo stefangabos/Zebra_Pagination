@@ -1,5 +1,7 @@
 <?php
 
+namespace BenjaminMedia\ZebraPagination;
+
 /**
  *  A generic, Twitter Bootstrap compatible, pagination script that automatically generates navigation links as well as
  *  next/previous page links, given the total number of records and the number of records to be shown per page. Useful for
