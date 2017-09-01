@@ -1,5 +1,7 @@
 <?php
 
+namespace BenjaminMedia\ZebraPagination;
+
 /**
  *  A generic, Twitter Bootstrap compatible, pagination script that automatically generates navigation links as well as
  *  next/previous page links, given the total number of records and the number of records to be shown per page. Useful for
@@ -497,7 +499,7 @@ class Zebra_Pagination {
         if ($this->_properties['total_pages'] <= 1) return '';
 
         // start building output
-        $output = '<div class="Zebra_Pagination"><ul class="pagination">';
+        $output = '<nav><ul class="pagination pagination-sm">';
 
         // if we're showing records in reverse order
         if ($this->_properties['reverse']) {
@@ -536,7 +538,7 @@ class Zebra_Pagination {
         }
 
         // finish generating the output
-        $output .= '</ul></div>';
+        $output .= '</ul></nav>';
 
         // if $return_output is TRUE
         // return the generated content
@@ -953,6 +955,30 @@ class Zebra_Pagination {
         // return the resulting string
         return $output;
 
+    }
+
+    /**
+     * $pagination = new Zebra_Pagination();
+     * $baseUrl = $pagination->base_url;
+     *
+     * @param $name
+     * @return mixed|null
+     */
+    function __get($name)
+    {
+        if ($value = $this->_properties[$name]) {
+            return $value;
+        }
+
+        $trace = debug_backtrace();
+        trigger_error(
+            'Undefined property via __get(): ' . $name .
+            ' in ' . $trace[0]['file'] .
+            ' on line ' . $trace[0]['line'],
+            E_USER_NOTICE
+        );
+
+        return null;
     }
 
 }
