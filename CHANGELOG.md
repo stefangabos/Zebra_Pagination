@@ -1,3 +1,15 @@
+## version 2.2.6 (Sep 1, 2017)
+
+- Add magic method to access private properties
+
+## version 2.2.5 (Jun 13, 2017)
+
+- Changed the div to nav, so it fits our design
+
+## version 2.2.4 (Jun 13, 2017) - FORK To Benjamin
+
+- added namespace
+
 ## version 2.2.3 (May 20, 2017)
 
 - unnecessary files are no more included when downloading from GitHub or via Composer
