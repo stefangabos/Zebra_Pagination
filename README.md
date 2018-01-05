@@ -105,7 +105,7 @@ $countries = array_slice(
 <table>
     <tr><th>Country</th></tr>
     <?php foreach ($countries as $index => $country):?>
-    <tr<?php echo $index % 2 ? ' class="even"' : ''); ?>>
+    <tr<?php echo( $index % 2 ? ' class="even"' : ''); ?>>
         <td><?php echo $country; ?></td>
     </tr>
     <?php endforeach; ?>
