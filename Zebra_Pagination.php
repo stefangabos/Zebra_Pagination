@@ -727,11 +727,12 @@ class Zebra_Pagination {
             if (!$this->_properties['preserve_query_string']) $query = $this->_properties['base_url_query'];
 
             // otherwise, get the current query string, if any, and transform it to an array
-             else{
-                if(isset($_SERVER['QUERY_STRING'])) // check for undefined indices. Do it the long way to cover PHP < 7.0
+           else{
+                if(isset($_SERVER['QUERY_STRING'])){// check for undefined indices. Do it the long way to cover PHP < 7.0
                     parse_str($_SERVER['QUERY_STRING'], $query);
-                else
-                    $query = array();
+                    return;
+                }
+                $query = array();
             }
 
             // if we are avoiding duplicate content and if not the first/last page (depending on whether the pagination links are shown in natural or reversed order)
