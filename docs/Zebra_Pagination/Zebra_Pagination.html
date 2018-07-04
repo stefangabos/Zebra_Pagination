@@ -50,7 +50,7 @@ Package: <strong>Zebra_Pagination</strong>
 <h2>Class: <strong>Zebra_Pagination</strong></h2>
 <h6><strong>source file:</strong> /Zebra_Pagination.php</h6>
 <pre></pre>
-<p>A generic, Twitter Bootstrap compatible, pagination script that automatically generates navigation links as well as   next/previous page links, given the total number of records and the number of records to be shown per page. Useful for   breaking large sets of data into smaller chunks, reducing network traffic and, at the same time, improving readability,   aesthetics and usability.<p>Read more <a href="https://github.com/stefangabos/Zebra_Pagination/">here</a></p></p>
+<p>A generic, Twitter Bootstrap compatible (both 3 and 4), pagination script that automatically generates navigation links   as well as next/previous page links, given the total number of records and the number of records to be shown per page.<p>Useful for breaking large sets of data into smaller chunks, reducing network traffic and, at the same time, improving   readability, aesthetics and usability.</p><p>Read more <a href="https://github.com/stefangabos/Zebra_Pagination/">here</a></p></p>
 <h4>Author(s):</h4>
 <ul>
 <li>Stefan Gabos &lt;<a href="mailto:contact@stefangabos.ro">contact@stefangabos.ro</a>&gt;</li>
@@ -74,6 +74,7 @@ Package: <strong>Zebra_Pagination</strong>
 <li><a href="#methodalways_show_navigation">always_show_navigation</a></li>
 <li><a href="#methodavoid_duplicate_content">avoid_duplicate_content</a></li>
 <li><a href="#methodbase_url">base_url</a></li>
+<li><a href="#methodcss_classes">css_classes</a></li>
 <li><a href="#methodget_page">get_page</a></li>
 <li><a href="#methodget_pages">get_pages</a></li>
 <li><a href="#methodlabels">labels</a></li>
@@ -96,7 +97,7 @@ Package: <strong>Zebra_Pagination</strong>
 <a name="class_methods"></a>
 <h3>Class methods</h3>
 <a name="method__construct"></a>
-<h4 class="method"><span><em>constructor</em></span> __construct() <span class="smalllinenumber">[line 83]</span></h4>
+<h4 class="method"><span><em>constructor</em></span> __construct() <span class="smalllinenumber">[line 90]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -116,7 +117,7 @@ __construct (
 <div class="clear"></div>
 </div>
 <a name="methodalways_show_navigation"></a>
-<h4 class="method"><span><em>method</em></span> always_show_navigation() <span class="smalllinenumber">[line 111]</span></h4>
+<h4 class="method"><span><em>method</em></span> always_show_navigation() <span class="smalllinenumber">[line 118]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -155,7 +156,7 @@ $show
 <div class="clear"></div>
 </div>
 <a name="methodavoid_duplicate_content"></a>
-<h4 class="method"><span><em>method</em></span> avoid_duplicate_content() <span class="smalllinenumber">[line 147]</span></h4>
+<h4 class="method"><span><em>method</em></span> avoid_duplicate_content() <span class="smalllinenumber">[line 154]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -193,7 +194,7 @@ $avoid_duplicate_content
 <div class="clear"></div>
 </div>
 <a name="methodbase_url"></a>
-<h4 class="method"><span><em>method</em></span> base_url() <span class="smalllinenumber">[line 201]</span></h4>
+<h4 class="method"><span><em>method</em></span> base_url() <span class="smalllinenumber">[line 208]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -237,8 +238,69 @@ is &quot;page&quot;;</li></ul><p> <ul><li><em>http://youwebsite/mypage/page[page
 <a href="#top" class="top">top</a>
 <div class="clear"></div>
 </div>
+<a name="methodcss_classes"></a>
+<h4 class="method"><span><em>method</em></span> css_classes() <span class="smalllinenumber">[line 301]</span></h4>
+<div class="doc_block">
+<p class="code">
+<em>void</em>
+css_classes (
+array
+$css_classes
+)
+</p>
+<p>Sets the CSS class names to be applied to the unorderd list, list item and anchors that make up the HTML markup   of the pagination links.</p>
+<h5>Tags:</h5>
+<table cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top"><strong>access:</strong>&nbsp;&nbsp;</td>
+<td valign="top">public</td>
+</tr>
+</table>
+<h5>Parameters:</h5>
+<table cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top"><em>array</em></td>
+<td valign="top"><strong>$css_classes</strong></td>
+<td valign="top"><p>An associative array with one or more or all of the following keys:</p><p><ul><li><strong>list</strong>, for setting the CSS class name to be used for the unordered list (<kbd>&lt;ul&gt;</kbd>)</li><li><strong>list_item</strong>, for setting the CSS class name to be used for the list item (<kbd>&lt;li&gt;</kbd>)</li><li><strong>anchor</strong>, for setting the CSS class name to be used for the anchor (<kbd>&lt;a&gt;</kbd>)</li></ul><p>                                   The default generated HTML markup looks like below:</p><p><ol class="code"><li><div class="src-line">&lt;<span class="src-id">div&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;Zebra_Pagination&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">ul&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;pagination&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">li&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;page-item&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">a&nbsp;href</span>=<span class="src-str">&quot;path/to/first/page/&quot;&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;page-link&quot;</span>&gt;<span class="src-num">1</span>&lt;/<span class="src-id">a</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="src-id">li</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">li&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;page-item&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">a&nbsp;href</span>=<span class="src-str">&quot;path/to/second/page/&quot;&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;page-link&quot;</span>&gt;<span class="src-num">2</span>&lt;/<span class="src-id">a</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="src-id">li</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<span class="src-id">the&nbsp;other&nbsp;pages</span>...</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="src-id">ul</span>&gt;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">div</span>&gt;</div></li>
+</ol><p>Calling this method with the following argument...</p><p><ol class="code"><li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodcss_classes">css_classes</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'list'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>=&gt;&nbsp;&nbsp;<span class="src-str">'foo'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'list_item'&nbsp;</span>=&gt;&nbsp;&nbsp;<span class="src-str">'bar'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'anchor'&nbsp;&nbsp;&nbsp;&nbsp;</span>=&gt;&nbsp;&nbsp;<span class="src-str">'baz'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+</ol><p>...would result in the following markup:</p><p><ol class="code"><li><div class="src-line">&lt;<span class="src-id">div&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;Zebra_Pagination&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">ul&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;foo&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">li&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;bar&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">a&nbsp;href</span>=<span class="src-str">&quot;path/to/first/page/&quot;&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;baz&quot;</span>&gt;<span class="src-num">1</span>&lt;/<span class="src-id">a</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="src-id">li</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">li&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;bar&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">a&nbsp;href</span>=<span class="src-str">&quot;path/to/second/page/&quot;&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;baz&quot;</span>&gt;<span class="src-num">2</span>&lt;/<span class="src-id">a</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="src-id">li</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<span class="src-id">the&nbsp;other&nbsp;pages</span>...</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="src-id">ul</span>&gt;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">div</span>&gt;</div></li>
+</ol><p>You can change only the CSS class names you want and the default CSS class names                                   will be used for the other ones.</p><p>Default values are:</p><p><ol class="code"><li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodcss_classes">css_classes</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'list'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>=&gt;&nbsp;&nbsp;<span class="src-str">'pagination'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'list_item'&nbsp;</span>=&gt;&nbsp;&nbsp;<span class="src-str">'page-item'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'anchor'&nbsp;&nbsp;&nbsp;&nbsp;</span>=&gt;&nbsp;&nbsp;<span class="src-str">'page-link'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+</ol><p>These values make the resulting markup to be compatible with both the older version                                   3 of Twitter Bootstrap as well as the new version 4.</p></td>
+</tr>
+</table>
+<a href="#top" class="top">top</a>
+<div class="clear"></div>
+</div>
 <a name="methodget_page"></a>
-<h4 class="method"><span><em>method</em></span> get_page() <span class="smalllinenumber">[line 233]</span></h4>
+<h4 class="method"><span><em>method</em></span> get_page() <span class="smalllinenumber">[line 324]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>integer</em>
@@ -264,7 +326,7 @@ get_page (
 <div class="clear"></div>
 </div>
 <a name="methodget_pages"></a>
-<h4 class="method"><span><em>method</em></span> get_pages() <span class="smalllinenumber">[line 305]</span></h4>
+<h4 class="method"><span><em>method</em></span> get_pages() <span class="smalllinenumber">[line 396]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>integer</em>
@@ -294,7 +356,7 @@ get_pages (
 <div class="clear"></div>
 </div>
 <a name="methodlabels"></a>
-<h4 class="method"><span><em>method</em></span> labels() <span class="smalllinenumber">[line 331]</span></h4>
+<h4 class="method"><span><em>method</em></span> labels() <span class="smalllinenumber">[line 422]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -342,7 +404,7 @@ $next
 <div class="clear"></div>
 </div>
 <a name="methodmethod"></a>
-<h4 class="method"><span><em>method</em></span> method() <span class="smalllinenumber">[line 372]</span></h4>
+<h4 class="method"><span><em>method</em></span> method() <span class="smalllinenumber">[line 463]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -376,7 +438,7 @@ $method
 <div class="clear"></div>
 </div>
 <a name="methodnavigation_position"></a>
-<h4 class="method"><span><em>method</em></span> navigation_position() <span class="smalllinenumber">[line 396]</span></h4>
+<h4 class="method"><span><em>method</em></span> navigation_position() <span class="smalllinenumber">[line 487]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -410,7 +472,7 @@ $position
 <div class="clear"></div>
 </div>
 <a name="methodpadding"></a>
-<h4 class="method"><span><em>method</em></span> padding() <span class="smalllinenumber">[line 420]</span></h4>
+<h4 class="method"><span><em>method</em></span> padding() <span class="smalllinenumber">[line 511]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -444,7 +506,7 @@ $enabled
 <div class="clear"></div>
 </div>
 <a name="methodrecords"></a>
-<h4 class="method"><span><em>method</em></span> records() <span class="smalllinenumber">[line 441]</span></h4>
+<h4 class="method"><span><em>method</em></span> records() <span class="smalllinenumber">[line 532]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -476,7 +538,7 @@ $records
 <div class="clear"></div>
 </div>
 <a name="methodrecords_per_page"></a>
-<h4 class="method"><span><em>method</em></span> records_per_page() <span class="smalllinenumber">[line 465]</span></h4>
+<h4 class="method"><span><em>method</em></span> records_per_page() <span class="smalllinenumber">[line 556]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -508,7 +570,7 @@ $records_per_page
 <div class="clear"></div>
 </div>
 <a name="methodrender"></a>
-<h4 class="method"><span><em>method</em></span> render() <span class="smalllinenumber">[line 491]</span></h4>
+<h4 class="method"><span><em>method</em></span> render() <span class="smalllinenumber">[line 582]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -543,7 +605,7 @@ $return_output
 <div class="clear"></div>
 </div>
 <a name="methodreverse"></a>
-<h4 class="method"><span><em>method</em></span> reverse() <span class="smalllinenumber">[line 569]</span></h4>
+<h4 class="method"><span><em>method</em></span> reverse() <span class="smalllinenumber">[line 660]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -581,7 +643,7 @@ $reverse
 <div class="clear"></div>
 </div>
 <a name="methodselectable_pages"></a>
-<h4 class="method"><span><em>method</em></span> selectable_pages() <span class="smalllinenumber">[line 594]</span></h4>
+<h4 class="method"><span><em>method</em></span> selectable_pages() <span class="smalllinenumber">[line 685]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -614,7 +676,7 @@ will be shown to the left and to the right of the current page.</em></p><p>Defau
 <div class="clear"></div>
 </div>
 <a name="methodset_page"></a>
-<h4 class="method"><span><em>method</em></span> set_page() <span class="smalllinenumber">[line 617]</span></h4>
+<h4 class="method"><span><em>method</em></span> set_page() <span class="smalllinenumber">[line 708]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -646,7 +708,7 @@ $page
 <div class="clear"></div>
 </div>
 <a name="methodtrailing_slash"></a>
-<h4 class="method"><span><em>method</em></span> trailing_slash() <span class="smalllinenumber">[line 649]</span></h4>
+<h4 class="method"><span><em>method</em></span> trailing_slash() <span class="smalllinenumber">[line 740]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -678,7 +740,7 @@ $enabled
 <div class="clear"></div>
 </div>
 <a name="methodvariable_name"></a>
-<h4 class="method"><span><em>method</em></span> variable_name() <span class="smalllinenumber">[line 672]</span></h4>
+<h4 class="method"><span><em>method</em></span> variable_name() <span class="smalllinenumber">[line 763]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
