@@ -7,3 +7,6 @@ table.countries th { background: #222; color: #FFF; font-weight: bold }
 table.countries td,
 table.countries th { padding: 4px }
 table.countries td:hover { background: #FFFFCC }
+.pagination {
+    justify-content: center;
+}
