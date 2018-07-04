@@ -906,7 +906,7 @@ class Zebra_Pagination {
                 $css_classes = isset($this->_properties['css_classes']['list_item']) && $this->_properties['css_classes']['list_item'] != '' ? array(trim($this->_properties['css_classes']['list_item'])) : array();
 
                 // if this the currently selected page, highlight it
-                if ($this->_properties['page'] == $i) $css_classes[] = $active;
+                if ($this->_properties['page'] == $i) $css_classes[] = 'active';
 
                 // generate markup
                 $output .= '<li' .
