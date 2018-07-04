@@ -1,10 +1,10 @@
 <?php
 
 /**
- *  A generic, Twitter Bootstrap compatible, pagination script that automatically generates navigation links as well as
- *  next/previous page links, given the total number of records and the number of records to be shown per page. Useful for
- *  breaking large sets of data into smaller chunks, reducing network traffic and, at the same time, improving readability,
- *  aesthetics and usability.
+ *  A generic, Twitter Bootstrap compatible (both 3 and 4), pagination script that automatically generates navigation links
+ *  as well as next/previous page links, given the total number of records and the number of records to be shown per page.
+ *  Useful for breaking large sets of data into smaller chunks, reducing network traffic and, at the same time, improving
+ *  readability, aesthetics and usability.
  *
  *  Read more {@link https://github.com/stefangabos/Zebra_Pagination/ here}
  *
@@ -24,6 +24,13 @@ class Zebra_Pagination {
 
         // should we avoid duplicate content
         'avoid_duplicate_content'   =>  true,
+
+        // CSS classes to assign to the list, list item and to the anchor
+        'css_classes'   =>  array(
+            'list'      =>  'pagination',
+            'list_item' =>  'page-item',
+            'anchor'    =>  'page-link',
+        ),
 
         // default method for page propagation
         'method'                    =>  'get',
@@ -217,6 +224,90 @@ class Zebra_Pagination {
 
         // should query strings (other than those set in $base_url) be preserved?
         $this->_properties['preserve_query_string'] = $preserve_query_string;
+
+    }
+
+    /**
+     *  Sets the CSS class names to be applied to the unorderd list, list item and anchors that make up the HTML markup
+     *  of the pagination links.
+     *
+     *
+     *  @param  array   $css_classes    An associative array with one or more or all of the following keys:
+     *
+     *                                  -   <b>list</b>, for setting the CSS class name to be used for the unordered list (<kbd><ul></kbd>)
+     *                                  -   <b>list_item</b>, for setting the CSS class name to be used for the list item (<kbd><li></kbd>)
+     *                                  -   <b>anchor</b>, for setting the CSS class name to be used for the anchor (<kbd><a></kbd>)
+     *
+     *                                  The default generated HTML markup looks like below:
+     *
+     *                                  <code>
+     *                                  <div class="Zebra_Pagination">
+     *                                      <ul class="pagination">
+     *                                          <li class="page-item">
+     *                                              <a href="path/to/first/page/" class="page-link">1</a>
+     *                                          </li>
+     *                                          <li class="page-item">
+     *                                              <a href="path/to/second/page/" class="page-link">2</a>
+     *                                          </li>
+     *                                          ...the other pages...
+     *                                      </ul>
+     *                                  </div>
+     *                                  </code>
+     *
+     *                                  Calling this method with the following argument...
+     *
+     *                                  <code>
+     *                                  $pagination->css_classes(array(
+     *                                      'list'      =>  'foo',
+     *                                      'list_item' =>  'bar',
+     *                                      'anchor'    =>  'baz',
+     *                                  ));
+     *                                  </code>
+     *
+     *                                  ...would result in the following markup:
+     *
+     *                                  <code>
+     *                                  <div class="Zebra_Pagination">
+     *                                      <ul class="foo">
+     *                                          <li class="bar">
+     *                                              <a href="path/to/first/page/" class="baz">1</a>
+     *                                          </li>
+     *                                          <li class="bar">
+     *                                              <a href="path/to/second/page/" class="baz">2</a>
+     *                                          </li>
+     *                                          ...the other pages...
+     *                                      </ul>
+     *                                  </div>
+     *                                  </code>
+     *
+     *                                  You can change only the CSS class names you want and the default CSS class names
+     *                                  will be used for the other ones.
+     *
+     *                                  Default values are:
+     *
+     *                                  <code>
+     *                                  $pagination->css_classes(array(
+     *                                      'list'      =>  'pagination',
+     *                                      'list_item' =>  'page-item',
+     *                                      'anchor'    =>  'page-link',
+     *                                  ));
+     *                                  </code>
+     *
+     *                                  These values make the resulting markup to be compatible with both the older version
+     *                                  3 of Twitter Bootstrap as well as the new version 4.
+     *
+     *  @return void
+     */
+    public function css_classes($css_classes) {
+
+        // if argument is invalid
+        if (!is_array($css_classes) || empty($css_classes) || array_keys($css_classes) != array_filter(array_keys($css_classes), function($value) { return in_array($value, array('list', 'list_item', 'anchor'), true); }))
+
+            // stop execution
+            trigger_error('Invalid argument. Method <strong>classes()</strong> accepts as argument an associative array with one or more of the following keys: <em>list, list_item, anchor</em>' , E_USER_ERROR);
+
+        // merge values with the default ones
+        $this->_properties['css_classes'] = array_merge($this->_properties['css_classes'], $css_classes);
 
     }
 
@@ -497,7 +588,7 @@ class Zebra_Pagination {
         if ($this->_properties['total_pages'] <= 1) return '';
 
         // start building output
-        $output = '<div class="Zebra_Pagination"><ul class="pagination">';
+        $output = '<div class="Zebra_Pagination"><ul' . ($this->_properties['css_classes']['list'] != '' ? ' class="' . trim($this->_properties['css_classes']['list']) . '"' : '') . '>';
 
         // if we're showing records in reverse order
         if ($this->_properties['reverse']) {
@@ -757,19 +848,34 @@ class Zebra_Pagination {
         // if "always_show_navigation" is TRUE or
         // if the total number of available pages is greater than the number of pages to be displayed at once
         // it means we can show the "next page" link
-        if ($this->_properties['always_show_navigation'] || $this->_properties['total_pages'] > $this->_properties['selectable_pages'])
+        if ($this->_properties['always_show_navigation'] || $this->_properties['total_pages'] > $this->_properties['selectable_pages']) {
+
+            // CSS classes to be applied to the list item, if any
+            $css_classes = isset($this->_properties['css_classes']['list_item']) && $this->_properties['css_classes']['list_item'] != '' ? array(trim($this->_properties['css_classes']['list_item'])) : array();
 
             // if we're on the last page, the link is disabled
-            $output = '<li' . ($this->_properties['page'] == $this->_properties['total_pages'] ? ' class="disabled"' : '') . '><a href="' .
+            if ($this->_properties['page'] == $this->_properties['total_pages']) $css_classes[] = 'disabled';
+
+            // generate markup
+            $output = '<li' .
+
+                // add CSS classes to the list item, if necessary
+                (!empty($css_classes) ? ' class="' . implode(' ', $css_classes) . '"' : '') . '><a href="' .
 
                 // the href is different if we're on the last page
                 ($this->_properties['page'] == $this->_properties['total_pages'] ? 'javascript:void(0)' : $this->_build_uri($this->_properties['page'] + 1)) . '"' .
+
+                // add CSS classes to the anchor, if necessary
+                (isset($this->_properties['css_classes']['anchor']) && $this->_properties['css_classes']['anchor'] != '' ? ' class="' . trim($this->_properties['css_classes']['anchor']) . '"' : '') .
 
                 // good for SEO
                 // http://googlewebmastercentral.blogspot.de/2011/09/pagination-with-relnext-and-relprev.html
                 ' rel="next">' .
 
+                // reverse arrows if necessary
                 ($this->_properties['reverse'] ? $this->_properties['previous'] : $this->_properties['next']) . '</a></li>';
+
+        }
 
         // return the resulting string
         return $output;
@@ -785,31 +891,58 @@ class Zebra_Pagination {
         $output = '';
 
         // if the total number of pages is lesser than the number of selectable pages
-        if ($this->_properties['total_pages'] <= $this->_properties['selectable_pages']) {
+        if ($this->_properties['total_pages'] <= $this->_properties['selectable_pages'])
 
-            // iterate ascendingly or descendingly depending on whether we're showing links in reverse order or not)
+            // iterate ascendingly or descendingly, depending on whether we're showing links in reverse order or not
             for (
 
                 $i = ($this->_properties['reverse'] ? $this->_properties['total_pages'] : 1);
                 ($this->_properties['reverse'] ? $i >= 1 : $i <= $this->_properties['total_pages']);
                 ($this->_properties['reverse'] ? $i-- : $i++)
 
-            )
+            ) {
 
-                // render the link for each page making sure to highlight the currently selected page
-                $output .= '<li' . ($this->_properties['page'] == $i ? ' class="active"' : '') . '><a href="' . $this->_build_uri($i) . '">' .
+                // CSS classes to be applied to the list item, if any
+                $css_classes = isset($this->_properties['css_classes']['list_item']) && $this->_properties['css_classes']['list_item'] != '' ? array(trim($this->_properties['css_classes']['list_item'])) : array();
+
+                // if this the currently selected page, highlight it
+                if ($this->_properties['page'] == $i) $css_classes[] = $active;
+
+                // generate markup
+                $output .= '<li' .
+
+                    // add CSS classes to the list item, if necessary
+                    (!empty($css_classes) ? ' class="' . implode(' ', $css_classes) . '"' : '') . '><a href="' . $this->_build_uri($i) . '"' .
+
+                    // add CSS classes to the anchor, if necessary
+                    (isset($this->_properties['css_classes']['anchor']) && $this->_properties['css_classes']['anchor'] != '' ? ' class="' . trim($this->_properties['css_classes']['anchor']) . '"' : '') . '>' .
 
                     // apply padding if required
                     ($this->_properties['padding'] ? str_pad($i, strlen($this->_properties['total_pages']), '0', STR_PAD_LEFT) : $i) .
 
                     '</a></li>';
 
+            }
+
         // if the total number of pages is greater than the number of selectable pages
-        } else {
+        else {
+
+            // CSS classes to be applied to the list item, if any
+            $css_classes = isset($this->_properties['css_classes']['list_item']) && $this->_properties['css_classes']['list_item'] != '' ? array(trim($this->_properties['css_classes']['list_item'])) : array();
+
+            // highlight if the page is currently selected
+            if ($this->_properties['page'] == ($this->_properties['reverse'] ? $this->_properties['total_pages'] : 1)) $css_classes[] = 'active';
 
             // start with a link to the first or last page, depending if we're displaying links in reverse order or not
-            // highlight if the page is currently selected
-            $output .= '<li' . ($this->_properties['page'] == ($this->_properties['reverse'] ? $this->_properties['total_pages'] : 1) ? ' class="active"' : '') . '><a href="' . $this->_build_uri($this->_properties['reverse'] ? $this->_properties['total_pages'] : 1) . '">' .
+
+            // generate markup
+            $output .= '<li' .
+
+                // add CSS classes to the list item, if necessary
+                (!empty($css_classes) ? ' class="' . implode(' ', $css_classes) . '"' : '') . '><a href="' . $this->_build_uri($this->_properties['reverse'] ? $this->_properties['total_pages'] : 1) . '"' .
+
+                // add CSS classes to the anchor, if necessary
+                (isset($this->_properties['css_classes']['anchor']) && $this->_properties['css_classes']['anchor'] != '' ? ' class="' . trim($this->_properties['css_classes']['anchor']) . '"' : '') . '>' .
 
                 // if padding is required
                 ($this->_properties['padding'] ?
@@ -843,7 +976,6 @@ class Zebra_Pagination {
             $starting_page = ($this->_properties['reverse'] ? $this->_properties['total_pages'] - 1 : 2);
 
             // if the currently selected page is past the point from where we need to scroll,
-            // we need to adjust the value of $starting_page
             if (
 
                 ($this->_properties['reverse'] && $this->_properties['page'] <= $scroll_from) ||
@@ -865,12 +997,18 @@ class Zebra_Pagination {
 
                     // adjust the value of $starting_page again
                     if ($this->_properties['reverse']) $starting_page = $this->_properties['selectable_pages'] - 1;
-
                     else $starting_page -= ($this->_properties['selectable_pages'] - 2) - ($this->_properties['total_pages'] - $starting_page);
 
-                // put the "..." after the link to the first/last page
-                // depending on whether we're showing links in reverse order or not
-                $output .= '<li><span>&hellip;</span></li>';
+                // put the "..." after the link to the first/last page, depending on whether we're showing links in reverse order or not
+                $output .= '<li' .
+
+                    // add CSS classes to the list item, if necessary
+                    (isset($this->_properties['css_classes']['list_item']) && $this->_properties['css_classes']['list_item'] != '' ? ' class="' . $this->_properties['css_classes']['list_item'] . '"' : '') . '>' .
+
+                    // add CSS classes to the span element, if necessary
+                    '<span' . (isset($this->_properties['css_classes']['anchor']) && $this->_properties['css_classes']['anchor'] != '' ? ' class="' . trim($this->_properties['css_classes']['anchor']) . '"' : '') . '>' .
+
+                    '&hellip;</span></li>';
 
             }
 
@@ -891,28 +1029,65 @@ class Zebra_Pagination {
             elseif (!$this->_properties['reverse'] && $ending_page > $this->_properties['total_pages'] - 1) $ending_page = $this->_properties['total_pages'] - 1;
 
             // render pagination links
-            for ($i = $starting_page; $this->_properties['reverse'] ? $i >= $ending_page : $i <= $ending_page; $this->_properties['reverse'] ? $i-- : $i++)
+            for ($i = $starting_page; $this->_properties['reverse'] ? $i >= $ending_page : $i <= $ending_page; $this->_properties['reverse'] ? $i-- : $i++) {
 
-                // also highlight the currently selected page
-                $output .= '<li' . ($this->_properties['page'] == $i ? ' class="active"' : '') . '><a href="' . $this->_build_uri($i) . '">' .
+                // CSS classes to be applied to the list item, if any
+                $css_classes = isset($this->_properties['css_classes']['list_item']) && $this->_properties['css_classes']['list_item'] != '' ? array(trim($this->_properties['css_classes']['list_item'])) : array();
+
+                // highlight the currently selected page
+                if ($this->_properties['page'] == $i) $css_classes[] = 'active';
+
+                // generate markup
+                $output .= '<li' .
+
+                    // add CSS classes to the list item, if necessary
+                    (!empty($css_classes) ? ' class="' . implode(' ', $css_classes) . '"' : '') . '><a href="' . $this->_build_uri($i) . '"' .
+
+                    // add CSS classes to the anchor, if necessary
+                    (isset($this->_properties['css_classes']['anchor']) && $this->_properties['css_classes']['anchor'] != '' ? ' class="' . trim($this->_properties['css_classes']['anchor']) . '"' : '') . '>' .
 
                     // apply padding if required
                     ($this->_properties['padding'] ? str_pad($i, strlen($this->_properties['total_pages']), '0', STR_PAD_LEFT) : $i) .
 
                     '</a></li>';
 
-            // if we have to, place another "..." at the end, before the link to the last/first page (depending on whether
-            // we're showing links in reverse order or not)
+            }
+
+            // if we have to, place another "..." at the end, before the link to the last/first page (depending on whether we're showing links in reverse order or not)
             if (
 
                 ($this->_properties['reverse'] && $ending_page > 2) ||
                 (!$this->_properties['reverse'] && $this->_properties['total_pages'] - $ending_page > 1)
 
-            ) $output .= '<li><span>&hellip;</span></li>';
+            )
 
-            // put a link to the last/first page (depending on whether we're showing links in reverse order or not)
-            // also, highlight if it is the currently selected page
-            $output .= '<li' . ($this->_properties['page'] == $i ? ' class="active"' : '') . '><a href="' . $this->_build_uri($this->_properties['reverse'] ? 1 : $this->_properties['total_pages']) . '">' .
+                // generate markup
+                $output .= '<li' .
+
+                    // add CSS classes to the list item, if necessary
+                    (isset($this->_properties['css_classes']['list_item']) && $this->_properties['css_classes']['list_item'] != '' ? ' class="' . $this->_properties['css_classes']['list_item'] . '"' : '') . '>' .
+
+                    // add CSS classes to the span element, if necessary
+                    '<span' . (isset($this->_properties['css_classes']['anchor']) && $this->_properties['css_classes']['anchor'] != '' ? ' class="' . trim($this->_properties['css_classes']['anchor']) . '"' : '') . '>' .
+
+                    '&hellip;</span></li>';
+
+            // now we put a link to the last/first page (depending on whether we're showing links in reverse order or not)
+
+            // CSS classes to be applied to the list item, if any
+            $css_classes = isset($this->_properties['css_classes']['list_item']) && $this->_properties['css_classes']['list_item'] != '' ? array(trim($this->_properties['css_classes']['list_item'])) : array();
+
+            // highlight if the page is currently selected
+            if ($this->_properties['page'] == $i) $css_classes[] = 'active';
+
+            // generate markup
+            $output .= '<li' .
+
+                // add CSS classes to the list item, if necessary
+                (!empty($css_classes) ? ' class="' . implode(' ', $css_classes) . '"' : '') . '><a href="' . $this->_build_uri($this->_properties['reverse'] ? 1 : $this->_properties['total_pages']) . '"' .
+
+                // add CSS classes to the anchor, if necessary
+                (isset($this->_properties['css_classes']['anchor']) && $this->_properties['css_classes']['anchor'] != '' ? ' class="' . trim($this->_properties['css_classes']['anchor']) . '"' : '') . '>' .
 
                 // also, apply padding if necessary
                 ($this->_properties['padding'] ? str_pad(($this->_properties['reverse'] ? 1 : $this->_properties['total_pages']), strlen($this->_properties['total_pages']), '0', STR_PAD_LEFT) : ($this->_properties['reverse'] ? 1 : $this->_properties['total_pages'])) .
@@ -936,19 +1111,33 @@ class Zebra_Pagination {
         // if "always_show_navigation" is TRUE or
         // if the number of total pages available is greater than the number of selectable pages
         // it means we can show the "previous page" link
-        if ($this->_properties['always_show_navigation'] || $this->_properties['total_pages'] > $this->_properties['selectable_pages'])
+        if ($this->_properties['always_show_navigation'] || $this->_properties['total_pages'] > $this->_properties['selectable_pages']) {
+
+            // CSS classes to be applied to the list item, if any
+            $css_classes = isset($this->_properties['css_classes']['list_item']) && $this->_properties['css_classes']['list_item'] != '' ? array(trim($this->_properties['css_classes']['list_item'])) : array();
 
             // if we're on the first page, the link is disabled
-            $output = '<li' . ($this->_properties['page'] == 1 ? ' class="disabled"' : '') . '><a href="' .
+            if ($this->_properties['page'] == 1) $css_classes[] = 'disabled';
+
+            // generate markup
+            $output = '<li' .
+
+                // add CSS classes to the list item, if necessary
+                (!empty($css_classes) ? ' class="' . implode(' ', $css_classes) . '"' : '') . '><a href="' .
 
                 // the href is different if we're on the first page
                 ($this->_properties['page'] == 1 ? 'javascript:void(0)' : $this->_build_uri($this->_properties['page'] - 1)) . '"' .
+
+                // add CSS classes to the anchor, if necessary
+                (isset($this->_properties['css_classes']['anchor']) && $this->_properties['css_classes']['anchor'] != '' ? ' class="' . trim($this->_properties['css_classes']['anchor']) . '"' : '') .
 
                 // good for SEO
                 // http://googlewebmastercentral.blogspot.de/2011/09/pagination-with-relnext-and-relprev.html
                 ' rel="prev">' .
 
                 ($this->_properties['reverse'] ? $this->_properties['next'] : $this->_properties['previous']) . '</a></li>';
+
+        }
 
         // return the resulting string
         return $output;
