@@ -3,11 +3,11 @@
 <head>
     <title>Zebra_Pagination, database example</title>
     <meta charset="utf-8">
-    <?php if (isset($_GET['bootstrap']) && $_GET['bootstrap'] == 1):?>
+    <?php if (isset($_GET['bootstrap']) && $_GET['bootstrap'] == 1): ?>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <?php else:?>
+    <?php else: ?>
     <link rel="stylesheet" href="../public/css/zebra_pagination.css" type="text/css">
-    <?php endif?>
+    <?php endif; ?>
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
@@ -26,10 +26,10 @@
     <?php
 
     // database connection details
-    $MySQL_host     = 'localhost';
-    $MySQL_username = 'root';
+    $MySQL_host     = '';
+    $MySQL_username = '';
     $MySQL_password = '';
-    $MySQL_database = 'test';
+    $MySQL_database = '';
 
     // if could not connect to database
     if (!($connection = @mysqli_connect($MySQL_host, $MySQL_username, $MySQL_password, $MySQL_database)))
@@ -110,23 +110,18 @@
     ?>
 
     <table class="countries" border="1">
-
         <thead>
             <tr><th>Country</th></tr>
         </thead>
-
         <tbody>
 
         <?php $index = 0; while ($row = mysqli_fetch_assoc($result)): ?>
-
-        <tr<?php echo $index++ % 2 ? ' class="even"' : ''?>>
+        <tr<?php echo $index++ % 2 ? ' class="even"' : ''; ?>>
             <td><?php echo $row['country']; ?></td>
         </tr>
-
         <?php endwhile; ?>
 
         </tbody>
-
     </table>
 
     <div class="text-center">
