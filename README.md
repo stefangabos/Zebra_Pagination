@@ -27,7 +27,7 @@ The code is heavily commented and generates no warnings/errors/notices when PHP'
 - navigation links can be generated in natural or in reverse order
 - it is SEO-friendly – it uses rel="next" and rel="prev" and solves the problem of duplicate content on the first page without navigation and the first page having the page number in the URL
 - appearance is easily customizable through CSS
-- compatible with [Twitter Bootstrap](http://getbootstrap.com)
+- compatible with [Twitter Bootstrap](http://getbootstrap.com) 3 and 4
 - code is heavily commented and generates no warnings/errors/notices when PHP’s error reporting level is set to E_ALL
 - has [awesome documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)
 
