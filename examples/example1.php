@@ -3,8 +3,10 @@
 <head>
     <title>Zebra_Pagination, array example</title>
     <meta charset="utf-8">
-    <?php if (isset($_GET['bootstrap']) && $_GET['bootstrap'] == 1): ?>
+    <?php if (isset($_GET['bootstrap']) && $_GET['bootstrap'] == 3): ?>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <?php elseif (isset($_GET['bootstrap']) && $_GET['bootstrap'] == 4): ?>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <?php else: ?>
     <link rel="stylesheet" href="../public/css/zebra_pagination.css" type="text/css">
     <?php endif; ?>
@@ -14,11 +16,14 @@
 
     <h2>Zebra_Pagination, array example</h2>
 
-    <p>Show next/previous page links on the <a href="example1.php?navigation_position=left<?php echo isset($_GET['bootstrap']) && $_GET['bootstrap'] == 1 ? '&bootstrap=1' : ''; ?>">left</a> or on the
-    <a href="example1.php?navigation_position=right<?php echo isset($_GET['bootstrap']) && $_GET['bootstrap'] == 1 ? '&bootstrap=1' : ''; ?>">right</a>. Or revert to the <a href="example1.php<?php echo isset($_GET['bootstrap']) && $_GET['bootstrap'] == 1 ? '?bootstrap=1' : ''; ?>">default style</a>.<br>
-    Pagination links can be shown in <a href="example1.php<?php echo isset($_GET['bootstrap']) && $_GET['bootstrap'] == 1 ? '?bootstrap=1' : ''; ?>">natural</a> or <a href="example1.php?reversed=1<?php echo isset($_GET['bootstrap']) && $_GET['bootstrap'] == 1 ? '&bootstrap=1' : ''; ?>">reversed</a> order.<br>
-    See the <a href="example1.php">default</a> looks or with <a href="example1.php?bootstrap=1">Bootstrap</a><br>
-    <em>(when using Bootstrap you don't need to include the zebra_pagination.css file anymore)</em></p>
+    <p>Show next/previous page links on the <a href="example1.php?navigation_position=left<?php echo isset($_GET['bootstrap']) ? '&bootstrap=' . $_GET['bootstrap'] : ''; ?>">left</a> or on the
+    <a href="example1.php?navigation_position=right<?php echo isset($_GET['bootstrap']) ? '&bootstrap=' . $_GET['bootstrap'] : ''; ?>">right</a>. Or revert to the <a href="example1.php<?php echo isset($_GET['bootstrap']) ? '?bootstrap=' . $_GET['bootstrap'] : ''; ?>">default style</a>.<br>
+    Pagination links can be shown in <a href="example1.php<?php echo isset($_GET['bootstrap']) ? '?bootstrap=' . $_GET['bootstrap'] : ''; ?>">natural</a> or <a href="example1.php?reversed=1<?php echo isset($_GET['bootstrap']) ? '&bootstrap=' . $_GET['bootstrap'] : ''; ?>">reversed</a> order.<br>
+    See the <a href="example1.php">default</a> looks, the <a href="example1.php?bootstrap=3">Bootstrap 3</a> looks or the <a href="example1.php?bootstrap=4">Bootstrap 4</a> looks<br>
+    <em>(when using Bootstrap you don't need to include the zebra_pagination.css file anymore)</em>
+    <?php if (isset($_GET['bootstrap']) && $_GET['bootstrap'] == 4): ?>
+    <br><em>For Bootstrap 4, for centering the pagination links you will have to set <code>justify-content: center;</code> for the <code>.pagination</code> class</em>
+    <?php endif; ?></p>
 
     <?php
 
