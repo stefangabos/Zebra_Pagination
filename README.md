@@ -40,7 +40,7 @@ PHP 5+
 Download the latest version, unpack it, and load it in your project
 
 ```php
-require_once ('Zebra_Pagination.php');
+require_once 'Zebra_Pagination.php';
 ```
 
 ## Installation with Composer
@@ -103,12 +103,18 @@ $countries = array_slice(
 ?>
 
 <table>
-    <tr><th>Country</th></tr>
-    <?php foreach ($countries as $index => $country):?>
-    <tr<?php echo( $index % 2 ? ' class="even"' : ''); ?>>
+    <thead>
+    <tr>
+        <th>Country</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($countries as $index => $country): ?>
+    <tr<?php echo $index % 2 ? ' class="even"' : ''; ?>>
         <td><?php echo $country; ?></td>
     </tr>
     <?php endforeach; ?>
+    </tbody>
 </table>
 
 <?php
@@ -145,6 +151,9 @@ Paginate data from MySQL:
 ```php
 <?php
 
+// connect to a database
+$connection = mysqli_connect($host, $username, $password, $database);
+
 // how many records should be displayed on a page?
 $records_per_page = 10;
 
@@ -171,10 +180,10 @@ $sql = '
 
 // execute the MySQL query
 // (you will use mysqli or PDO here, but you get the idea)
-$result = mysql_query($sql))) or die(mysql_error());
+$result = mysqli_query($connrection, $sql))) or die(mysqli_error($connection));
 
 // fetch the total number of records in the table
-$rows = mysql_fetch_assoc(mysql_query('SELECT FOUND_ROWS() AS rows'));
+$rows = mysqli_fetch_assoc(mysqli_query($connection, 'SELECT FOUND_ROWS() AS rows'));
 
 // pass the total number of records to the pagination class
 $pagination->records($rows['rows']);
@@ -185,12 +194,18 @@ $pagination->records_per_page($records_per_page);
 ?>
 
 <table>
-    <tr><th>Country</th></tr>
-    <?php $index = 0; while ($row = mysql_fetch_assoc($result)):?>
+    <thead>
+    <tr>
+        <th>Country</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php $index = 0; while ($row = mysql_fetch_assoc($result)): ?>
     <tr<?php echo $index++ % 2 ? ' class="even"' : ''; ?>>
         <td><?php echo $row['country']; ?></td>
     </tr>
     <?php endwhile; ?>
+    </tbody>
 </table>
 
 <?php
@@ -203,6 +218,9 @@ Paginate data from MySQL in reverse order:
 
 ```php
 <?php
+
+// connect to a database
+$connection = mysqli_connect($host, $username, $password, $database);
 
 // how many records should be displayed on a page?
 $records_per_page = 10;
@@ -218,7 +236,7 @@ $pagination->reverse(true);
 
 // when showing records in reverse order, we need to know the total number
 // of records from the beginning
-$result = mysql_query('SELECT COUNT(id) AS records FROM countries'))) or die (mysql_error());
+$result = mysqli_query($connection, 'SELECT COUNT(id) AS records FROM countries'))) or die (mysql_error());
 
 // pass the total number of records to the pagination class
 $pagination->records(array_pop(mysql_fetch_assoc($result)));
@@ -242,17 +260,23 @@ $sql = '
 ';
 
 // run the query
-mysql_query($sql) or die(mysql_error());
+mysqli_query($connection. $sql) or die(mysqli_error($connection));
 
 ?>
 
 <table>
-    <tr><th>Country</th></tr>
+    <thead>
+    <tr>
+        <th>Country</th>
+    </tr>
+    </thead>
+    <tbody>
     <?php $index = 0; while ($row = mysql_fetch_assoc($result)): ?>
     <tr<?php echo $index++ % 2 ? ' class="even"' : ''; ?>>
         <td><?php echo $row['country']; ?></td>
     </tr>
     <?php endwhile; ?>
+    </tbody>
 </table>
 
 <?php
