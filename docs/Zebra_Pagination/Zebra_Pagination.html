@@ -39,13 +39,16 @@ Package: <strong>Zebra_Pagination</strong>
 <ul>
 <li><a href="../Zebra_Pagination/Zebra_Pagination.html">Zebra_Pagination</a></li>
 </ul>
+<p><strong>Files:</strong></p>
+<ul>
+<li><a href="../Zebra_Pagination/_Zebra_Pagination.php.html">Zebra_Pagination.php</a></li>
+</ul>
 </div>
 </td>
 <td valign="top" width="100%">
 <div id="doc_content">
 <h2>Class: <strong>Zebra_Pagination</strong></h2>
 <h6><strong>source file:</strong> /Zebra_Pagination.php</h6>
-<h3>Class Overview</h3>
 <pre></pre>
 <p>A generic, Twitter Bootstrap compatible, pagination script that automatically generates navigation links as well as   next/previous page links, given the total number of records and the number of records to be shown per page. Useful for   breaking large sets of data into smaller chunks, reducing network traffic and, at the same time, improving readability,   aesthetics and usability.<p>Read more <a href="https://github.com/stefangabos/Zebra_Pagination/">here</a></p></p>
 <h4>Author(s):</h4>
@@ -54,35 +57,37 @@ Package: <strong>Zebra_Pagination</strong>
 </ul>
 <h4>Version:</h4>
 <ul>
-<li>2.2.3 (last revision: May 20, 2017)</li>
+<li>2.2.4 (last revision: July 04, 2018)</li>
 </ul>
 <h4>Copyright:</h4>
 <ul>
-<li>(c) 2009 - 2017 Stefan Gabos</li>
+<li>(c) 2009 - 2018 Stefan Gabos</li>
 </ul>
 <a name="top"></a>
 <div class="doc_toc">
 <div class="left">
 <h3>Methods</h3>
 <ul>
-<li><a href="../Zebra_Pagination/Zebra_Pagination.html#method__construct">__construct</a>()</li>
-<li><a href="../Zebra_Pagination/Zebra_Pagination.html#methodalways_show_navigation">always_show_navigation</a>()</li>
-<li><a href="../Zebra_Pagination/Zebra_Pagination.html#methodavoid_duplicate_content">avoid_duplicate_content</a>()</li>
-<li><a href="../Zebra_Pagination/Zebra_Pagination.html#methodbase_url">base_url</a>()</li>
-<li><a href="../Zebra_Pagination/Zebra_Pagination.html#methodget_page">get_page</a>()</li>
-<li><a href="../Zebra_Pagination/Zebra_Pagination.html#methodget_pages">get_pages</a>()</li>
-<li><a href="../Zebra_Pagination/Zebra_Pagination.html#methodlabels">labels</a>()</li>
-<li><a href="../Zebra_Pagination/Zebra_Pagination.html#methodmethod">method</a>()</li>
-<li><a href="../Zebra_Pagination/Zebra_Pagination.html#methodnavigation_position">navigation_position</a>()</li>
-<li><a href="../Zebra_Pagination/Zebra_Pagination.html#methodpadding">padding</a>()</li>
-<li><a href="../Zebra_Pagination/Zebra_Pagination.html#methodrecords">records</a>()</li>
-<li><a href="../Zebra_Pagination/Zebra_Pagination.html#methodrecords_per_page">records_per_page</a>()</li>
-<li><a href="../Zebra_Pagination/Zebra_Pagination.html#methodrender">render</a>()</li>
-<li><a href="../Zebra_Pagination/Zebra_Pagination.html#methodreverse">reverse</a>()</li>
-<li><a href="../Zebra_Pagination/Zebra_Pagination.html#methodselectable_pages">selectable_pages</a>()</li>
-<li><a href="../Zebra_Pagination/Zebra_Pagination.html#methodset_page">set_page</a>()</li>
-<li><a href="../Zebra_Pagination/Zebra_Pagination.html#methodtrailing_slash">trailing_slash</a>()</li>
-<li><a href="../Zebra_Pagination/Zebra_Pagination.html#methodvariable_name">variable_name</a>()</li>
+</ul>
+<ul>
+<li><a href="#method__construct">__construct</a></li>
+<li><a href="#methodalways_show_navigation">always_show_navigation</a></li>
+<li><a href="#methodavoid_duplicate_content">avoid_duplicate_content</a></li>
+<li><a href="#methodbase_url">base_url</a></li>
+<li><a href="#methodget_page">get_page</a></li>
+<li><a href="#methodget_pages">get_pages</a></li>
+<li><a href="#methodlabels">labels</a></li>
+<li><a href="#methodmethod">method</a></li>
+<li><a href="#methodnavigation_position">navigation_position</a></li>
+<li><a href="#methodpadding">padding</a></li>
+<li><a href="#methodrecords">records</a></li>
+<li><a href="#methodrecords_per_page">records_per_page</a></li>
+<li><a href="#methodrender">render</a></li>
+<li><a href="#methodreverse">reverse</a></li>
+<li><a href="#methodselectable_pages">selectable_pages</a></li>
+<li><a href="#methodset_page">set_page</a></li>
+<li><a href="#methodtrailing_slash">trailing_slash</a></li>
+<li><a href="#methodvariable_name">variable_name</a></li>
 </ul>
 </div>
 <div class="clear"></div>
@@ -91,7 +96,7 @@ Package: <strong>Zebra_Pagination</strong>
 <a name="class_methods"></a>
 <h3>Class methods</h3>
 <a name="method__construct"></a>
-<h4 class="method"><span><em>constructor</em></span> __construct()</h4>
+<h4 class="method"><span><em>constructor</em></span> __construct() <span class="smalllinenumber">[line 83]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -103,7 +108,7 @@ __construct (
 <h5>Tags:</h5>
 <table cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top"><strong>access:</strong></td>
+<td valign="top"><strong>access:</strong>&nbsp;&nbsp;</td>
 <td valign="top">public</td>
 </tr>
 </table>
@@ -111,7 +116,7 @@ __construct (
 <div class="clear"></div>
 </div>
 <a name="methodalways_show_navigation"></a>
-<h4 class="method"><span><em>method</em></span> always_show_navigation()</h4>
+<h4 class="method"><span><em>method</em></span> always_show_navigation() <span class="smalllinenumber">[line 111]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -130,11 +135,11 @@ $show
 <h5>Tags:</h5>
 <table cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top"><strong>since:</strong></td>
+<td valign="top"><strong>since:</strong>&nbsp;&nbsp;</td>
 <td valign="top">2.0</td>
 </tr>
 <tr>
-<td valign="top"><strong>access:</strong></td>
+<td valign="top"><strong>access:</strong>&nbsp;&nbsp;</td>
 <td valign="top">public</td>
 </tr>
 </table>
@@ -150,7 +155,7 @@ $show
 <div class="clear"></div>
 </div>
 <a name="methodavoid_duplicate_content"></a>
-<h4 class="method"><span><em>method</em></span> avoid_duplicate_content()</h4>
+<h4 class="method"><span><em>method</em></span> avoid_duplicate_content() <span class="smalllinenumber">[line 147]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -168,11 +173,11 @@ $avoid_duplicate_content
 <h5>Tags:</h5>
 <table cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top"><strong>since:</strong></td>
+<td valign="top"><strong>since:</strong>&nbsp;&nbsp;</td>
 <td valign="top">2.0</td>
 </tr>
 <tr>
-<td valign="top"><strong>access:</strong></td>
+<td valign="top"><strong>access:</strong>&nbsp;&nbsp;</td>
 <td valign="top">public</td>
 </tr>
 </table>
@@ -188,7 +193,7 @@ $avoid_duplicate_content
 <div class="clear"></div>
 </div>
 <a name="methodbase_url"></a>
-<h4 class="method"><span><em>method</em></span> base_url()</h4>
+<h4 class="method"><span><em>method</em></span> base_url() <span class="smalllinenumber">[line 201]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -212,7 +217,7 @@ is &quot;page&quot;;</li></ul><p> <ul><li><em>http://youwebsite/mypage/page[page
 <h5>Tags:</h5>
 <table cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top"><strong>access:</strong></td>
+<td valign="top"><strong>access:</strong>&nbsp;&nbsp;</td>
 <td valign="top">public</td>
 </tr>
 </table>
@@ -233,7 +238,7 @@ is &quot;page&quot;;</li></ul><p> <ul><li><em>http://youwebsite/mypage/page[page
 <div class="clear"></div>
 </div>
 <a name="methodget_page"></a>
-<h4 class="method"><span><em>method</em></span> get_page()</h4>
+<h4 class="method"><span><em>method</em></span> get_page() <span class="smalllinenumber">[line 233]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>integer</em>
@@ -247,11 +252,11 @@ get_page (
 <h5>Tags:</h5>
 <table cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top"><strong>return:</strong></td>
+<td valign="top"><strong>return:</strong>&nbsp;&nbsp;</td>
 <td valign="top">Returns the current page's number</td>
 </tr>
 <tr>
-<td valign="top"><strong>access:</strong></td>
+<td valign="top"><strong>access:</strong>&nbsp;&nbsp;</td>
 <td valign="top">public</td>
 </tr>
 </table>
@@ -259,7 +264,7 @@ get_page (
 <div class="clear"></div>
 </div>
 <a name="methodget_pages"></a>
-<h4 class="method"><span><em>method</em></span> get_pages()</h4>
+<h4 class="method"><span><em>method</em></span> get_pages() <span class="smalllinenumber">[line 305]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>integer</em>
@@ -273,15 +278,15 @@ get_pages (
 <h5>Tags:</h5>
 <table cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top"><strong>return:</strong></td>
+<td valign="top"><strong>return:</strong>&nbsp;&nbsp;</td>
 <td valign="top">Returns the total number of pages, based on the total number of records and the number of                       records to be shown per page.</td>
 </tr>
 <tr>
-<td valign="top"><strong>since:</strong></td>
+<td valign="top"><strong>since:</strong>&nbsp;&nbsp;</td>
 <td valign="top">2.1</td>
 </tr>
 <tr>
-<td valign="top"><strong>access:</strong></td>
+<td valign="top"><strong>access:</strong>&nbsp;&nbsp;</td>
 <td valign="top">public</td>
 </tr>
 </table>
@@ -289,7 +294,7 @@ get_pages (
 <div class="clear"></div>
 </div>
 <a name="methodlabels"></a>
-<h4 class="method"><span><em>method</em></span> labels()</h4>
+<h4 class="method"><span><em>method</em></span> labels() <span class="smalllinenumber">[line 331]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -312,11 +317,11 @@ $next
 <h5>Tags:</h5>
 <table cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top"><strong>since:</strong></td>
+<td valign="top"><strong>since:</strong>&nbsp;&nbsp;</td>
 <td valign="top">2.0</td>
 </tr>
 <tr>
-<td valign="top"><strong>access:</strong></td>
+<td valign="top"><strong>access:</strong>&nbsp;&nbsp;</td>
 <td valign="top">public</td>
 </tr>
 </table>
@@ -337,7 +342,7 @@ $next
 <div class="clear"></div>
 </div>
 <a name="methodmethod"></a>
-<h4 class="method"><span><em>method</em></span> method()</h4>
+<h4 class="method"><span><em>method</em></span> method() <span class="smalllinenumber">[line 372]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -355,7 +360,7 @@ $method
 <h5>Tags:</h5>
 <table cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top"><strong>access:</strong></td>
+<td valign="top"><strong>access:</strong>&nbsp;&nbsp;</td>
 <td valign="top">public</td>
 </tr>
 </table>
@@ -371,7 +376,7 @@ $method
 <div class="clear"></div>
 </div>
 <a name="methodnavigation_position"></a>
-<h4 class="method"><span><em>method</em></span> navigation_position()</h4>
+<h4 class="method"><span><em>method</em></span> navigation_position() <span class="smalllinenumber">[line 396]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -385,11 +390,11 @@ $position
 <h5>Tags:</h5>
 <table cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top"><strong>since:</strong></td>
+<td valign="top"><strong>since:</strong>&nbsp;&nbsp;</td>
 <td valign="top">2.1</td>
 </tr>
 <tr>
-<td valign="top"><strong>access:</strong></td>
+<td valign="top"><strong>access:</strong>&nbsp;&nbsp;</td>
 <td valign="top">public</td>
 </tr>
 </table>
@@ -405,7 +410,7 @@ $position
 <div class="clear"></div>
 </div>
 <a name="methodpadding"></a>
-<h4 class="method"><span><em>method</em></span> padding()</h4>
+<h4 class="method"><span><em>method</em></span> padding() <span class="smalllinenumber">[line 420]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -423,7 +428,7 @@ $enabled
 <h5>Tags:</h5>
 <table cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top"><strong>access:</strong></td>
+<td valign="top"><strong>access:</strong>&nbsp;&nbsp;</td>
 <td valign="top">public</td>
 </tr>
 </table>
@@ -439,7 +444,7 @@ $enabled
 <div class="clear"></div>
 </div>
 <a name="methodrecords"></a>
-<h4 class="method"><span><em>method</em></span> records()</h4>
+<h4 class="method"><span><em>method</em></span> records() <span class="smalllinenumber">[line 441]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -455,7 +460,7 @@ $records
 <h5>Tags:</h5>
 <table cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top"><strong>access:</strong></td>
+<td valign="top"><strong>access:</strong>&nbsp;&nbsp;</td>
 <td valign="top">public</td>
 </tr>
 </table>
@@ -471,7 +476,7 @@ $records
 <div class="clear"></div>
 </div>
 <a name="methodrecords_per_page"></a>
-<h4 class="method"><span><em>method</em></span> records_per_page()</h4>
+<h4 class="method"><span><em>method</em></span> records_per_page() <span class="smalllinenumber">[line 465]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -487,7 +492,7 @@ $records_per_page
 <h5>Tags:</h5>
 <table cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top"><strong>access:</strong></td>
+<td valign="top"><strong>access:</strong>&nbsp;&nbsp;</td>
 <td valign="top">public</td>
 </tr>
 </table>
@@ -503,7 +508,7 @@ $records_per_page
 <div class="clear"></div>
 </div>
 <a name="methodrender"></a>
-<h4 class="method"><span><em>method</em></span> render()</h4>
+<h4 class="method"><span><em>method</em></span> render() <span class="smalllinenumber">[line 491]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -522,7 +527,7 @@ $return_output
 <h5>Tags:</h5>
 <table cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top"><strong>access:</strong></td>
+<td valign="top"><strong>access:</strong>&nbsp;&nbsp;</td>
 <td valign="top">public</td>
 </tr>
 </table>
@@ -538,7 +543,7 @@ $return_output
 <div class="clear"></div>
 </div>
 <a name="methodreverse"></a>
-<h4 class="method"><span><em>method</em></span> reverse()</h4>
+<h4 class="method"><span><em>method</em></span> reverse() <span class="smalllinenumber">[line 569]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -556,11 +561,11 @@ $reverse
 <h5>Tags:</h5>
 <table cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top"><strong>since:</strong></td>
+<td valign="top"><strong>since:</strong>&nbsp;&nbsp;</td>
 <td valign="top">2.0</td>
 </tr>
 <tr>
-<td valign="top"><strong>access:</strong></td>
+<td valign="top"><strong>access:</strong>&nbsp;&nbsp;</td>
 <td valign="top">public</td>
 </tr>
 </table>
@@ -576,7 +581,7 @@ $reverse
 <div class="clear"></div>
 </div>
 <a name="methodselectable_pages"></a>
-<h4 class="method"><span><em>method</em></span> selectable_pages()</h4>
+<h4 class="method"><span><em>method</em></span> selectable_pages() <span class="smalllinenumber">[line 594]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -592,7 +597,7 @@ $selectable_pages
 <h5>Tags:</h5>
 <table cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top"><strong>access:</strong></td>
+<td valign="top"><strong>access:</strong>&nbsp;&nbsp;</td>
 <td valign="top">public</td>
 </tr>
 </table>
@@ -609,7 +614,7 @@ will be shown to the left and to the right of the current page.</em></p><p>Defau
 <div class="clear"></div>
 </div>
 <a name="methodset_page"></a>
-<h4 class="method"><span><em>method</em></span> set_page()</h4>
+<h4 class="method"><span><em>method</em></span> set_page() <span class="smalllinenumber">[line 617]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -625,7 +630,7 @@ $page
 <h5>Tags:</h5>
 <table cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top"><strong>access:</strong></td>
+<td valign="top"><strong>access:</strong>&nbsp;&nbsp;</td>
 <td valign="top">public</td>
 </tr>
 </table>
@@ -641,7 +646,7 @@ $page
 <div class="clear"></div>
 </div>
 <a name="methodtrailing_slash"></a>
-<h4 class="method"><span><em>method</em></span> trailing_slash()</h4>
+<h4 class="method"><span><em>method</em></span> trailing_slash() <span class="smalllinenumber">[line 649]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -657,7 +662,7 @@ $enabled
 <h5>Tags:</h5>
 <table cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top"><strong>access:</strong></td>
+<td valign="top"><strong>access:</strong>&nbsp;&nbsp;</td>
 <td valign="top">public</td>
 </tr>
 </table>
@@ -673,7 +678,7 @@ $enabled
 <div class="clear"></div>
 </div>
 <a name="methodvariable_name"></a>
-<h4 class="method"><span><em>method</em></span> variable_name()</h4>
+<h4 class="method"><span><em>method</em></span> variable_name() <span class="smalllinenumber">[line 672]</span></h4>
 <div class="doc_block">
 <p class="code">
 <em>void</em>
@@ -691,7 +696,7 @@ $variable_name
 <h5>Tags:</h5>
 <table cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top"><strong>access:</strong></td>
+<td valign="top"><strong>access:</strong>&nbsp;&nbsp;</td>
 <td valign="top">public</td>
 </tr>
 </table>
@@ -711,7 +716,7 @@ $variable_name
 </tr>
 </table>
 <div id="doc_footer">
-Documentation generated on <span>Sat, 20 May 2017 21:57:43 +0200</span> by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+Documentation generated on <span>Wed, 04 Jul 18</span> by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 </div>
 </div>
 </body>
