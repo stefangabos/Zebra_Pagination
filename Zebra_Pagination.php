@@ -9,8 +9,8 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Pagination/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.2.3 (last revision: May 20, 2017)
- *  @copyright  (c) 2009 - 2017 Stefan Gabos
+ *  @version    2.2.4 (last revision: July 04, 2018)
+ *  @copyright  (c) 2009 - 2018 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pagination
  */
