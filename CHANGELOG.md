@@ -1,3 +1,9 @@
+## version 2.3 (July 04, 2018)
+
+- a new [css_classes](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html#methodcss_classes) method was added for setting the CSS classes used in the markup; additionally, the library is now also compatible with [Twitter Bootstrap 4](http://getbootstrap.com/)
+- updated example to use the `mysqli` extension instead of the `mysql` extension, fixing [#6](https://github.com/stefangabos/Zebra_Pagination/issues/6) - thank you [Elra Ghifary](https://github.com/elraghifary)
+- fixed some typos in the examples (see [#9](https://github.com/stefangabos/Zebra_Pagination/pull/9))
+
 ## version 2.2.3 (May 20, 2017)
 
 - unnecessary files are no more included when downloading from GitHub or via Composer
