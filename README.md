@@ -6,7 +6,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/stefangabos/zebra_pagination/v/stable)](https://packagist.org/packages/stefangabos/zebra_pagination) [![Total Downloads](https://poser.pugx.org/stefangabos/zebra_pagination/downloads)](https://packagist.org/packages/stefangabos/zebra_pagination) [![Monthly Downloads](https://poser.pugx.org/stefangabos/zebra_pagination/d/monthly)](https://packagist.org/packages/stefangabos/zebra_pagination) [![Daily Downloads](https://poser.pugx.org/stefangabos/zebra_pagination/d/daily)](https://packagist.org/packages/stefangabos/zebra_pagination) [![License](https://poser.pugx.org/stefangabos/zebra_pagination/license)](https://packagist.org/packages/stefangabos/zebra_pagination)
 
-A generic, [Twitter Bootstrap](http://getbootstrap.com) compatible, pagination script that automatically generates navigation links as well as next/previous page links, given the total number of records and the number of records to be shown per page. Useful for breaking large sets of data into smaller chunks, reducing network traffic and, at the same time, improving readability, aesthetics and usability.
+A generic, [Twitter Bootstrap](http://getbootstrap.com) compatible (both versions 3 and 4), pagination script that automatically generates navigation links as well as next/previous page links, given the total number of records and the number of records to be shown per page. Useful for breaking large sets of data into smaller chunks, reducing network traffic and, at the same time, improving readability, aesthetics and usability.
 
 Adheres to pagination best practices (provides large clickable areas, doesn't use underlines, the selected page is clearly highlighted, page links are spaced out, provides "previous page" and "next page" links, provides "first page" and "last page" links - as outlined in an article by Faruk Ates from 2007, which can now be found [here](https://gist.github.com/622561), can generate links both in natural as well as in reverse order, can be easily, localized, supports different positions for next/previous page buttons, supports page propagation via GET or via URL rewriting, is SEO-friendly, and the appearance is easily customizable through CSS.
 
@@ -18,7 +18,8 @@ The code is heavily commented and generates no warnings/errors/notices when PHP'
 
 ## Support the development of this library
 
-[![Donate](https://img.shields.io/badge/Be%20kind%20%7C%20Donate%20$3%20with%20-%20PayPal%20-brightgreen.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SKXN7C6PPH6FL)
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SKXN7C6PPH6FL)
+
 
 ## Features
 
@@ -37,14 +38,6 @@ PHP 5+
 
 ## Installation
 
-Download the latest version, unpack it, and load it in your project
-
-```php
-require_once 'Zebra_Pagination.php';
-```
-
-## Installation with Composer
-
 You can install Zebra_Pagination via [Composer](https://packagist.org/packages/stefangabos/zebra_pagination)
 
 ```bash
@@ -53,6 +46,12 @@ composer require stefangabos/zebra_pagination
 
 # get the latest commit
 composer require stefangabos/zebra_pagination:dev-master
+```
+
+Or you can install it manually by downloading the latest version, unpacking it, and then including it in your project
+
+```php
+require_once 'path/to/Zebra_Pagination.php';
 ```
 
 ## How to use
@@ -68,7 +67,7 @@ If you want to preserve hashes in the URL, also include the JavaScript file – 
 (jQuery needs to also be loaded before loading this file)
 
 ```javascript
-<script type="text/javascript" src="path/to/zebra_pagination.js"></script>
+<script src="path/to/zebra_pagination.js"></script>
 ```
 
 Paginate data from an array:
@@ -150,6 +149,12 @@ Labels for "Previous" and "Next" links can be changed with the [labels()](https:
 $pagination->labels('Previous', 'Next');
 ```
 ![Zebra_Pagination](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-labels.png)
+
+You can also have HTML markup as labels making it easy to include font icons like the ones from [Font Awesome](https://fontawesome.com/)
+```php
+$pagination->labels('<i class="fa fa-arrow-left"></i>', '<i class="fa fa-arrow-right"></i>');
+```
+![Zebra_Pagination](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-labels-icon-font.png)
 
 Paginate data from MySQL:
 
