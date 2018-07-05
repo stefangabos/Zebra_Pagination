@@ -210,7 +210,7 @@ $pagination->records_per_page($records_per_page);
     </tr>
     </thead>
     <tbody>
-    <?php $index = 0; while ($row = mysql_fetch_assoc($result)): ?>
+    <?php $index = 0; while ($row = mysqli_fetch_assoc($result)): ?>
     <tr<?php echo $index++ % 2 ? ' class="even"' : ''; ?>>
         <td><?php echo $row['country']; ?></td>
     </tr>
@@ -246,10 +246,10 @@ $pagination->reverse(true);
 
 // when showing records in reverse order, we need to know the total number
 // of records from the beginning
-$result = mysqli_query($connection, 'SELECT COUNT(id) AS records FROM countries'))) or die (mysql_error());
+$result = mysqli_query($connection, 'SELECT COUNT(id) AS records FROM countries'))) or die (mysqli_error());
 
 // pass the total number of records to the pagination class
-$pagination->records(array_pop(mysql_fetch_assoc($result)));
+$pagination->records(array_pop(mysqli_fetch_assoc($result)));
 
 // records per page
 $pagination->records_per_page($records_per_page);
@@ -281,7 +281,7 @@ mysqli_query($connection. $sql) or die(mysqli_error($connection));
     </tr>
     </thead>
     <tbody>
-    <?php $index = 0; while ($row = mysql_fetch_assoc($result)): ?>
+    <?php $index = 0; while ($row = mysqli_fetch_assoc($result)): ?>
     <tr<?php echo $index++ % 2 ? ' class="even"' : ''; ?>>
         <td><?php echo $row['country']; ?></td>
     </tr>
@@ -298,6 +298,5 @@ $pagination->render();
 Would result in something like
 
 ![Zebra_Pagination](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-reversed.png?raw=true)
-
 
 :books: Checkout the [awesome documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)!
