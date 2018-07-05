@@ -16,11 +16,6 @@ The code is heavily commented and generates no warnings/errors/notices when PHP'
 
 :books: [Documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)
 
-## Support the development of this library
-
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SKXN7C6PPH6FL)
-
-
 ## Features
 
 - it is a generic library: can be used to paginate records both from an array or from a database
@@ -31,6 +26,10 @@ The code is heavily commented and generates no warnings/errors/notices when PHP'
 - compatible with [Twitter Bootstrap](http://getbootstrap.com) 3 and 4
 - code is heavily commented and generates no warnings/errors/notices when PHP’s error reporting level is set to E_ALL
 - has [awesome documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)
+
+## Support the development of this library
+
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SKXN7C6PPH6FL)
 
 ## Requirements
 
