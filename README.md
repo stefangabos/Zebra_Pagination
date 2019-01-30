@@ -14,7 +14,11 @@ Adheres to pagination best practices (provides large clickable areas, doesn't us
 
 The code is heavily commented and generates no warnings/errors/notices when PHP's error reporting level is set to E_ALL.
 
-:books: [Documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)
+:books: Check out the [awesome documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)!
+
+## Support the development of this library
+
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SKXN7C6PPH6FL)
 
 ## Features
 
@@ -26,10 +30,6 @@ The code is heavily commented and generates no warnings/errors/notices when PHP'
 - compatible with [Twitter Bootstrap](http://getbootstrap.com) 3 and 4
 - code is heavily commented and generates no warnings/errors/notices when PHP’s error reporting level is set to E_ALL
 - has [awesome documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)
-
-## Support the development of this library
-
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SKXN7C6PPH6FL)
 
 ## Requirements
 
@@ -299,4 +299,4 @@ Would result in something like
 
 ![Zebra_Pagination](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-reversed.png?raw=true)
 
-:books: Checkout the [awesome documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)!
+:books: Check out the [awesome documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)!
