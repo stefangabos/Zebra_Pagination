@@ -75,13 +75,8 @@
     $pagination->navigation_position(isset($_GET['navigation_position']) && in_array($_GET['navigation_position'], array('left', 'right')) ? $_GET['navigation_position'] : 'outside');
 
     // the MySQL statement to fetch the rows
-    // note how we build the LIMIT
-    // also, note the "SQL_CALC_FOUND_ROWS"
-    // this is to get the number of rows that would've been returned if there was no LIMIT
-    // see http://dev.mysql.com/doc/refman/5.0/en/information-functions.html#function_found-rows
     $MySQL = '
         SELECT
-            SQL_CALC_FOUND_ROWS
             country
         FROM
             countries
@@ -98,7 +93,7 @@
         die(mysqli_error($connection));
 
     // fetch the total number of records in the table
-    $rows = mysqli_fetch_assoc(mysqli_query($connection, 'SELECT FOUND_ROWS() AS rows'));
+    $rows = mysqli_fetch_assoc(mysqli_query($connection, 'SELECT COUNT(*) AS rows FROM countries'));
 
     // if we are not showing records in reversed order
     // (if we are, we already set these)
