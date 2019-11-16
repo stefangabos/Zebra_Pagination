@@ -1,3 +1,8 @@
+## version 2.4.0 (TBA)
+
+- fixed bug where having [always_show_navigation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html#methodalways_show_navigation) set to `TRUE` would still not display pagination if there was a single page to be shown (see [#6](https://github.com/stefangabos/Zebra_Pagination/issues/16))
+- updated example
+
 ## version 2.3 (July 04, 2018)
 
 - a new [css_classes](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html#methodcss_classes) method was added for setting the CSS classes used in the markup; additionally, the library is now also compatible with [Twitter Bootstrap 4](http://getbootstrap.com/)
