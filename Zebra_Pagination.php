@@ -9,8 +9,8 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Pagination/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.3.1 (last revision: July 04, 2018)
- *  @copyright  (c) 2009 - 2018 Stefan Gabos
+ *  @version    2.4.0 (last revision: November 16, 2019)
+ *  @copyright  (c) 2009 - 2019 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pagination
  */
@@ -585,7 +585,7 @@ class Zebra_Pagination {
         $this->get_page();
 
         // if there is a single page, or no pages at all, don't display anything
-        if ($this->_properties['total_pages'] <= 1) return '';
+        if ($this->_properties['total_pages'] <= 1 && !$this->_properties['always_show_navigation']) return '';
 
         // start building output
         $output = '<div class="Zebra_Pagination"><ul' . ($this->_properties['css_classes']['list'] != '' ? ' class="' . trim($this->_properties['css_classes']['list']) . '"' : '') . '>';
