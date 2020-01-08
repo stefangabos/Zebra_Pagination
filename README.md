@@ -174,13 +174,8 @@ require 'path/to/Zebra_Pagination.php';
 $pagination = new Zebra_Pagination();
 
 // the MySQL statement to fetch the rows
-// note how we build the LIMIT
-// also, note the "SQL_CALC_FOUND_ROWS"
-// this is to get the number of rows that would've been returned if there was no LIMIT
-// see http://dev.mysql.com/doc/refman/5.0/en/information-functions.html#function_found-rows
 $sql = '
     SELECT
-        SQL_CALC_FOUND_ROWS
         country
     FROM
         countries
@@ -193,7 +188,7 @@ $sql = '
 $result = mysqli_query($connrection, $sql))) or die(mysqli_error($connection));
 
 // fetch the total number of records in the table
-$rows = mysqli_fetch_assoc(mysqli_query($connection, 'SELECT FOUND_ROWS() AS rows'));
+$rows = mysqli_fetch_assoc(mysqli_query($connection, 'SELECT COUNT(*) AS rows FROM countries'));
 
 // pass the total number of records to the pagination class
 $pagination->records($rows['rows']);
@@ -246,7 +241,7 @@ $pagination->reverse(true);
 
 // when showing records in reverse order, we need to know the total number
 // of records from the beginning
-$result = mysqli_query($connection, 'SELECT COUNT(id) AS records FROM countries'))) or die (mysqli_error());
+$result = mysqli_query($connection, 'SELECT COUNT(*) AS rows FROM countries'))) or die (mysqli_error());
 
 // pass the total number of records to the pagination class
 $pagination->records(array_pop(mysqli_fetch_assoc($result)));
