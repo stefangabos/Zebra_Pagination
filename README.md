@@ -185,7 +185,7 @@ $sql = '
 
 // execute the MySQL query
 // (you will use mysqli or PDO here, but you get the idea)
-$result = mysqli_query($connrection, $sql))) or die(mysqli_error($connection));
+$result = mysqli_query($connection, $sql) or die(mysqli_error($connection));
 
 // fetch the total number of records in the table
 $rows = mysqli_fetch_assoc(mysqli_query($connection, 'SELECT COUNT(*) AS rows FROM countries'));
