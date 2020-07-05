@@ -2,10 +2,11 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.5;
     color: #24292e;
     text-align: left;
+    background: url('background-pattern.png');
 }
 
 a {
@@ -31,12 +32,19 @@ h6 {
 
 #phpdoc > table {
     height: 100%;
+    border: 1px solid #e1e4e8;
 }
 
 #doc_header {
     color: #fff;
     background: #24292e;
-    padding: 1em;
+    padding: 1em 1em 1em 55px;
+}
+
+#doc_header .brand-image {
+    position: absolute;
+    left: 10px;
+    top: 10px;
 }
 
 #doc_header ul {
@@ -60,23 +68,27 @@ h6 {
     color: #fff;
 }
 
+#doc_content {
+    background: #FFF;
+}
+
 #doc_content,
 #doc_sidebar {
-    padding: 1em 1em 0;
+    padding: 1em;
 }
 
 .sidebar {
     background: #fafbfc;
-    border-left: 1px solid #e1e4e8;
     border-right: 1px solid #e1e4e8;
     border-bottom: 1px solid #e1e4e8;
     white-space: nowrap;
+    padding: 0 1em;
 }
 
 .doc_toc {
     background: #fafbfc;
     border: 1px solid #e1e4e8;
-    padding: 1em;
+    padding: 1em 1em 0;
     margin-bottom: 1.5em;
 }
 
@@ -87,12 +99,21 @@ h6 {
 .doc_index h3,
 h4.variable,
 h4.method {
-    background: #ffecec;
+    /* background: #ffecec; */
     padding: 1em;
     border: 1px solid #e1e4e8;
-    border-bottom-width: 4px;
-    font-size: 100%;
+    border-top-width: 4px;
+    font-size: 140%;
     margin-bottom: 0;
+}
+
+h4.method {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.smalllinenumber {
+    display: none;
 }
 
 h4.variable-static {
@@ -107,12 +128,17 @@ h4.method span {
     margin-right: .5em;
 }
 
+h4.variable span.value {
+    font-size: 100%;
+    color: #C40000;
+}
+
 .doc_block,
 .doc_index {
-    padding: 1em;
-    background: #fafbfc;
+    /* padding: 1em; */
+    /* background: #fafbfc; */
     margin-bottom: 1em;
-    border: 1px solid #e1e4e8;
+    /* border: 1px solid #e1e4e8; */
 }
 
 .doc_block:last-of-type {
@@ -129,6 +155,12 @@ h4.method span {
 
 .doc_block table td {
     padding: .5em;
+}
+
+.doc_block > .code:first-child {
+    background: #FFF;
+    border: none;
+    padding: 10px 1em 20px 20px;
 }
 
 .doc_index {
@@ -157,7 +189,7 @@ h4.method span {
 }
 
 .code {
-    background: #FFF;
+    background: #f6f8fa;
     border: 1px solid #e1e4e8;
     font-family: Consolas, 'Courier New', Courier, monospace;
     font-size: 90%;
@@ -186,6 +218,18 @@ h5 {
 a.top {
     display: block;
     margin-top: 1em;
+    padding-left: 20px;
+}
+
+a.top:before {
+    content: "▲";
+    color: #dedede;
+    position: absolute;
+    left: 0;
+}
+
+a.top:before:hover {
+    text-decoration: none !important;
 }
 
 #doc_footer {
@@ -195,9 +239,11 @@ a.top {
 }
 
 .highlight {
+    border: 1px solid #dfe2e5;
     border-left: 0.5em solid #dfe2e5;
     padding: 1em;
-    background: #ffecec;
+    background: #fafafa;
+    font-style: italic;
 }
 
 .left {
