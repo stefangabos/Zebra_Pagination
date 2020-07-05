@@ -108,7 +108,7 @@ h4.method {
     padding: 1em 1em 1em 0;
     border-top: 4px solid #e1e4e8;
     font-size: 140%;
-    margin-bottom: 0;
+    margin-bottom: 1px;
 }
 
 h4.method {
@@ -165,6 +165,7 @@ h4.variable span.value {
     background: #FFF;
     border: none;
     padding: 8px 1em 1em 0;
+    font-size: 100%;
 }
 
 .doc_index {
@@ -262,6 +263,15 @@ a.top:before:hover {
         border: 1px solid #ccc9a4;
         padding: 0 0 0 1em;
         margin : 0px
+}
+
+code {
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+    padding: 1px 4px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    border: 1px dotted #dedede;
+    margin-right: 1px;
 }
 
 .src-line {  }
