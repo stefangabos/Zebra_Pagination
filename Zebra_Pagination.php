@@ -9,8 +9,8 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Pagination/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.4.0 (last revision: November 16, 2019)
- *  @copyright  (c) 2009 - 2019 Stefan Gabos
+ *  @version    2.4.0 (last revision: July 05, 2020)
+ *  @copyright  © 2009 - 2020 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pagination
  */
@@ -106,7 +106,7 @@ class Zebra_Pagination {
      *  $pagination->always_show_navigation(false);
      *  </code>
      *
-     *  @param  boolean     $show   (Optional) If set to FALSE, the "previous page" and "next page" links will only be
+     *  @param  boolean     $status (Optional) If set to FALSE, the "previous page" and "next page" links will only be
      *                              shown if there are more pages than {@link selectable_pages}.
      *
      *                              Default is TRUE.
@@ -115,10 +115,10 @@ class Zebra_Pagination {
      *
      *  @return void
      */
-    public function always_show_navigation($show = true) {
+    public function always_show_navigation($status = true) {
 
         // set property
-        $this->_properties['always_show_navigation'] = $show;
+        $this->_properties['always_show_navigation'] = $status;
 
     }
 
@@ -140,21 +140,20 @@ class Zebra_Pagination {
      *  $pagination->avoid_duplicate_content(false);
      *  </code>
      *
-     *  @param  boolean     $avoid_duplicate_content    (Optional) If set to FALSE, the library will have for the first
-     *                                                  page (or last, if you are displaying links in {@link reverse}
-     *                                                  order) a different path than the one you have when you are accessing
-     *                                                  the page for the first (un-paginated) time.
+     *  @param  boolean     $status     (Optional) If set to FALSE, the library will have for the first page (or last,
+     *                                  if you are displaying links in {@link reverse} order) a different path than the
+     *                                  one you have when you are accessing the page for the first (un-paginated) time.
      *
-     *                                                  Default is TRUE.
+     *                                  Default is TRUE.
      *
      *  @return void
      *
      *  @since  2.0
      */
-    public function avoid_duplicate_content($avoid_duplicate_content = true) {
+    public function avoid_duplicate_content($status = true) {
 
         // set property
-        $this->_properties['avoid_duplicate_content'] = $avoid_duplicate_content;
+        $this->_properties['avoid_duplicate_content'] = $status;
 
     }
 
