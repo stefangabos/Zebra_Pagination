@@ -547,7 +547,7 @@ class Zebra_Pagination {
      *  Based on this and on the value of {@link records}, the script will know how many pages there are.
      *
      *  <code>
-     *  //  tell the class that there are 20 records displayed on one page
+     *  // tell the class that there are 20 records displayed on one page
      *  $pagination->records_per_page(20);
      *  </code>
      *
@@ -569,8 +569,7 @@ class Zebra_Pagination {
      *  Generates the output.
      *
      *  <code>
-     *  //  generate output but don't echo it
-     *  //  and return it instead
+     *  // generate output but don't echo it and return it instead
      *  $output = $pagination->render(true);
      *  </code>
      *
@@ -753,9 +752,10 @@ class Zebra_Pagination {
      *  Sets the variable name to be used for page propagation.
      *
      *  <code>
-     *  //  sets the variable name to "foo"
-     *  //  now, in the URL, the current page will be passed either as "foo=[page number]" (if method is "get") or
-     *  //  as "/foo[page number]" (if method is "url")
+     *  // sets the variable name to "foo"
+     *  // now, in the URL, the current page will be passed either as
+     *  // "foo=[page number]" (if method is "get") or as
+     *  // "/foo[page number]" (if method is "url")
      *  $pagination->variable_name('foo');
      *  </code>
      *
