@@ -41,10 +41,16 @@ h6 {
     padding: 1em 1em 1em 55px;
 }
 
-#doc_header .brand-image {
+#doc_header a.projects-homepage {
+    color: #FFF;
+    text-decoration: none;
+    position: relative;
+}
+
+#doc_header a.projects-homepage img {
     position: absolute;
-    left: 10px;
-    top: 10px;
+    left: -45px;
+    top: -6px;
 }
 
 #doc_header ul {
