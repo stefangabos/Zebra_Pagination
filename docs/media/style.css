@@ -158,7 +158,7 @@ h4.variable span.value {
 .doc_block > .code:first-child {
     background: #FFF;
     border: none;
-    padding: 8px 1em 20px 0;
+    padding: 8px 1em 1em 0;
 }
 
 .doc_index {
