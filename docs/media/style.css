@@ -88,7 +88,23 @@ h6 {
     border-right: 1px solid #e1e4e8;
     border-bottom: 1px solid #e1e4e8;
     white-space: nowrap;
-    padding: 0 1em;
+}
+
+.hello-separator {
+    border-top: 1px solid #dedede;
+    margin: 2em -2em;
+}
+
+.hello {
+    white-space: normal;
+    width: 200px;
+}
+
+.hello img {
+    width: 131px;
+    border-radius: 75px;
+    display: block;
+    margin: 0 auto 1em;
 }
 
 .doc_toc {
@@ -202,6 +218,7 @@ h4.variable span.value {
     margin: 0 0 1em;
     padding: 1em;
     line-height: 1.4;
+    border-radius: 5px;
 }
 
 .code li {
