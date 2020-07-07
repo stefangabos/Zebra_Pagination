@@ -506,16 +506,16 @@ class Zebra_Pagination {
      *  $pagination->padding(false);
      *  </code>
      *
-     *  @param  boolean     $enabled    (Optional) Setting this property to `false` will disable padding.
+     *  @param  boolean     $status     (Optional) Setting this property to `false` will disable padding.
      *
      *                                  Default is `true`.
      *
      *  @return void
      */
-    public function padding($enabled = true) {
+    public function padding($status = true) {
 
         // set padding
-        $this->_properties['padding'] = $enabled;
+        $this->_properties['padding'] = $status;
 
     }
 
@@ -573,7 +573,7 @@ class Zebra_Pagination {
      *  $output = $pagination->render(true);
      *  </code>
      *
-     *  <samp>If you are not using {@link http://getbootstrap.com/ Twitter Bootstrap} on your page, make sure to also include the zebra_paginations.css file!</samp>
+     *  <samp>If you are not using {@link http://getbootstrap.com/ Twitter Bootstrap} on your page, make sure to also include the zebra_pagination.css file!</samp>
      *
      *  @param  boolean     $return_output      (Optional) Setting this argument to `true` will instruct the script to
      *                                          return the generated output rather than outputting it to the screen.
@@ -587,7 +587,7 @@ class Zebra_Pagination {
         // get some properties of the class
         $this->get_page();
 
-        // if there is a single page, or no pages at all, don't display anything
+        // if there is a single page or no pages at all, and we don't have to always display navigation, don't display anything
         if ($this->_properties['total_pages'] <= 1 && !$this->_properties['always_show_navigation']) return '';
 
         // start building output
@@ -734,17 +734,17 @@ class Zebra_Pagination {
      *  $pagination->trailing_slash(false);
      *  </code>
      *
-     *  @param  boolean     $enabled    (Optional) Setting this property to `false` will disable trailing slashes on generated
+     *  @param  boolean     $status     (Optional) Setting this property to `false` will disable trailing slashes on generated
      *                                  URLs when {@link method} is `url`.
      *
      *                                  Default is `true` (trailing slashes are enabled by default).
      *
      *  @return void
      */
-    public function trailing_slash($enabled) {
+    public function trailing_slash($status = true) {
 
         // set the state of trailing slashes
-        $this->_properties['trailing_slash'] = $enabled;
+        $this->_properties['trailing_slash'] = $status;
 
     }
 
