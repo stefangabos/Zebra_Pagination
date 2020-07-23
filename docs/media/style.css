@@ -26,7 +26,7 @@ h6 {
 #phpdoc {
     min-height: calc(100% - 95px);
     height: calc(100% - 95px);
-    width: 991px;
+    width: 1040px;
     margin: 0 auto;
 }
 
@@ -169,8 +169,16 @@ h4.variable span.value {
     margin-bottom: 0;
 }
 
-.doc_block li ul {
+.doc_block ul li.secondary {
     list-style-type: none;
+}
+
+.doc_block ul li.secondary ul {
+    margin-left: 2.4em;
+}
+
+.doc_block ul li.secondary ul li {
+    list-style-type: circle;
 }
 
 .doc_block table td {
@@ -178,10 +186,11 @@ h4.variable span.value {
 }
 
 .doc_block > .code:first-child {
-    background: #FFF;
-    border: none;
-    padding: 8px 1em 1em 0;
+    background: #fafafa;
+    border: 1px solid #dedede;
+    padding: 1em;
     font-size: 100%;
+    margin: 1.5em 0;
 }
 
 .doc_index {
@@ -284,7 +293,7 @@ a.top:before:hover {
 
 code {
     font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
-    padding: 1px 4px;
+    padding: 0px 4px;
     background-color: #f0f0f0;
     border-radius: 5px;
     border: 1px dotted #dedede;
