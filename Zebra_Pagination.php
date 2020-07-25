@@ -457,7 +457,7 @@ class Zebra_Pagination {
         // set the labels
         $this->_properties['previous'] = $previous;
         $this->_properties['next'] = $next;
-        $this->_properties['current_page'] = $current_page;
+        $this->_properties['condensed_progress'] = $current_page;
 
     }
 
