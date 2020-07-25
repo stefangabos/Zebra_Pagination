@@ -425,7 +425,8 @@ class Zebra_Pagination {
     }
 
     /**
-     *  Change the labels for the *previous page* and *next page* links.
+     *  Change the labels for the *previous page* and *next page* links as well as the label used to indicate progress
+     *  when in {@link condensed} mode.
      *
      *  <code>
      *  // change the default labels
