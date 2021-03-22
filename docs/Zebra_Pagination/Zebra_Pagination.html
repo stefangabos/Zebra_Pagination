@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Zebra_Pagination - a generic, Twitter Bootstrap compatible, pagination library that automatically generates navigation links - Class: Zebra_Pagination</title>
+<title>Zebra Pagination - a generic, Twitter Bootstrap compatible, PHP pagination library that automatically generates navigation links - Docs For Class Zebra_Pagination</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
 <link rel="shortcut icon" href="/Zebra_Pagination/favicon.ico">
@@ -12,7 +12,7 @@
 <div id="doc_header">
 <a href="https://github.com/stefangabos/Zebra_Pagination" class="projects-homepage">
 <img src="../media/zebra-logo.png" width="35" height="32" alt="Zebra_Pagination" >
-<strong>Zebra_Pagination</strong>
+<a href="https://github.com/stefangabos/Zebra_Pagination" class="projects-homepage">Zebra Pagination</a>
 </a>
 <ul class="notype float">
 <!--
@@ -33,7 +33,7 @@
 <p><strong>Project's homepage</strong></p>
 <ul>
 <li>
-<a href="https://github.com/stefangabos/Zebra_Pagination" class="projects-homepage">Zebra_Pagination</a>
+<a href="https://github.com/stefangabos/Zebra_Pagination" class="projects-homepage">Zebra Pagination</a>
 </li>
 </ul>
 <p><strong>Classes:</strong></p>
@@ -108,24 +108,29 @@ I have a few other projects that you might be interested in — <a href="https:/
 </div>
 <h3 id="class_methods">Class methods</h3>
 <h4 id="method__construct" class="method"><span><em>constructor</em></span> __construct()</h4>
+<p>Constructor of the class.</p>
+<p>Initializes the class and the default properties.</p>
 <div class="doc_block">
 <p class="code">
 void
 <span class="src-var">__construct</span>
 ()
 </p>
-<p>Constructor of the class.</p>
-<p>Initializes the class and the default properties.</p>
 <a href="#top" class="top">top</a>
 <div class="clear"></div>
 </div>
 <h4 id="methodalways_show_navigation" class="method"><span><em>method</em></span> always_show_navigation()</h4>
+<p>By default, the <em>previous page</em> and <em>next page</em> links are always shown.</p>
+<p>By disabling this feature, the <em>previous page</em> and <em>next page</em> links will only be shown if there are more pages   than <a href="../Zebra_Pagination/Zebra_Pagination.html#methodselectable_pages">selectable pages</a>.</p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;show&nbsp;&quot;previous&nbsp;page&quot;&nbsp;/&nbsp;&quot;next&nbsp;page&quot;&nbsp;only&nbsp;if&nbsp;there&nbsp;are&nbsp;more&nbsp;pages</span></div></li>
+<li><div class="src-line"><span class="src-comm">//&nbsp;than&nbsp;there&nbsp;are&nbsp;selectable&nbsp;pages</span></div></li>
+<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodalways_show_navigation">always_show_navigation</a><span class="src-sym">(</span><span class="src-id">false</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol>
 <div class="doc_block">
 <p class="code">
 void
 <span class="src-var">always_show_navigation</span>
 (
-[, 
+[ 
 <span class="src-key">boolean</span>
 <span class="src-var">$status</span>
 =
@@ -133,11 +138,6 @@ void
 ]
 ) 
 </p>
-<p>By default, the <em>previous page</em> and <em>next page</em> links are always shown.</p>
-<p>By disabling this feature, the <em>previous page</em> and <em>next page</em> links will only be shown if there are more pages   than <a href="../Zebra_Pagination/Zebra_Pagination.html#methodselectable_pages">selectable pages</a>.</p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;show&nbsp;&quot;previous&nbsp;page&quot;&nbsp;/&nbsp;&quot;next&nbsp;page&quot;&nbsp;only&nbsp;if&nbsp;there&nbsp;are&nbsp;more&nbsp;pages</span></div></li>
-<li><div class="src-line"><span class="src-comm">//&nbsp;than&nbsp;there&nbsp;are&nbsp;selectable&nbsp;pages</span></div></li>
-<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodalways_show_navigation">always_show_navigation</a><span class="src-sym">(</span><span class="src-id">false</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol>
 <h5>Arguments</h5>
 <table>
 <tr>
@@ -157,12 +157,16 @@ void
 <div class="clear"></div>
 </div>
 <h4 id="methodavoid_duplicate_content" class="method"><span><em>method</em></span> avoid_duplicate_content()</h4>
+<p>From a search engine's point of view URL <code>https://www.mywebsite.com/list</code> points to a different place than where   <code>https://www.mywebsite.com/list?page=1</code> points to (because of the added query string in the second URL), but because   both have the same content, your page will get an SEO penalization.</p>
+<p>In order to avoid this, the library will have for the first page (or last, if you are displaying links in <a href="../Zebra_Pagination/Zebra_Pagination.html#methodreverse">reverse</a>   order) the same path as you have for when you are accessing the page for the first (un-paginated) time.</p><p>If you want to disable this behavior call this method with its argument set to <code>FALSE</code>.</p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;don't&nbsp;avoid&nbsp;duplicate&nbsp;content</span></div></li>
+<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodavoid_duplicate_content">avoid_duplicate_content</a><span class="src-sym">(</span><span class="src-id">false</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol>
 <div class="doc_block">
 <p class="code">
 void
 <span class="src-var">avoid_duplicate_content</span>
 (
-[, 
+[ 
 <span class="src-key">boolean</span>
 <span class="src-var">$status</span>
 =
@@ -170,10 +174,6 @@ void
 ]
 ) 
 </p>
-<p>From a search engine's point of view URL <code>https://www.mywebsite.com/list</code> points to a different place than where   <code>https://www.mywebsite.com/list?page=1</code> points to (because of the added query string in the second URL), but because   both have the same content, your page will get an SEO penalization.</p>
-<p>In order to avoid this, the library will have for the first page (or last, if you are displaying links in <a href="../Zebra_Pagination/Zebra_Pagination.html#methodreverse">reverse</a>   order) the same path as you have for when you are accessing the page for the first (un-paginated) time.</p><p>If you want to disable this behavior call this method with its argument set to <code>FALSE</code>.</p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;don't&nbsp;avoid&nbsp;duplicate&nbsp;content</span></div></li>
-<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodavoid_duplicate_content">avoid_duplicate_content</a><span class="src-sym">(</span><span class="src-id">false</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol>
 <h5>Arguments</h5>
 <table>
 <tr>
@@ -193,18 +193,21 @@ void
 <div class="clear"></div>
 </div>
 <h4 id="methodbase_url" class="method"><span><em>method</em></span> base_url()</h4>
+<p>The base URL to be used when generating the navigation links.</p>
+<p>This is helpful for the case when the URL where the records are paginated may have parameters that are not needed   for subsequent requests generated by pagination.</p><p>For example, suppose some records are paginated at <code>https://yourwebsite/mypage/</code>. When a record from the list is   updated, the URL could become something like <code>https://youwebsite/mypage/?action=updated</code>. Based on the value of   <code>action</code> a message would be shown to the user.</p><p>Because of the way this script works, the pagination links would become</p><p><code>https://youwebsite/mypage/?action=updated&amp;page=[page number]</code></p><p>when <a href="../Zebra_Pagination/Zebra_Pagination.html#methodmethod">method</a> is <code>get</code> and <a href="../Zebra_Pagination/Zebra_Pagination.html#methodvariable_name">variable_name</a> is <code>page</code></p><p><code>https://youwebsite/mypage/page[page number]/?action=updated</code></p><p>when <a href="../Zebra_Pagination/Zebra_Pagination.html#methodmethod">method</a> is <code>url</code> and <a href="../Zebra_Pagination/Zebra_Pagination.html#methodvariable_name">variable_name</a> is <code>page</code></p><p>As a result, whenever the user would paginate, the message would be shown to him again and again because   <code>action</code> will be preserved in the URL!</p><p>The solution is to set the <code>base_url</code> to <code>https://youwebsite/mypage/</code> and in this way, regardless of how the URL   changes, the pagination links will always be in the form of</p><p><code>https://youwebsite/mypage/?page=[page number]</code></p><p>when <a href="../Zebra_Pagination/Zebra_Pagination.html#methodmethod">method</a> is <code>get</code> and <a href="../Zebra_Pagination/Zebra_Pagination.html#methodvariable_name">variable_name</a> is <code>page</code></p><p><code>https://youwebsite/mypage/page[page number]/</code></p><p>when <a href="../Zebra_Pagination/Zebra_Pagination.html#methodmethod">method</a> is <code>url</code> and <a href="../Zebra_Pagination/Zebra_Pagination.html#methodvariable_name">variable_name</a> is <code>page</code></p><p>Of course, you may still have query strings in the value of the <code>base_url</code> if you wish so, and these will be   preserved when paginating.</p><p class="highlight">If you need to preserve the hash in the URL, make sure to include the zebra_pagination.js file in your page!</p>
 <div class="doc_block">
 <p class="code">
 void
 <span class="src-var">base_url</span>
 (
-[, 
+[ 
 <span class="src-key">string</span>
 <span class="src-var">$base_url</span>
 =
 <span class="src-str">''</span>
 ]
-[, 
+, 
+[ 
 <span class="src-key">boolean</span>
 <span class="src-var">$preserve_query_string</span>
 =
@@ -212,8 +215,6 @@ void
 ]
 ) 
 </p>
-<p>The base URL to be used when generating the navigation links.</p>
-<p>This is helpful for the case when the URL where the records are paginated may have parameters that are not needed   for subsequent requests generated by pagination.</p><p>For example, suppose some records are paginated at <code>https://yourwebsite/mypage/</code>. When a record from the list is   updated, the URL could become something like <code>https://youwebsite/mypage/?action=updated</code>. Based on the value of   <code>action</code> a message would be shown to the user.</p><p>Because of the way this script works, the pagination links would become</p><p><code>https://youwebsite/mypage/?action=updated&amp;page=[page number]</code></p><p>when <a href="../Zebra_Pagination/Zebra_Pagination.html#methodmethod">method</a> is <code>get</code> and <a href="../Zebra_Pagination/Zebra_Pagination.html#methodvariable_name">variable_name</a> is <code>page</code></p><p><code>https://youwebsite/mypage/page[page number]/?action=updated</code></p><p>when <a href="../Zebra_Pagination/Zebra_Pagination.html#methodmethod">method</a> is <code>url</code> and <a href="../Zebra_Pagination/Zebra_Pagination.html#methodvariable_name">variable_name</a> is <code>page</code></p><p>As a result, whenever the user would paginate, the message would be shown to him again and again because   <code>action</code> will be preserved in the URL!</p><p>The solution is to set the <code>base_url</code> to <code>https://youwebsite/mypage/</code> and in this way, regardless of how the URL   changes, the pagination links will always be in the form of</p><p><code>https://youwebsite/mypage/?page=[page number]</code></p><p>when <a href="../Zebra_Pagination/Zebra_Pagination.html#methodmethod">method</a> is <code>get</code> and <a href="../Zebra_Pagination/Zebra_Pagination.html#methodvariable_name">variable_name</a> is <code>page</code></p><p><code>https://youwebsite/mypage/page[page number]/</code></p><p>when <a href="../Zebra_Pagination/Zebra_Pagination.html#methodmethod">method</a> is <code>url</code> and <a href="../Zebra_Pagination/Zebra_Pagination.html#methodvariable_name">variable_name</a> is <code>page</code></p><p>Of course, you may still have query strings in the value of the <code>base_url</code> if you wish so, and these will be   preserved when paginating.</p><p class="highlight">If you need to preserve the hash in the URL, make sure to include the zebra_pagination.js file in your page!</p>
 <h5>Arguments</h5>
 <table>
 <tr>
@@ -231,12 +232,14 @@ void
 <div class="clear"></div>
 </div>
 <h4 id="methodcondensed" class="method"><span><em>method</em></span> condensed()</h4>
+<p>Removes pagination links leaving only the <em>next</em> and <em>previous</em> buttons, links to the <em>first</em> and <em>last</em> pages,   as well as a label showing the current page and the total available pages.</p>
+<p><p class="highlight">Setting <a href="../Zebra_Pagination/Zebra_Pagination.html#methodselectable_pages">selectable pages</a> to a value lower than <code>5</code> will automatically turn  <a href="../Zebra_Pagination/Zebra_Pagination.html#methodcondensed">condensed</a> mode on.</p>
 <div class="doc_block">
 <p class="code">
 void
 <span class="src-var">condensed</span>
 (
-[, 
+[ 
 <span class="src-key">boolean</span>
 <span class="src-var">$extra_condensed</span>
 =
@@ -244,8 +247,6 @@ void
 ]
 ) 
 </p>
-<p>Removes pagination links leaving only the <em>next</em> and <em>previous</em> buttons, links to the <em>first</em> and <em>last</em> pages,   as well as a label showing the current page and the total available pages.</p>
-<p><p class="highlight">Setting <a href="../Zebra_Pagination/Zebra_Pagination.html#methodselectable_pages">selectable pages</a> to a value lower than <code>5</code> will automatically turn  <a href="../Zebra_Pagination/Zebra_Pagination.html#methodcondensed">condensed</a> mode on.</p>
 <h5>Arguments</h5>
 <table>
 <tr>
@@ -265,6 +266,7 @@ void
 <div class="clear"></div>
 </div>
 <h4 id="methodcss_classes" class="method"><span><em>method</em></span> css_classes()</h4>
+<p>Allows defining of custom CSS class names to be applied to the HTML markup.</p>
 <div class="doc_block">
 <p class="code">
 void
@@ -274,7 +276,6 @@ void
 <span class="src-var">$css_classes</span>
 ) 
 </p>
-<p>Allows defining of custom CSS class names to be applied to the HTML markup.</p>
 <h5>Arguments</h5>
 <table>
 <tr>
@@ -319,30 +320,30 @@ void
 <div class="clear"></div>
 </div>
 <h4 id="methodget_page" class="method"><span><em>method</em></span> get_page()</h4>
+<p>Returns the number of the currently selected page.</p>
+<p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;echoes&nbsp;the&nbsp;current&nbsp;page</span></div></li>
+<li><div class="src-line">echo&nbsp;<span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodget_page">get_page</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol>
 <div class="doc_block">
 <p class="code">
 void
 <span class="src-var">get_page</span>
 ()
 </p>
-<p>Returns the number of the currently selected page.</p>
-<p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;echoes&nbsp;the&nbsp;current&nbsp;page</span></div></li>
-<li><div class="src-line">echo&nbsp;<span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodget_page">get_page</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol>
 <a href="#top" class="top">top</a>
 <div class="clear"></div>
 </div>
 <h4 id="methodget_pages" class="method"><span><em>method</em></span> get_pages()</h4>
+<p>Returns the total number of available pages.</p>
+<p>The value is computed based on the <a href="../Zebra_Pagination/Zebra_Pagination.html#methodrecords">total number of records</a> and the <a href="../Zebra_Pagination/Zebra_Pagination.html#methodrecords_per_page">number of records to be shown per page</a>.</p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;get&nbsp;the&nbsp;total&nbsp;number&nbsp;of&nbsp;pages</span></div></li>
+<li><div class="src-line">echo&nbsp;<span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodget_pages">get_pages</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol>
 <div class="doc_block">
 <p class="code">
 void
 <span class="src-var">get_pages</span>
 ()
 </p>
-<p>Returns the total number of available pages.</p>
-<p>The value is computed based on the <a href="../Zebra_Pagination/Zebra_Pagination.html#methodrecords">total number of records</a> and the <a href="../Zebra_Pagination/Zebra_Pagination.html#methodrecords_per_page">number of records to be shown per page</a>.</p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;get&nbsp;the&nbsp;total&nbsp;number&nbsp;of&nbsp;pages</span></div></li>
-<li><div class="src-line">echo&nbsp;<span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodget_pages">get_pages</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol>
 <h5>Tags</h5>
 <table>
 <tr>
@@ -354,24 +355,30 @@ void
 <div class="clear"></div>
 </div>
 <h4 id="methodlabels" class="method"><span><em>method</em></span> labels()</h4>
+<p>Change the labels for the <em>previous page</em> and <em>next page</em> links as well as the label used to indicate progress   when in <a href="../Zebra_Pagination/Zebra_Pagination.html#methodcondensed">condensed</a> mode.</p>
+<p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;change&nbsp;the&nbsp;default&nbsp;labels</span></div></li>
+<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodlabels">labels</a><span class="src-sym">(</span><span class="src-str">'Previous'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'Next'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'Page&nbsp;%d&nbsp;of&nbsp;%d&nbsp;pages'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol>
 <div class="doc_block">
 <p class="code">
 void
 <span class="src-var">labels</span>
 (
-[, 
+[ 
 <span class="src-key">string</span>
 <span class="src-var">$previous</span>
 =
 <span class="src-str">'&amp;laquo;'</span>
 ]
-[, 
+, 
+[ 
 <span class="src-key">string</span>
 <span class="src-var">$next</span>
 =
 <span class="src-str">'&amp;raquo;'</span>
 ]
-[, 
+, 
+[ 
 <span class="src-key">string</span>
 <span class="src-var">$progress</span>
 =
@@ -379,10 +386,6 @@ void
 ]
 ) 
 </p>
-<p>Change the labels for the <em>previous page</em> and <em>next page</em> links as well as the label used to indicate progress   when in <a href="../Zebra_Pagination/Zebra_Pagination.html#methodcondensed">condensed</a> mode.</p>
-<p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;change&nbsp;the&nbsp;default&nbsp;labels</span></div></li>
-<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodlabels">labels</a><span class="src-sym">(</span><span class="src-str">'Previous'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'Next'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'Page&nbsp;%d&nbsp;of&nbsp;%d&nbsp;pages'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol>
 <h5>Arguments</h5>
 <table>
 <tr>
@@ -412,12 +415,16 @@ void
 <div class="clear"></div>
 </div>
 <h4 id="methodmethod" class="method"><span><em>method</em></span> method()</h4>
+<p>Sets the method to be used for page propagation.</p>
+<p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;set&nbsp;the&nbsp;method&nbsp;to&nbsp;the&nbsp;SEO&nbsp;friendly&nbsp;way</span></div></li>
+<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodmethod">method</a><span class="src-sym">(</span><span class="src-str">'url'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol>
 <div class="doc_block">
 <p class="code">
 void
 <span class="src-var">method</span>
 (
-[, 
+[ 
 <span class="src-key">string</span>
 <span class="src-var">$method</span>
 =
@@ -425,10 +432,6 @@ void
 ]
 ) 
 </p>
-<p>Sets the method to be used for page propagation.</p>
-<p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;set&nbsp;the&nbsp;method&nbsp;to&nbsp;the&nbsp;SEO&nbsp;friendly&nbsp;way</span></div></li>
-<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodmethod">method</a><span class="src-sym">(</span><span class="src-str">'url'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol>
 <h5>Arguments</h5>
 <table>
 <tr>
@@ -441,6 +444,7 @@ void
 <div class="clear"></div>
 </div>
 <h4 id="methodnavigation_position" class="method"><span><em>method</em></span> navigation_position()</h4>
+<p>Sets the position of the <em>next</em> and <em>previous</em> page, relative to the links to individual pages.</p>
 <div class="doc_block">
 <p class="code">
 void
@@ -450,7 +454,6 @@ void
 <span class="src-var">$position</span>
 ) 
 </p>
-<p>Sets the position of the <em>next</em> and <em>previous</em> page, relative to the links to individual pages.</p>
 <h5>Arguments</h5>
 <table>
 <tr>
@@ -470,12 +473,16 @@ void
 <div class="clear"></div>
 </div>
 <h4 id="methodpadding" class="method"><span><em>method</em></span> padding()</h4>
+<p>Sets whether page numbers should be prefixed with zeros.</p>
+<p>This is useful to keep the layout consistent by having the same number of characters for each page number.</p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;disable&nbsp;padding&nbsp;numbers&nbsp;with&nbsp;zeros</span></div></li>
+<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodpadding">padding</a><span class="src-sym">(</span><span class="src-id">false</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol>
 <div class="doc_block">
 <p class="code">
 void
 <span class="src-var">padding</span>
 (
-[, 
+[ 
 <span class="src-key">boolean</span>
 <span class="src-var">$status</span>
 =
@@ -483,10 +490,6 @@ void
 ]
 ) 
 </p>
-<p>Sets whether page numbers should be prefixed with zeros.</p>
-<p>This is useful to keep the layout consistent by having the same number of characters for each page number.</p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;disable&nbsp;padding&nbsp;numbers&nbsp;with&nbsp;zeros</span></div></li>
-<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodpadding">padding</a><span class="src-sym">(</span><span class="src-id">false</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol>
 <h5>Arguments</h5>
 <table>
 <tr>
@@ -499,6 +502,10 @@ void
 <div class="clear"></div>
 </div>
 <h4 id="methodrecords" class="method"><span><em>method</em></span> records()</h4>
+<p>Defines the total number of records that need to be paginated.</p>
+<p>Based on this and on the <a href="../Zebra_Pagination/Zebra_Pagination.html#methodrecords_per_page">number of records to be shown per page</a>, the script will know   how many pages there are.</p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;tell&nbsp;the&nbsp;script&nbsp;that&nbsp;there&nbsp;are&nbsp;100&nbsp;total&nbsp;records</span></div></li>
+<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodrecords">records</a><span class="src-sym">(</span><span class="src-num">100</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol>
 <div class="doc_block">
 <p class="code">
 void
@@ -508,10 +515,6 @@ void
 <span class="src-var">$records</span>
 ) 
 </p>
-<p>Defines the total number of records that need to be paginated.</p>
-<p>Based on this and on the <a href="../Zebra_Pagination/Zebra_Pagination.html#methodrecords_per_page">number of records to be shown per page</a>, the script will know   how many pages there are.</p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;tell&nbsp;the&nbsp;script&nbsp;that&nbsp;there&nbsp;are&nbsp;100&nbsp;total&nbsp;records</span></div></li>
-<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodrecords">records</a><span class="src-sym">(</span><span class="src-num">100</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol>
 <h5>Arguments</h5>
 <table>
 <tr>
@@ -524,6 +527,10 @@ void
 <div class="clear"></div>
 </div>
 <h4 id="methodrecords_per_page" class="method"><span><em>method</em></span> records_per_page()</h4>
+<p>Defines the number of records that are displayed on a single page.</p>
+<p>Based on this and on the <a href="../Zebra_Pagination/Zebra_Pagination.html#methodrecords">total number of records</a>, the script will know how many pages there are.</p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;tell&nbsp;the&nbsp;class&nbsp;that&nbsp;there&nbsp;are&nbsp;20&nbsp;records&nbsp;displayed&nbsp;on&nbsp;one&nbsp;page</span></div></li>
+<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodrecords_per_page">records_per_page</a><span class="src-sym">(</span><span class="src-num">20</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol>
 <div class="doc_block">
 <p class="code">
 void
@@ -533,10 +540,6 @@ void
 <span class="src-var">$records_per_page</span>
 ) 
 </p>
-<p>Defines the number of records that are displayed on a single page.</p>
-<p>Based on this and on the <a href="../Zebra_Pagination/Zebra_Pagination.html#methodrecords">total number of records</a>, the script will know how many pages there are.</p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;tell&nbsp;the&nbsp;class&nbsp;that&nbsp;there&nbsp;are&nbsp;20&nbsp;records&nbsp;displayed&nbsp;on&nbsp;one&nbsp;page</span></div></li>
-<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodrecords_per_page">records_per_page</a><span class="src-sym">(</span><span class="src-num">20</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol>
 <h5>Arguments</h5>
 <table>
 <tr>
@@ -549,12 +552,17 @@ void
 <div class="clear"></div>
 </div>
 <h4 id="methodrender" class="method"><span><em>method</em></span> render()</h4>
+<p>Generates the HTML markup for the pagination.</p>
+<p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;generate&nbsp;output</span></div></li>
+<li><div class="src-line"><span class="src-comm">//&nbsp;don't&nbsp;echo&nbsp;it&nbsp;but&nbsp;return&nbsp;it&nbsp;instead</span></div></li>
+<li><div class="src-line"><span class="src-var">$output&nbsp;</span>=&nbsp;<span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodrender">render</a><span class="src-sym">(</span><span class="src-id">true</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol><p class="highlight">If <a href="https://getbootstrap.com/">Twitter Bootstrap</a> is not present on the page, make sure to load the   default styles by including the <code>zebra_pagination.css</code> file.</p>
 <div class="doc_block">
 <p class="code">
 void
 <span class="src-var">render</span>
 (
-[, 
+[ 
 <span class="src-key">boolean</span>
 <span class="src-var">$return_output</span>
 =
@@ -562,11 +570,6 @@ void
 ]
 ) 
 </p>
-<p>Generates the HTML markup for the pagination.</p>
-<p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;generate&nbsp;output</span></div></li>
-<li><div class="src-line"><span class="src-comm">//&nbsp;don't&nbsp;echo&nbsp;it&nbsp;but&nbsp;return&nbsp;it&nbsp;instead</span></div></li>
-<li><div class="src-line"><span class="src-var">$output&nbsp;</span>=&nbsp;<span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodrender">render</a><span class="src-sym">(</span><span class="src-id">true</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol><p class="highlight">If <a href="https://getbootstrap.com/">Twitter Bootstrap</a> is not present on the page, make sure to load the   default styles by including the <code>zebra_pagination.css</code> file.</p>
 <h5>Arguments</h5>
 <table>
 <tr>
@@ -579,12 +582,16 @@ void
 <div class="clear"></div>
 </div>
 <h4 id="methodreverse" class="method"><span><em>method</em></span> reverse()</h4>
+<p>By default, pagination links are shown in natural order, from 1 to the number of total pages.</p>
+<p>Calling this method with the <code>TRUE</code> argument will generate links in reverse order, from the number of total pages   down to 1.</p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;show&nbsp;pagination&nbsp;links&nbsp;in&nbsp;reverse&nbsp;order&nbsp;rather&nbsp;than&nbsp;in&nbsp;natural&nbsp;order</span></div></li>
+<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodreverse">reverse</a><span class="src-sym">(</span><span class="src-id">true</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol>
 <div class="doc_block">
 <p class="code">
 void
 <span class="src-var">reverse</span>
 (
-[, 
+[ 
 <span class="src-key">boolean</span>
 <span class="src-var">$reverse</span>
 =
@@ -592,10 +599,6 @@ void
 ]
 ) 
 </p>
-<p>By default, pagination links are shown in natural order, from 1 to the number of total pages.</p>
-<p>Calling this method with the <code>TRUE</code> argument will generate links in reverse order, from the number of total pages   down to 1.</p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;show&nbsp;pagination&nbsp;links&nbsp;in&nbsp;reverse&nbsp;order&nbsp;rather&nbsp;than&nbsp;in&nbsp;natural&nbsp;order</span></div></li>
-<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodreverse">reverse</a><span class="src-sym">(</span><span class="src-id">true</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol>
 <h5>Arguments</h5>
 <table>
 <tr>
@@ -615,6 +618,10 @@ void
 <div class="clear"></div>
 </div>
 <h4 id="methodselectable_pages" class="method"><span><em>method</em></span> selectable_pages()</h4>
+<p>Defines the number of pagination links to be displayed at once besides <em>previous page</em> and <em>next page</em> links.</p>
+<p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;display&nbsp;links&nbsp;to&nbsp;15&nbsp;pages</span></div></li>
+<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodselectable_pages">selectable_pages</a><span class="src-sym">(</span><span class="src-num">15</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol>
 <div class="doc_block">
 <p class="code">
 void
@@ -624,10 +631,6 @@ void
 <span class="src-var">$selectable_pages</span>
 ) 
 </p>
-<p>Defines the number of pagination links to be displayed at once besides <em>previous page</em> and <em>next page</em> links.</p>
-<p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;display&nbsp;links&nbsp;to&nbsp;15&nbsp;pages</span></div></li>
-<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodselectable_pages">selectable_pages</a><span class="src-sym">(</span><span class="src-num">15</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol>
 <h5>Arguments</h5>
 <table>
 <tr>
@@ -640,6 +643,10 @@ void
 <div class="clear"></div>
 </div>
 <h4 id="methodset_page" class="method"><span><em>method</em></span> set_page()</h4>
+<p>Sets the current page.</p>
+<p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;sets&nbsp;the&nbsp;fifth&nbsp;page&nbsp;as&nbsp;the&nbsp;current&nbsp;page</span></div></li>
+<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodset_page">set_page</a><span class="src-sym">(</span><span class="src-num">5</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol>
 <div class="doc_block">
 <p class="code">
 void
@@ -649,10 +656,6 @@ void
 <span class="src-var">$page</span>
 ) 
 </p>
-<p>Sets the current page.</p>
-<p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;sets&nbsp;the&nbsp;fifth&nbsp;page&nbsp;as&nbsp;the&nbsp;current&nbsp;page</span></div></li>
-<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodset_page">set_page</a><span class="src-sym">(</span><span class="src-num">5</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol>
 <h5>Arguments</h5>
 <table>
 <tr>
@@ -665,12 +668,16 @@ void
 <div class="clear"></div>
 </div>
 <h4 id="methodtrailing_slash" class="method"><span><em>method</em></span> trailing_slash()</h4>
+<p>Enables or disables trailing slash on the generated URLs when <a href="../Zebra_Pagination/Zebra_Pagination.html#methodmethod">method</a> is <code>url</code>.</p>
+<p>From an SEO perspective, a page with trailing slash is considered different than the same page without the trailing   slash. Read more on the subject at <a href="https://webmasters.googleblog.com/2010/04/to-slash-or-not-to-slash.html">Google Webmaster's official blog</a>.</p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;disables&nbsp;trailing&nbsp;slashes&nbsp;on&nbsp;generated&nbsp;URLs</span></div></li>
+<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodtrailing_slash">trailing_slash</a><span class="src-sym">(</span><span class="src-id">false</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol>
 <div class="doc_block">
 <p class="code">
 void
 <span class="src-var">trailing_slash</span>
 (
-[, 
+[ 
 <span class="src-key">boolean</span>
 <span class="src-var">$status</span>
 =
@@ -678,10 +685,6 @@ void
 ]
 ) 
 </p>
-<p>Enables or disables trailing slash on the generated URLs when <a href="../Zebra_Pagination/Zebra_Pagination.html#methodmethod">method</a> is <code>url</code>.</p>
-<p>From an SEO perspective, a page with trailing slash is considered different than the same page without the trailing   slash. Read more on the subject at <a href="https://webmasters.googleblog.com/2010/04/to-slash-or-not-to-slash.html">Google Webmaster's official blog</a>.</p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;disables&nbsp;trailing&nbsp;slashes&nbsp;on&nbsp;generated&nbsp;URLs</span></div></li>
-<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodtrailing_slash">trailing_slash</a><span class="src-sym">(</span><span class="src-id">false</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol>
 <h5>Arguments</h5>
 <table>
 <tr>
@@ -694,6 +697,13 @@ void
 <div class="clear"></div>
 </div>
 <h4 id="methodvariable_name" class="method"><span><em>method</em></span> variable_name()</h4>
+<p>Sets the variable name to be used for page propagation.</p>
+<p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;sets&nbsp;the&nbsp;variable&nbsp;name&nbsp;to&nbsp;&quot;foo&quot;</span></div></li>
+<li><div class="src-line"><span class="src-comm">//&nbsp;now,&nbsp;in&nbsp;the&nbsp;URL,&nbsp;the&nbsp;current&nbsp;page&nbsp;will&nbsp;be&nbsp;passed&nbsp;either&nbsp;as</span></div></li>
+<li><div class="src-line"><span class="src-comm">//&nbsp;&quot;foo=[page&nbsp;number]&quot;&nbsp;(if&nbsp;method&nbsp;is&nbsp;&quot;get&quot;)&nbsp;or&nbsp;as</span></div></li>
+<li><div class="src-line"><span class="src-comm">//&nbsp;&quot;/foo[page&nbsp;number]&quot;&nbsp;(if&nbsp;method&nbsp;is&nbsp;&quot;url&quot;)</span></div></li>
+<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodvariable_name">variable_name</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol>
 <div class="doc_block">
 <p class="code">
 void
@@ -703,13 +713,6 @@ void
 <span class="src-var">$variable_name</span>
 ) 
 </p>
-<p>Sets the variable name to be used for page propagation.</p>
-<p><ol class="code"><li><div class="src-line"><span class="src-comm">//&nbsp;sets&nbsp;the&nbsp;variable&nbsp;name&nbsp;to&nbsp;&quot;foo&quot;</span></div></li>
-<li><div class="src-line"><span class="src-comm">//&nbsp;now,&nbsp;in&nbsp;the&nbsp;URL,&nbsp;the&nbsp;current&nbsp;page&nbsp;will&nbsp;be&nbsp;passed&nbsp;either&nbsp;as</span></div></li>
-<li><div class="src-line"><span class="src-comm">//&nbsp;&quot;foo=[page&nbsp;number]&quot;&nbsp;(if&nbsp;method&nbsp;is&nbsp;&quot;get&quot;)&nbsp;or&nbsp;as</span></div></li>
-<li><div class="src-line"><span class="src-comm">//&nbsp;&quot;/foo[page&nbsp;number]&quot;&nbsp;(if&nbsp;method&nbsp;is&nbsp;&quot;url&quot;)</span></div></li>
-<li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodvariable_name">variable_name</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol>
 <h5>Arguments</h5>
 <table>
 <tr>
@@ -726,7 +729,7 @@ void
 </tr>
 </table>
 <div id="doc_footer">
-Documentation generated on <span>Thu, 30 Jul 20</span>
+Documentation generated on <span>Mon, 22 Mar 21</span>
 </div>
 </div>
 <!-- Global site tag (gtag.js) - Google Analytics -->
