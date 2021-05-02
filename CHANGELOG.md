@@ -1,5 +1,6 @@
 ## version 2.4.0 (TBA)
 
+- fixed compatilibty issues with PHP 8 and updated examples to work with latest versions of MariaDB
 - fixed bug where having [always_show_navigation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html#methodalways_show_navigation) set to `TRUE` would still not display pagination if there was a single page to be shown (see [#6](https://github.com/stefangabos/Zebra_Pagination/issues/16))
 - added a [condensed](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html#methodcondensed) mode which removes pagination links leaving only the *next* and *previous* buttons, links to the *first* and *last* pages, as well as a label showing the current page and the total available pages
 - updated examples
