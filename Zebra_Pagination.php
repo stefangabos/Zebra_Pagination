@@ -9,8 +9,8 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Pagination/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.4.0 (last revision: July 25, 2020)
- *  @copyright  © 2009 - 2020 Stefan Gabos
+ *  @version    2.4.1 (last revision: May 02, 2021)
+ *  @copyright  © 2009 - 2021 Stefan Gabos
  *  @license    https://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pagination
  */
@@ -67,10 +67,10 @@ class Zebra_Pagination {
 
         // by default, we assume there are no records
         // we expect this number to be set after the class is instantiated
-        'records'                   =>  '',
+        'records'                   =>  0,
 
         // records per page
-        'records_per_page'          =>  '',
+        'records_per_page'          =>  0,
 
         // should the links be displayed in reverse order
         'reverse'                   =>  false,
@@ -420,7 +420,7 @@ class Zebra_Pagination {
     public function get_pages() {
 
         // return the total number of pages based on the total number of records and number of records to be shown per page
-        return @ceil($this->_properties['records'] / $this->_properties['records_per_page']);
+        return $this->_properties['records_per_page'] > 0 ? ceil($this->_properties['records'] / $this->_properties['records_per_page']) : 0;
 
     }
 
