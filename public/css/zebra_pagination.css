@@ -1,1 +1,68 @@
-.Zebra_Pagination {    clear: both;    width: 100%;    overflow: hidden;}.Zebra_Pagination ul {    position: relative;    left: 50%;    list-style-type: none;    margin: 0;    padding: 0;    float: left}.Zebra_Pagination li {    position: relative;    float: left;    right: 50%}.Zebra_Pagination .pagination {    display: inline-block;}.Zebra_Pagination li {    display: inline;}.Zebra_Pagination a,.Zebra_Pagination span {    padding: 6px 12px;    color: #337AB7;    text-decoration: none;    background-color: #FFF;    border: 1px solid #DDD;    display: block;    float: left;    position: relative;    margin-left: -1px;}.Zebra_Pagination li.active a {    color: #FFF;    cursor: default;    background-color: #337AB7;    border-color: #337AB7;}.Zebra_Pagination li a:hover,.Zebra_Pagination li span:hover {    color: #23527C;    background-color: #EEE;    border-color: #DDD;}.Zebra_Pagination li.disabled a {    color: #DEDEDE;    background-color: transparent;    border-color: #DEDEDE;    cursor: default;}.Zebra_Pagination li.disabled a:hover {    color: #DEDEDE;    background-color: transparent;    border-color: #DEDEDE;}
+.Zebra_Pagination {
+    clear: both;
+    width: 100%;
+    overflow: hidden;
+}
+
+.Zebra_Pagination ol {
+    position: relative;
+    left: 50%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float: left
+}
+
+.Zebra_Pagination li {
+    position: relative;
+    float: left;
+    right: 50%
+}
+
+.Zebra_Pagination .pagination {
+    display: inline-block;
+}
+
+.Zebra_Pagination li {
+    display: inline;
+}
+
+.Zebra_Pagination a,
+.Zebra_Pagination span {
+    padding: 6px 12px;
+    color: #337AB7;
+    text-decoration: none;
+    background-color: #FFF;
+    border: 1px solid #DDD;
+    display: block;
+    float: left;
+    position: relative;
+    margin-left: -1px;
+}
+
+.Zebra_Pagination li.active a {
+    color: #FFF;
+    cursor: default;
+    background-color: #337AB7;
+    border-color: #337AB7;
+}
+
+.Zebra_Pagination li a:hover,
+.Zebra_Pagination li span:hover {
+    color: #23527C;
+    background-color: #EEE;
+    border-color: #DDD;
+}
+
+.Zebra_Pagination li.disabled a {
+    color: #DEDEDE;
+    background-color: transparent;
+    border-color: #DEDEDE;
+    cursor: default;
+}
+
+.Zebra_Pagination li.disabled a:hover {
+    color: #DEDEDE;
+    background-color: transparent;
+    border-color: #DEDEDE;
+}

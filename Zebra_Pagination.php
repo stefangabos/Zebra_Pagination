@@ -265,7 +265,7 @@ class Zebra_Pagination {
      *
      *  @param  array   $css_classes    An associative array with one or more or all of the following keys:
      *
-     *                                  -   **list**, for setting the CSS class name to be used for the unordered list (`<kbd><ul></kbd>`)
+     *                                  -   **list**, for setting the CSS class name to be used for the ordered list (`<kbd><ol></kbd>`)
      *                                  -   **list_item**, for setting the CSS class name to be used for the list item (`<kbd><li></kbd>`)
      *                                  -   **anchor**, for setting the CSS class name to be used for the anchor (`<kbd><a></kbd>`)
      *
@@ -273,7 +273,7 @@ class Zebra_Pagination {
      *
      *                                  <code>
      *                                  <div class="Zebra_Pagination">
-     *                                      <ul class="pagination">
+     *                                      <ol class="pagination">
      *                                          <li class="page-item">
      *                                              <a href="path/to/first/page/" class="page-link">1</a>
      *                                          </li>
@@ -281,7 +281,7 @@ class Zebra_Pagination {
      *                                              <a href="path/to/second/page/" class="page-link">2</a>
      *                                          </li>
      *                                          ...the other pages...
-     *                                      </ul>
+     *                                      </ol>
      *                                  </div>
      *                                  </code>
      *
@@ -299,7 +299,7 @@ class Zebra_Pagination {
      *
      *                                  <code>
      *                                  <div class="Zebra_Pagination">
-     *                                      <ul class="foo">
+     *                                      <ol class="foo">
      *                                          <li class="bar">
      *                                              <a href="path/to/first/page/" class="baz">1</a>
      *                                          </li>
@@ -307,7 +307,7 @@ class Zebra_Pagination {
      *                                              <a href="path/to/second/page/" class="baz">2</a>
      *                                          </li>
      *                                          ...the other pages...
-     *                                      </ul>
+     *                                      </ol>
      *                                  </div>
      *                                  </code>
      *
@@ -627,7 +627,7 @@ class Zebra_Pagination {
         if ($this->_properties['total_pages'] <= 1 && !$this->_properties['always_show_navigation']) return '';
 
         // start building output
-        $output = '<div class="Zebra_Pagination"><ul' . ($this->_properties['css_classes']['list'] != '' ? ' class="' . trim($this->_properties['css_classes']['list']) . '"' : '') . '>';
+        $output = '<div class="Zebra_Pagination"><ol' . ($this->_properties['css_classes']['list'] != '' ? ' class="' . trim($this->_properties['css_classes']['list']) . '"' : '') . '>';
 
         // if we're showing records in reverse order
         if ($this->_properties['reverse']) {
@@ -666,7 +666,7 @@ class Zebra_Pagination {
         }
 
         // finish generating the output
-        $output .= '</ul></div>';
+        $output .= '</ol></div>';
 
         // if $return_output is TRUE
         // return the generated content
