@@ -123,7 +123,8 @@
         die(mysqli_error($connection));
 
     // fetch the total number of records in the table
-    $rows = mysqli_fetch_assoc(mysqli_query($connection, 'SELECT COUNT(*) AS `rows` FROM countries'));
+    $rows = mysqli_query($connection, 'SELECT COUNT(*) AS `rows` FROM countries') or die(mysqli_error($connection));
+    $rows = mysqli_fetch_assoc($rows);
 
     // if we are not showing records in reversed order
     // (if we are, we already set these)
