@@ -25,10 +25,10 @@ The code is heavily commented and generates no warnings/errors/notices when PHP'
 - it is a generic library: can be used to paginate records both from an array or from a database
 - it automatically generates navigation links, given the total number of items and the number of items per page (examples of best practices are also included)
 - navigation links can be generated in natural or in reverse order
-- it is SEO-friendly – it uses rel="next" and rel="prev" and solves the problem of duplicate content on the first page without navigation and the first page having the page number in the URL
+- it is SEO-friendly - it solves the problem of duplicate content on the first page without navigation and the first page having the page number in the URL
 - appearance is easily customizable through CSS
 - compatible with [Twitter Bootstrap](http://getbootstrap.com) 3 and 4
-- code is heavily commented and generates no warnings/errors/notices when PHP’s error reporting level is set to E_ALL
+- code is heavily commented and generates no warnings/errors/notices when PHP's error reporting level is set to E_ALL
 - has [awesome documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)
 
 ## Requirements

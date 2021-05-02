@@ -913,11 +913,7 @@ class Zebra_Pagination {
                 ($this->_properties['page'] == $this->_properties['total_pages'] ? 'javascript:void(0)' : $this->_build_uri($this->_properties['page'] + 1)) . '"' .
 
                 // add CSS classes to the anchor, if necessary
-                (isset($this->_properties['css_classes']['anchor']) && $this->_properties['css_classes']['anchor'] != '' ? ' class="' . trim($this->_properties['css_classes']['anchor']) . '"' : '') .
-
-                // (was) good for SEO
-                // https://webmasters.googleblog.com/2011/09/pagination-with-relnext-and-relprev.html
-                ' rel="next">' .
+                (isset($this->_properties['css_classes']['anchor']) && $this->_properties['css_classes']['anchor'] != '' ? ' class="' . trim($this->_properties['css_classes']['anchor']) . '"' : '') . '">' .
 
                 // reverse arrows if necessary
                 ($this->_properties['reverse'] ? $this->_properties['previous'] : $this->_properties['next']) . '</a></li>';
@@ -1219,11 +1215,7 @@ class Zebra_Pagination {
                 ($this->_properties['page'] == 1 ? 'javascript:void(0)' : $this->_build_uri($this->_properties['page'] - 1)) . '"' .
 
                 // add CSS classes to the anchor, if necessary
-                (isset($this->_properties['css_classes']['anchor']) && $this->_properties['css_classes']['anchor'] != '' ? ' class="' . trim($this->_properties['css_classes']['anchor']) . '"' : '') .
-
-                // (was) good for SEO
-                // https://webmasters.googleblog.com/2011/09/pagination-with-relnext-and-relprev.html
-                ' rel="prev">' .
+                (isset($this->_properties['css_classes']['anchor']) && $this->_properties['css_classes']['anchor'] != '' ? ' class="' . trim($this->_properties['css_classes']['anchor']) . '"' : '') . '">' .
 
                 ($this->_properties['reverse'] ? $this->_properties['next'] : $this->_properties['previous']) . '</a></li>';
 
