@@ -833,8 +833,8 @@ class Zebra_Pagination {
                     // replace the currently existing value
                     '/\b' . $this->_properties['variable_name'] . '([0-9]+)\b/i',
 
-                    // if on the first page, remove it in order to avoid duplicate content
-                    ($page == 1 ? '' : $this->_properties['variable_name'] . $page),
+                    // if on the first page abd we are avoiding duplicate content, remove it in order to avoid duplicate content
+                    ($page == 1 && $this->_properties['avoid_duplicate_content'] ? '' : $this->_properties['variable_name'] . $page),
 
                     $this->_properties['base_url']
 
