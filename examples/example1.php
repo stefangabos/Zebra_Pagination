@@ -1,7 +1,8 @@
+<?php require 'common.php'; ?>
 <!doctype html>
 <html>
 <head>
-    <title>Zebra_Pagination, array example</title>
+    <title>Zebra Pagination, array example</title>
     <meta charset="utf-8">
     <?php if (isset($_GET['bootstrap']) && $_GET['bootstrap'] == 3): ?>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -14,16 +15,43 @@
 </head>
 <body>
 
-    <h2>Zebra_Pagination, array example</h2>
+    <h2>Zebra Pagination, array example</h2><br>
 
-    <p>Show next/previous page links on the <a href="example1.php?navigation_position=left<?php echo isset($_GET['bootstrap']) ? '&bootstrap=' . $_GET['bootstrap'] : ''; ?>">left</a> or on the
-    <a href="example1.php?navigation_position=right<?php echo isset($_GET['bootstrap']) ? '&bootstrap=' . $_GET['bootstrap'] : ''; ?>">right</a>. Or revert to the <a href="example1.php<?php echo isset($_GET['bootstrap']) ? '?bootstrap=' . $_GET['bootstrap'] : ''; ?>">default style</a>.<br>
-    Pagination links can be shown in <a href="example1.php<?php echo isset($_GET['bootstrap']) ? '?bootstrap=' . $_GET['bootstrap'] : ''; ?>">natural</a> or <a href="example1.php?reversed=1<?php echo isset($_GET['bootstrap']) ? '&bootstrap=' . $_GET['bootstrap'] : ''; ?>">reversed</a> order.<br>
-    See the <a href="example1.php">default</a> looks, the <a href="example1.php?bootstrap=3">Bootstrap 3</a> looks or the <a href="example1.php?bootstrap=4">Bootstrap 4</a> looks<br>
-    <em>(when using Bootstrap you don't need to include the zebra_pagination.css file anymore)</em>
-    <?php if (isset($_GET['bootstrap']) && $_GET['bootstrap'] == 4): ?>
-    <br><em>For Bootstrap 4, for centering the pagination links you will have to set <code>justify-content: center;</code> for the <code>.pagination</code> class</em>
-    <?php endif; ?></p>
+    <p>
+
+        Show next/previous page links on the
+        <a href="example1.php<?php echo prep_query_string(array('navigation_position' => 'left')); ?>"<?php echo isset($_GET['navigation_position']) && $_GET['navigation_position'] == 'left' ? ' class="active"' : ''; ?>>left</a> or on the
+        <a href="example1.php<?php echo prep_query_string(array('navigation_position' => 'right')); ?>"<?php echo isset($_GET['navigation_position']) && $_GET['navigation_position'] == 'right' ? ' class="active"' : ''; ?>>right</a>, or use the
+        <a href="example1.php<?php echo prep_query_string(array('navigation_position' => '')); ?>"<?php echo !isset($_GET['navigation_position']) || !in_array($_GET['navigation_position'], array('left', 'right')) ? ' class="active"' : ''; ?>>default style</a>.
+
+        <br>
+
+        Show pagination links in
+        <a href="example1.php<?php echo prep_query_string(array('reversed' => '')); ?>"<?php echo !isset($_GET['reversed']) || $_GET['reversed'] != 1 ? ' class="active"' : ''; ?>>natural</a> or
+        <a href="example1.php<?php echo prep_query_string(array('reversed' => 1)); ?>"<?php echo isset($_GET['reversed']) && $_GET['reversed'] == 1 ? ' class="active"' : ''; ?>>reversed</a> order.
+
+        <br>
+
+        Show
+        <a href="example1.php<?php echo prep_query_string(array('condensed' => 1)); ?>"<?php echo isset($_GET['condensed']) && $_GET['condensed'] == 1 ? ' class="active"' : ''; ?>>condensed</a>,
+        <a href="example1.php<?php echo prep_query_string(array('condensed' => 2)); ?>"<?php echo isset($_GET['condensed']) && $_GET['condensed'] == 2 ? ' class="active"' : ''; ?>>very condensed</a> or the
+        <a href="example1.php<?php echo prep_query_string(array('condensed' => '')); ?>"<?php echo !isset($_GET['condensed']) || !in_array($_GET['condensed'], array(1, 2)) ? ' class="active"' : ''; ?>>default</a> style.
+
+        <br>
+
+        See the
+        <a href="example1.php<?php echo prep_query_string(array('bootstrap' => '')); ?>"<?php echo !isset($_GET['bootstrap']) || !in_array($_GET['bootstrap'], array(3, 4)) ? ' class="active"' : ''; ?>>default</a> looks, the
+        <a href="example1.php<?php echo prep_query_string(array('bootstrap' => 3)); ?>"<?php echo isset($_GET['bootstrap']) && $_GET['bootstrap'] == 3 ? ' class="active"' : ''; ?>>Bootstrap 3</a> looks or the
+        <a href="example1.php<?php echo prep_query_string(array('bootstrap' => 4)); ?>"<?php echo isset($_GET['bootstrap']) && $_GET['bootstrap'] == 4 ? ' class="active"' : ''; ?>>Bootstrap 4</a> looks
+        <br>
+
+        <br><small><em>(when using Bootstrap you don't need to include the <code>zebra_pagination.css</code> file anymore)</em></small>
+
+        <?php if (isset($_GET['bootstrap']) && $_GET['bootstrap'] == 4): ?>
+        <br><small><em>For Bootstrap 4, for centering the pagination links you have to set <code>justify-content: center;</code> for the <code>.pagination</code> class</em></small>
+        <?php endif; ?>
+
+    </p>
 
     <?php
 
@@ -78,7 +106,10 @@
     $pagination->navigation_position(isset($_GET['navigation_position']) && in_array($_GET['navigation_position'], array('left', 'right')) ? $_GET['navigation_position'] : 'outside');
 
     // if we have to show records in reversed order
-    if (isset($_GET['reversed'])) $pagination->reverse(true);
+    if (isset($_GET['reversed']) && $_GET['reversed'] == 1) $pagination->reverse(true);
+
+    // if we have to show condensed links
+    if (isset($_GET['condensed']) && ($_GET['condensed'] == 1 || $_GET['condensed'] == 2)) $pagination->condensed($_GET['condensed'] == 2 ? true : '');
 
     // the number of total records is the number of records in the array
     $pagination->records(count($countries));
