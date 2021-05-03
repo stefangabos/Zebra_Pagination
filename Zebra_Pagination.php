@@ -359,7 +359,7 @@ class Zebra_Pagination {
                 $this->_properties['method'] == 'url' &&
 
                 // the current page is set in the URL
-                preg_match('/\b' . preg_quote($this->_properties['variable_name']) . '([0-9]+)\b/i', $_SERVER['REQUEST_URI'], $matches) > 0
+                preg_match('/\b' . str_replace('/', '\/', preg_quote($this->_properties['variable_name'])) . '([0-9]+)\b/i', $_SERVER['REQUEST_URI'], $matches) > 0
 
             )
 
@@ -825,13 +825,13 @@ class Zebra_Pagination {
         if ($this->_properties['method'] == 'url') {
 
             // see if the current page is already set in the URL
-            if (preg_match('/\b' . preg_quote($this->_properties['variable_name']) . '([0-9]+)\b/i', $this->_properties['base_url']) > 0) {
+            if (preg_match('/\b' . str_replace('/', '\/', preg_quote($this->_properties['variable_name'])) . '([0-9]+)\b/i', $this->_properties['base_url']) > 0) {
 
                 // build string
                 $url = str_replace('//', '/', preg_replace(
 
                     // replace the currently existing value
-                    '/\b' . preg_quote($this->_properties['variable_name']) . '([0-9]+)\b/i',
+                    '/\b' . str_replace('/', '\/', preg_quote($this->_properties['variable_name'])) . '([0-9]+)\b/i',
 
                     // if on the first page abd we are avoiding duplicate content, remove it in order to avoid duplicate content
                     ($page == 1 && $this->_properties['avoid_duplicate_content'] ? '' : $this->_properties['variable_name'] . $page),
