@@ -620,6 +620,11 @@ class Zebra_Pagination {
      */
     public function render($return_output = false) {
 
+        // "variable_name" cannot be an empty string when "method" is "get"
+        if ($this->_properties['variable_name'] === '' && $this->_properties['method'] == 'get')
+
+            trigger_error('<strong>variable_name</strong> must not be an empty when <strong>method</strong> is <strong>get</strong>' , E_USER_ERROR);
+
         // get some properties of the class
         $this->get_page();
 
