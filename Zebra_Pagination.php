@@ -9,7 +9,7 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Pagination/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.4.0 (last revision: May 02, 2021)
+ *  @version    2.4.0 (last revision: May 03, 2021)
  *  @copyright  © 2009 - 2021 Stefan Gabos
  *  @license    https://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pagination
@@ -218,6 +218,10 @@ class Zebra_Pagination {
      */
     public function base_url($base_url = '', $preserve_query_string = true) {
 
+        // we'll need this in case "variable_name" is an empty string
+        // (when "base_url" must be explicitly declared)
+        $this->_properties['base_url_explicit'] = $base_url !== '';
+
         // set the base URL
         $base_url = ($base_url == '' ? $_SERVER['REQUEST_URI'] : $base_url);
 
@@ -225,7 +229,7 @@ class Zebra_Pagination {
         $parsed_url = parse_url($base_url);
 
         // cache the "path" part of the URL (that is, everything *before* the "?")
-        $this->_properties['base_url'] = $parsed_url['path'];
+        $this->_properties['base_url'] = rtrim($parsed_url['path'], '/');
 
         // cache the "query" part of the URL (that is, everything *after* the "?")
         $this->_properties['base_url_query'] = isset($parsed_url['query']) ? $parsed_url['query'] : '';
@@ -359,7 +363,7 @@ class Zebra_Pagination {
                 $this->_properties['method'] == 'url' &&
 
                 // the current page is set in the URL
-                preg_match('/\b' . str_replace('/', '\/', preg_quote($this->_properties['variable_name'])) . '([0-9]+)\b/i', $_SERVER['REQUEST_URI'], $matches) > 0
+                preg_match('/\b' . str_replace('/', '\/', preg_quote(($this->_properties['variable_name'] === '' ? $this->_properties['base_url'] . '/' : '') . $this->_properties['variable_name'])) . '([0-9]+)\b/i', $_SERVER['REQUEST_URI'], $matches) > 0
 
             )
 
@@ -620,6 +624,11 @@ class Zebra_Pagination {
      */
     public function render($return_output = false) {
 
+        // "base_url" must be explicitly declared if "variable_name" is an empty string and "method" is "url"
+        if ($this->_properties['variable_name'] === '' && $this->_properties['method'] == 'url' && !$this->_properties['base_url_explicit'])
+
+            trigger_error('<strong>base_url</strong> must be explicitly declared if <strong>variable_name</strong> is <strong>an empty string</strong>' , E_USER_ERROR);
+
         // "variable_name" cannot be an empty string when "method" is "get"
         if ($this->_properties['variable_name'] === '' && $this->_properties['method'] == 'get')
 
@@ -830,24 +839,31 @@ class Zebra_Pagination {
         if ($this->_properties['method'] == 'url') {
 
             // see if the current page is already set in the URL
-            if (preg_match('/\b' . str_replace('/', '\/', preg_quote($this->_properties['variable_name'])) . '([0-9]+)\b/i', $this->_properties['base_url']) > 0) {
+            // when "variable_name" is an empty string we'll also factor in "base_url" (which is mandatory in this case)
+            if (preg_match(
+                '/\b' . str_replace('/', '\/', preg_quote(($this->_properties['variable_name'] === '' ? $this->_properties['base_url'] . '/' : '') . $this->_properties['variable_name'])) . '([0-9]+)\b/i',
+                $this->_properties['variable_name'] === '' ? $_SERVER['REQUEST_URI'] : $this->_properties['base_url']
+            ) > 0) {
 
                 // build string
                 $url = str_replace('//', '/', preg_replace(
 
                     // replace the currently existing value
-                    '/\b' . str_replace('/', '\/', preg_quote($this->_properties['variable_name'])) . '([0-9]+)\b/i',
+                    // (also handle the case when "variable_name" is an empty string)
+                    '/\b' . str_replace('/', '\/', preg_quote(($this->_properties['variable_name'] === '' ? $this->_properties['base_url'] . '/' : '') . $this->_properties['variable_name'])) . '([0-9]+)\b/i',
 
                     // if on the first page and we are avoiding duplicate content, remove page number
-                    ($page == 1 && $this->_properties['avoid_duplicate_content'] ? '' : $this->_properties['variable_name'] . $page),
+                    // (also handle the case when "variable_name" is an empty string)
+                    ($this->_properties['variable_name'] === '' ? $this->_properties['base_url'] . '/' : '') . ($page == 1 && $this->_properties['avoid_duplicate_content'] ? '' : $this->_properties['variable_name'] . $page),
 
-                    $this->_properties['base_url']
+                    // handle the case when "variable_name" is an empty string
+                    $this->_properties['variable_name'] === '' ? $_SERVER['REQUEST_URI'] : $this->_properties['base_url']
 
                 ));
 
             // if the current page is not yet in the URL, set it, unless we're on the first page
             // case in which we don't set it in order to avoid duplicate content
-            } else $url = rtrim($this->_properties['base_url'], '/') . '/' . ($this->_properties['variable_name'] . $page);
+            } else $url = ($this->_properties['variable_name'] !== '' ? $this->_properties['base_url'] . '/' : '') . $this->_properties['variable_name'] . $page;
 
             // handle trailing slash according to preferences
             $url = rtrim($url, '/') . ($this->_properties['trailing_slash'] ? '/' : '');
