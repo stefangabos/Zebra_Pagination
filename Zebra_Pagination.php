@@ -1183,7 +1183,7 @@ class Zebra_Pagination {
                 $css_classes = isset($this->_properties['css_classes']['list_item']) && $this->_properties['css_classes']['list_item'] != '' ? array(trim($this->_properties['css_classes']['list_item'])) : array();
 
                 // highlight if the page is currently selected
-                if ($this->_properties['page'] == ($this->_properties['condensed'] ? $this->_properties['total_pages'] : $i)) $css_classes[] = 'active';
+                if ($this->_properties['page'] == ($this->_properties['reverse'] ? 1 : $this->_properties['total_pages'])) $css_classes[] = 'active';
 
                 // generate markup
                 $output .= '<li' .
