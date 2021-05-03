@@ -1,6 +1,11 @@
 ## version 2.4.0 (TBA)
 
 - fixed compatilibty issues with PHP 8 and updated examples to work with latest versions of MariaDB
+- fixed bug where the library was not working correctly for `method` being `ur`, `variable` being `an empty string`, and last segment of an URL being a numerical value; see [#25](https://github.com/stefangabos/Zebra_Pagination/issues/25); thanks [Bilge](https://github.com/Bilge)!
+- `preg_quote`-d user variables used in `preg_replace`; see [#26](https://github.com/stefangabos/Zebra_Pagination/issues/26); thanks [Bilge](https://github.com/Bilge)!
+- removed `rel="next"` and `rel="prev"` as these are not an indexing signal anymore; see [#21](https://github.com/stefangabos/Zebra_Pagination/issues/21); thanks [Bilge](https://github.com/Bilge)!
+- pagination links are now in an `ordered list` instead of an `unordered `list` making the output semantically correct since the order of elements is imperative; see [#24](https://github.com/stefangabos/Zebra_Pagination/issues/24); thanks [Bilge](https://github.com/Bilge)!
+- fixed bug where when `method` was set to `url`, the library would not respect the value of `avoid_duplicate_content` when this was set to `false`; see [#27](https://github.com/stefangabos/Zebra_Pagination/issues/27); thanks [Bilge](https://github.com/Bilge)!
 - fixed bug where having [always_show_navigation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html#methodalways_show_navigation) set to `TRUE` would still not display pagination if there was a single page to be shown (see [#6](https://github.com/stefangabos/Zebra_Pagination/issues/16))
 - added a [condensed](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html#methodcondensed) mode which removes pagination links leaving only the *next* and *previous* buttons, links to the *first* and *last* pages, as well as a label showing the current page and the total available pages
 - updated examples
