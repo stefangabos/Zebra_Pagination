@@ -65,7 +65,7 @@ I have a few other projects that you might be interested in — <a href="https:/
 </ul>
 <h4>Version:</h4>
 <ul>
-<li>2.4.0 (last revision: May 02, 2021)<br>See <a href="https://github.com/stefangabos/Zebra_Pagination/blob/master/CHANGELOG.md" class="projects-homepage">CHANGELOG</a></li>
+<li>2.4.0 (last revision: May 03, 2021)<br>See <a href="https://github.com/stefangabos/Zebra_Pagination/blob/master/CHANGELOG.md" class="projects-homepage">CHANGELOG</a></li>
 </ul>
 <h4>License:</h4>
 <ul>
@@ -281,8 +281,8 @@ void
 <tr>
 <td><em>array</em></td>
 <td><strong>$css_classes</strong></td>
-<td><p>An associative array with one or more or all of the following keys:</p><p><ul><li><strong>list</strong>, for setting the CSS class name to be used for the unordered list (<code><kbd>&lt;ul&gt;</kbd></code>)</li><li><strong>list_item</strong>, for setting the CSS class name to be used for the list item (<code><kbd>&lt;li&gt;</kbd></code>)</li><li><strong>anchor</strong>, for setting the CSS class name to be used for the anchor (<code><kbd>&lt;a&gt;</kbd></code>)</li></ul><p>                                   The default generated HTML markup looks like below:</p><ol class="code"><li><div class="src-line">&lt;<span class="src-id">div&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;Zebra_Pagination&quot;</span>&gt;</div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">ul&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;pagination&quot;</span>&gt;</div></li>
+<td><p>An associative array with one or more or all of the following keys:</p><p><ul><li><strong>list</strong>, for setting the CSS class name to be used for the ordered list (<code><kbd>&lt;ol&gt;</kbd></code>)</li><li><strong>list_item</strong>, for setting the CSS class name to be used for the list item (<code><kbd>&lt;li&gt;</kbd></code>)</li><li><strong>anchor</strong>, for setting the CSS class name to be used for the anchor (<code><kbd>&lt;a&gt;</kbd></code>)</li></ul><p>                                   The default generated HTML markup looks like below:</p><ol class="code"><li><div class="src-line">&lt;<span class="src-id">div&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;Zebra_Pagination&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">ol&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;pagination&quot;</span>&gt;</div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">li&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;page-item&quot;</span>&gt;</div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">a&nbsp;href</span>=<span class="src-str">&quot;path/to/first/page/&quot;&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;page-link&quot;</span>&gt;<span class="src-num">1</span>&lt;/<span class="src-id">a</span>&gt;</div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="src-id">li</span>&gt;</div></li>
@@ -290,7 +290,7 @@ void
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">a&nbsp;href</span>=<span class="src-str">&quot;path/to/second/page/&quot;&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;page-link&quot;</span>&gt;<span class="src-num">2</span>&lt;/<span class="src-id">a</span>&gt;</div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="src-id">li</span>&gt;</div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<span class="src-id">the&nbsp;other&nbsp;pages</span>...</div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="src-id">ul</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="src-id">ol</span>&gt;</div></li>
 <li><div class="src-line">&lt;/<span class="src-id">div</span>&gt;</div></li>
 </ol><p>Calling this method with the following argument...</p><ol class="code"><li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodcss_classes">css_classes</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span></div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'list'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>=&gt;&nbsp;&nbsp;<span class="src-str">'foo'</span><span class="src-sym">,</span></div></li>
@@ -298,7 +298,7 @@ void
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'anchor'&nbsp;&nbsp;&nbsp;&nbsp;</span>=&gt;&nbsp;&nbsp;<span class="src-str">'baz'</span><span class="src-sym">,</span></div></li>
 <li><div class="src-line"><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
 </ol><p>...would result in the following markup:</p><ol class="code"><li><div class="src-line">&lt;<span class="src-id">div&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;Zebra_Pagination&quot;</span>&gt;</div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">ul&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;foo&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">ol&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;foo&quot;</span>&gt;</div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">li&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;bar&quot;</span>&gt;</div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">a&nbsp;href</span>=<span class="src-str">&quot;path/to/first/page/&quot;&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;baz&quot;</span>&gt;<span class="src-num">1</span>&lt;/<span class="src-id">a</span>&gt;</div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="src-id">li</span>&gt;</div></li>
@@ -306,7 +306,7 @@ void
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">a&nbsp;href</span>=<span class="src-str">&quot;path/to/second/page/&quot;&nbsp;</span><span class="src-key">class</span>=<span class="src-str">&quot;baz&quot;</span>&gt;<span class="src-num">2</span>&lt;/<span class="src-id">a</span>&gt;</div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="src-id">li</span>&gt;</div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<span class="src-id">the&nbsp;other&nbsp;pages</span>...</div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="src-id">ul</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="src-id">ol</span>&gt;</div></li>
 <li><div class="src-line">&lt;/<span class="src-id">div</span>&gt;</div></li>
 </ol><p>Default values are:</p><ol class="code"><li><div class="src-line"><span class="src-var">$pagination</span><span class="src-sym">-&gt;</span><a href="../Zebra_Pagination/Zebra_Pagination.html#methodcss_classes">css_classes</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span></div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'list'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>=&gt;&nbsp;&nbsp;<span class="src-str">'pagination'</span><span class="src-sym">,</span></div></li>
@@ -729,7 +729,7 @@ void
 </tr>
 </table>
 <div id="doc_footer">
-Documentation generated on <span>Sun, 02 May 21</span>
+Documentation generated on <span>Mon, 03 May 21</span>
 </div>
 </div>
 <!-- Global site tag (gtag.js) - Google Analytics -->
