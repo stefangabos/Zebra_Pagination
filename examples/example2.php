@@ -6,9 +6,11 @@
     <title>Zebra Pagination, database example</title>
     <meta charset="utf-8">
     <?php if (isset($_GET['bootstrap']) && $_GET['bootstrap'] == 3): ?>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
     <?php elseif (isset($_GET['bootstrap']) && $_GET['bootstrap'] == 4): ?>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <?php elseif (isset($_GET['bootstrap']) && $_GET['bootstrap'] == 5): ?>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
     <?php else: ?>
     <link rel="stylesheet" href="../public/css/zebra_pagination.css" type="text/css">
     <?php endif; ?>
@@ -43,9 +45,10 @@
         <br>
 
         See the
-        <a href="example2.php<?php echo prep_query_string(array('bootstrap' => '')); ?>"<?php echo !isset($_GET['bootstrap']) || !in_array($_GET['bootstrap'], array(3, 4)) ? ' class="active"' : ''; ?>>default</a> looks, the
-        <a href="example2.php<?php echo prep_query_string(array('bootstrap' => 3)); ?>"<?php echo isset($_GET['bootstrap']) && $_GET['bootstrap'] == 3 ? ' class="active"' : ''; ?>>Bootstrap 3</a> looks or the
-        <a href="example2.php<?php echo prep_query_string(array('bootstrap' => 4)); ?>"<?php echo isset($_GET['bootstrap']) && $_GET['bootstrap'] == 4 ? ' class="active"' : ''; ?>>Bootstrap 4</a> looks
+        <a href="example1.php<?php echo prep_query_string(array('bootstrap' => '')); ?>"<?php echo !isset($_GET['bootstrap']) || !in_array($_GET['bootstrap'], array(3, 4)) ? ' class="active"' : ''; ?>>default</a> looks, the
+        <a href="example1.php<?php echo prep_query_string(array('bootstrap' => 3)); ?>"<?php echo isset($_GET['bootstrap']) && $_GET['bootstrap'] == 3 ? ' class="active"' : ''; ?>>Bootstrap 3</a> looks, the
+        <a href="example1.php<?php echo prep_query_string(array('bootstrap' => 4)); ?>"<?php echo isset($_GET['bootstrap']) && $_GET['bootstrap'] == 4 ? ' class="active"' : ''; ?>>Bootstrap 4</a> looks, or the
+        <a href="example1.php<?php echo prep_query_string(array('bootstrap' => 5)); ?>"<?php echo isset($_GET['bootstrap']) && $_GET['bootstrap'] == 5 ? ' class="active"' : ''; ?>>Bootstrap 5</a> looks
         <br>
 
         <br><small><em>When using Bootstrap you don't need to include the <code>zebra_pagination.css</code> file anymore.</em></small>
