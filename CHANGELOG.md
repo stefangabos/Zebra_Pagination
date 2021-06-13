@@ -1,7 +1,7 @@
-## version 2.4.0 (TBA)
+## version 2.4.0 (June 13, 2021)
 
 - fixed compatilibty issues with PHP 8 and updated examples to work with latest versions of MariaDB
-- fixed bug where the library was not working correctly for `method` being `ur`, `variable` being `an empty string`, and last segment of an URL being a numerical value; see [#25](https://github.com/stefangabos/Zebra_Pagination/issues/25); thanks [Bilge](https://github.com/Bilge)!
+- fixed bug where the library was not working correctly for `method` being `url`, `variable` being `an empty string` and last segment of an URL being a numerical value; see [#25](https://github.com/stefangabos/Zebra_Pagination/issues/25); thanks [Bilge](https://github.com/Bilge)!
 - `preg_quote`-d user variables used in `preg_replace`; see [#26](https://github.com/stefangabos/Zebra_Pagination/issues/26); thanks [Bilge](https://github.com/Bilge)!
 - removed `rel="next"` and `rel="prev"` as these are not an indexing signal anymore; see [#21](https://github.com/stefangabos/Zebra_Pagination/issues/21); thanks [Bilge](https://github.com/Bilge)!
 - pagination links are now in an `ordered list` instead of an `unordered `list` making the output semantically correct since the order of elements is imperative; see [#24](https://github.com/stefangabos/Zebra_Pagination/issues/24); thanks [Bilge](https://github.com/Bilge)!
