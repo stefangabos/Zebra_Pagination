@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  A generic, Twitter Bootstrap compatible (both 3 and 4), pagination script that automatically generates navigation links
+ *  A generic, Twitter Bootstrap compatible (versions 3, 4 and 5), pagination script that automatically generates navigation links
  *  as well as next/previous page links, given the total number of records and the number of records to be shown per page.
  *  Useful for breaking large sets of data into smaller chunks, reducing network traffic and, at the same time, improving
  *  readability, aesthetics and usability.
@@ -325,8 +325,8 @@ class Zebra_Pagination {
      *                                  ));
      *                                  </code>
      *
-     *                                  These values make the resulting markup to be compatible with both the version
-     *                                  3 and 4 of Twitter Bootstrap.
+     *                                  These values make the resulting markup to be compatible with versions 3, 4 and
+     *                                  5 of Twitter Bootstrap.
      *
      *  @return void
      */

@@ -6,7 +6,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/stefangabos/zebra_pagination/v/stable)](https://packagist.org/packages/stefangabos/zebra_pagination) [![Total Downloads](https://poser.pugx.org/stefangabos/zebra_pagination/downloads)](https://packagist.org/packages/stefangabos/zebra_pagination) [![Monthly Downloads](https://poser.pugx.org/stefangabos/zebra_pagination/d/monthly)](https://packagist.org/packages/stefangabos/zebra_pagination) [![Daily Downloads](https://poser.pugx.org/stefangabos/zebra_pagination/d/daily)](https://packagist.org/packages/stefangabos/zebra_pagination) [![License](https://poser.pugx.org/stefangabos/zebra_pagination/license)](https://packagist.org/packages/stefangabos/zebra_pagination)
 
-A generic, [Twitter Bootstrap](http://getbootstrap.com) compatible (both versions 3 and 4), pagination script that automatically generates navigation links as well as next/previous page links, given the total number of records and the number of records to be shown per page. Useful for breaking large sets of data into smaller chunks, reducing network traffic and, at the same time, improving readability, aesthetics and usability.
+A generic, [Twitter Bootstrap](http://getbootstrap.com) compatible (versions 3, 4 and 5), pagination script that automatically generates navigation links as well as next/previous page links, given the total number of records and the number of records to be shown per page. Useful for breaking large sets of data into smaller chunks, reducing network traffic and, at the same time, improving readability, aesthetics and usability.
 
 Adheres to pagination best practices (provides large clickable areas, doesn't use underlines, the selected page is clearly highlighted, page links are spaced out, provides "previous page" and "next page" links, provides "first page" and "last page" links - as outlined in an article by Faruk Ates from 2007, which can now be found [here](https://gist.github.com/622561), can generate links both in natural as well as in reverse order, can be easily, localized, supports different positions for next/previous page buttons, supports page propagation via GET or via URL rewriting, is SEO-friendly, and the appearance is easily customizable through CSS.
 
@@ -27,7 +27,7 @@ The code is heavily commented and generates no warnings/errors/notices when PHP'
 - navigation links can be generated in natural or in reverse order
 - it is SEO-friendly - it solves the problem of duplicate content on the first page without navigation and the first page having the page number in the URL
 - appearance is easily customizable through CSS
-- compatible with [Twitter Bootstrap](http://getbootstrap.com) 3 and 4
+- compatible with [Twitter Bootstrap](http://getbootstrap.com) versions 3, 4 and 5
 - code is heavily commented and generates no warnings/errors/notices when PHP's error reporting level is set to E_ALL
 - has [awesome documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)
 
