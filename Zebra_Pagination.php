@@ -9,7 +9,7 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Pagination/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.4.0 (last revision: June 13, 2021)
+ *  @version    2.4.1 (last revision: September 02, 2021)
  *  @copyright  © 2009 - 2021 Stefan Gabos
  *  @license    https://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pagination
@@ -876,7 +876,7 @@ class Zebra_Pagination {
             else $query = $_SERVER['QUERY_STRING'];
 
             // return the built string also appending the query string, if any
-            return $url . ($query != '' ? '?' . $query : '');
+            $uri =  $url . ($query != '' ? '?' . $query : '');
 
         // if page propagation is to be done through GET
         } else {
@@ -900,9 +900,13 @@ class Zebra_Pagination {
                 unset($query[$this->_properties['variable_name']]);
 
             // make sure the returned HTML is W3C compliant
-            return htmlspecialchars(html_entity_decode($this->_properties['base_url']) . (!empty($query) ? '?' . urldecode(http_build_query($query)) : ''));
+            $uri = htmlspecialchars(html_entity_decode($this->_properties['base_url']) . (!empty($query) ? '?' . urldecode(http_build_query($query)) : ''));
 
         }
+
+        // if for whatever reason the URI is an empty string it means it should be pointing to the root ("/")
+        // we can't leave this as an empty string or it will point to whatever URL is currently open in the browser
+        return $uri !== '' ? $uri : '/';
 
     }
 
