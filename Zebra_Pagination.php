@@ -900,7 +900,7 @@ class Zebra_Pagination {
                 unset($query[$this->_properties['variable_name']]);
 
             // make sure the returned HTML is W3C compliant
-            $uri = htmlspecialchars(html_entity_decode($this->_properties['base_url']) . (!empty($query) ? '?' . urldecode(http_build_query($query)) : ''));
+            $uri = htmlspecialchars(html_entity_decode($this->_properties['base_url']) . (!empty($query) ? '?' . http_build_query(array_map('urldecode', $query)) : ''));
 
         }
 
