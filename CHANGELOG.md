@@ -1,6 +1,9 @@
+## version 2.4.2 (September 06, 2021)
+
+- fixed a bug where encoded ampersands in pre-existing URL parameters were incorrectly handled; see [#34](https://github.com/stefangabos/Zebra_Pagination/issues/34); thanks [Tom-Lovatt](https://github.com/Tom-Lovatt)!
 ## version 2.4.1 (September 02, 2021)
 
-- fixed a bug where running the script on a server's home would cause the link to the first page to be incorrect; see [#25](https://github.com/stefangabos/Zebra_Pagination/issues/35); thanks [Robert](https://github.com/rcorsari)!
+- fixed a bug where running the script on a server's home would cause the link to the first page to be incorrect; see [#35](https://github.com/stefangabos/Zebra_Pagination/issues/35); thanks [Robert](https://github.com/rcorsari)!
 ## version 2.4.0 (June 13, 2021)
 
 - fixed compatilibty issues with PHP 8 and updated examples to work with latest versions of MariaDB
