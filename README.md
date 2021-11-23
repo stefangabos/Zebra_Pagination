@@ -1,6 +1,6 @@
 <img src="https://github.com/stefangabos/zebrajs/blob/master/docs/images/logo.png" alt="zebrajs" align="right">
 
-# Zebra_Pagination
+# Zebra Pagination &nbsp;[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=A+generic,+Twitter+Bootstrap+compatible,+pagination+library+that+automatically+generates+navigation+links+%23php&url=https://github.com/stefangabos/Zebra_Pagination&via=stefangabos)
 
 *A generic, Twitter Bootstrap compatible, pagination library that automatically generates navigation links*
 
@@ -14,12 +14,6 @@ Adheres to pagination best practices (provides large clickable areas, doesn't us
 
 The code is heavily commented and generates no warnings/errors/notices when PHP's error reporting level is set to E_ALL.
 
-:books: Check out the [awesome documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)!
-
-## Support the development of this library
-
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SKXN7C6PPH6FL)
-
 ## Features
 
 - it is a generic library: can be used to paginate records both from an array or from a database
@@ -31,13 +25,26 @@ The code is heavily commented and generates no warnings/errors/notices when PHP'
 - code is heavily commented and generates no warnings/errors/notices when PHP's error reporting level is set to E_ALL
 - has [awesome documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)
 
+## :notebook_with_decorative_cover: Documentation
+
+Check out the [awesome documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)!
+
+## 🎂 Support the development of this project
+
+Your support means a lot and it keeps me motivated to keep working on open source projects.<br>
+If you like this project please ⭐ it by clicking on the star button at the top of the page.<br>
+If you are feeling generous, you can buy me a coffee by donating through PayPal, or you can become a sponsor.<br>
+Either way - **Thank you!** 🎉
+
+[<img src="https://img.shields.io/github/stars/stefangabos/zebra_pagination?color=green&label=star%20it%20on%20GitHub" width="132" height="20" alt="Star it on GitHub">](https://github.com/stefangabos/Zebra_Pagination) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SKXN7C6PPH6FL) [<img src="https://img.shields.io/badge/-Sponsor-fafbfc?logo=GitHub%20Sponsors">](https://github.com/sponsors/stefangabos)
+
 ## Requirements
 
 PHP 5+
 
 ## Installation
 
-You can install Zebra_Pagination via [Composer](https://packagist.org/packages/stefangabos/zebra_pagination)
+You can install Zebra Pagination via [Composer](https://packagist.org/packages/stefangabos/zebra_pagination)
 
 ```bash
 # get the latest stable release
@@ -231,6 +238,7 @@ $connection = mysqli_connect($host, $username, $password, $database);
 $records_per_page = 10;
 
 // include the pagination class
+// (you don't need this if you are using Composer)
 require 'path/to/Zebra_Pagination.php';
 
 // instantiate the pagination object
@@ -293,5 +301,3 @@ $pagination->render();
 Would result in something like
 
 ![Zebra_Pagination](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-reversed.png?raw=true)
-
-:books: Check out the [awesome documentation](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html)!
