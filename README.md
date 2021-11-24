@@ -1,6 +1,6 @@
 <img src="https://github.com/stefangabos/zebrajs/blob/master/docs/images/logo.png" alt="zebrajs" align="right">
 
-# Zebra Pagination &nbsp;[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=A+generic,+Twitter+Bootstrap+compatible,+pagination+library+that+automatically+generates+navigation+links+%23php&url=https://github.com/stefangabos/Zebra_Pagination&via=stefangabos)
+# Zebra Pagination &nbsp;[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=A+generic,+Twitter+Bootstrap+compatible,+pagination+library+that+automatically+generates+navigation+links&url=https://github.com/stefangabos/Zebra_Pagination&via=stefangabos&hashtags=php)
 
 *A generic, Twitter Bootstrap compatible, pagination library that automatically generates navigation links*
 
