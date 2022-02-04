@@ -900,13 +900,13 @@ class Zebra_Pagination {
                 unset($query[$this->_properties['variable_name']]);
 
             // make sure the returned HTML is W3C compliant
-            $uri = htmlspecialchars(html_entity_decode($this->_properties['base_url']) . (!empty($query) ? '?' . http_build_query(array_map('urldecode', $query)) : ''));
+            $uri = htmlspecialchars(html_entity_decode($this->_properties['base_url']) . (!empty($query) ? '?' . http_build_query($query) : ''));
 
         }
 
         // if for whatever reason the URI is an empty string it means it should be pointing to the root ("/")
         // we can't leave this as an empty string or it will point to whatever URL is currently open in the browser
-        return $uri !== '' ? $uri : '/';
+        return $uri !== '' ? rawurldecode($uri) : '/';
 
     }
 
