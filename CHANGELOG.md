@@ -1,3 +1,7 @@
+## version 2.4.3 (February 04, 2022)
+
+- fixed a bug when having arrays in the URL (like `select-products?&example[family]=MyFamily&example[subfamily]=Mysubfamily&other_param=Other`); see [#36](https://github.com/stefangabos/Zebra_Pagination/pull/36); thanks [Franck Dupont](https://github.com/kyfr59)!
+
 ## version 2.4.2 (September 06, 2021)
 
 - fixed a bug where encoded ampersands in pre-existing URL parameters were incorrectly handled; see [#34](https://github.com/stefangabos/Zebra_Pagination/issues/34); thanks [Tom-Lovatt](https://github.com/Tom-Lovatt)!
