@@ -9,14 +9,19 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Pagination/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.4.3 (last revision: February 04, 2022)
+ *  @version    2.4.4 (last revision: September 25, 2022)
  *  @copyright  © 2009 - 2022 Stefan Gabos
  *  @license    https://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pagination
  */
 class Zebra_Pagination {
 
-    // set defaults and initialize some private variables
+    /**
+     *  defaults and initialize some private variables
+     *
+     *  @var    array<mixed>
+     *  @access private
+     */
     private $_properties = array(
 
         // should the "previous page" and "next page" links be always visible
@@ -267,76 +272,78 @@ class Zebra_Pagination {
     /**
      *  Allows defining of custom CSS class names to be applied to the HTML markup.
      *
-     *  @param  array   $css_classes    An associative array with one or more or all of the following keys:
+     *  @param  array<string>   $css_classes    An associative array with one or more or all of the following keys:
      *
-     *                                  -   **list**, for setting the CSS class name to be used for the ordered list (`<kbd><ol></kbd>`)
-     *                                  -   **list_item**, for setting the CSS class name to be used for the list item (`<kbd><li></kbd>`)
-     *                                  -   **anchor**, for setting the CSS class name to be used for the anchor (`<kbd><a></kbd>`)
+     *                                          -   **list**, for setting the CSS class name to be used for the ordered list (`<kbd><ol></kbd>`)
+     *                                          -   **list_item**, for setting the CSS class name to be used for the list item (`<kbd><li></kbd>`)
+     *                                          -   **anchor**, for setting the CSS class name to be used for the anchor (`<kbd><a></kbd>`)
      *
-     *                                  The default generated HTML markup looks like below:
+     *                                          The default generated HTML markup looks like below:
      *
-     *                                  <code>
-     *                                  <div class="Zebra_Pagination">
-     *                                      <ol class="pagination">
-     *                                          <li class="page-item">
-     *                                              <a href="path/to/first/page/" class="page-link">1</a>
-     *                                          </li>
-     *                                          <li class="page-item">
-     *                                              <a href="path/to/second/page/" class="page-link">2</a>
-     *                                          </li>
-     *                                          ...the other pages...
-     *                                      </ol>
-     *                                  </div>
-     *                                  </code>
+     *                                          <code>
+     *                                          <div class="Zebra_Pagination">
+     *                                              <ol class="pagination">
+     *                                                  <li class="page-item">
+     *                                                      <a href="path/to/first/page/" class="page-link">1</a>
+     *                                                  </li>
+     *                                                  <li class="page-item">
+     *                                                      <a href="path/to/second/page/" class="page-link">2</a>
+     *                                                  </li>
+     *                                                  ...the other pages...
+     *                                              </ol>
+     *                                          </div>
+     *                                          </code>
      *
-     *                                  Calling this method with the following argument...
+     *                                          Calling this method with the following argument...
      *
-     *                                  <code>
-     *                                  $pagination->css_classes(array(
-     *                                      'list'      =>  'foo',
-     *                                      'list_item' =>  'bar',
-     *                                      'anchor'    =>  'baz',
-     *                                  ));
-     *                                  </code>
+     *                                          <code>
+     *                                          $pagination->css_classes(array(
+     *                                              'list'      =>  'foo',
+     *                                              'list_item' =>  'bar',
+     *                                              'anchor'    =>  'baz',
+     *                                          ));
+     *                                          </code>
      *
-     *                                  ...would result in the following markup:
+     *                                          ...would result in the following markup:
      *
-     *                                  <code>
-     *                                  <div class="Zebra_Pagination">
-     *                                      <ol class="foo">
-     *                                          <li class="bar">
-     *                                              <a href="path/to/first/page/" class="baz">1</a>
-     *                                          </li>
-     *                                          <li class="bar">
-     *                                              <a href="path/to/second/page/" class="baz">2</a>
-     *                                          </li>
-     *                                          ...the other pages...
-     *                                      </ol>
-     *                                  </div>
-     *                                  </code>
+     *                                          <code>
+     *                                          <div class="Zebra_Pagination">
+     *                                              <ol class="foo">
+     *                                                  <li class="bar">
+     *                                                      <a href="path/to/first/page/" class="baz">1</a>
+     *                                                  </li>
+     *                                                  <li class="bar">
+     *                                                      <a href="path/to/second/page/" class="baz">2</a>
+     *                                                  </li>
+     *                                                  ...the other pages...
+     *                                              </ol>
+     *                                          </div>
+     *                                          </code>
      *
-     *                                  Default values are:
+     *                                          Default values are:
      *
-     *                                  <code>
-     *                                  $pagination->css_classes(array(
-     *                                      'list'      =>  'pagination',
-     *                                      'list_item' =>  'page-item',
-     *                                      'anchor'    =>  'page-link',
-     *                                  ));
-     *                                  </code>
+     *                                          <code>
+     *                                          $pagination->css_classes(array(
+     *                                              'list'      =>  'pagination',
+     *                                              'list_item' =>  'page-item',
+     *                                              'anchor'    =>  'page-link',
+     *                                          ));
+     *                                          </code>
      *
-     *                                  These values make the resulting markup to be compatible with versions 3, 4 and
-     *                                  5 of Twitter Bootstrap.
+     *                                          These values make the resulting markup to be compatible with versions 3,
+     *                                          4 and 5 of Twitter Bootstrap.
      *
      *  @return void
      */
     public function css_classes($css_classes) {
 
         // if argument is invalid
-        if (!is_array($css_classes) || empty($css_classes) || array_keys($css_classes) != array_filter(array_keys($css_classes), function($value) { return in_array($value, array('list', 'list_item', 'anchor'), true); }))
+        if (!is_array($css_classes) || empty($css_classes) || array_keys($css_classes) != array_filter(array_keys($css_classes), function ($value) { return in_array($value, array('list', 'list_item', 'anchor'), true); })) {
 
             // stop execution
-            trigger_error('Invalid argument. Method <strong>classes()</strong> accepts as argument an associative array with one or more of the following keys: <em>list, list_item, anchor</em>' , E_USER_ERROR);
+            trigger_error('Invalid argument. Method <strong>classes()</strong> accepts as argument an associative array with one or more of the following keys: <em>list, list_item, anchor</em>', E_USER_ERROR);
+
+        }
 
         // merge values with the default ones
         $this->_properties['css_classes'] = array_merge($this->_properties['css_classes'], $css_classes);
@@ -350,6 +357,8 @@ class Zebra_Pagination {
      *  // echoes the current page
      *  echo $pagination->get_page();
      *  </code>
+     *
+     *  @return int     Return the number of the currently selected page
      */
     public function get_page() {
 
@@ -365,24 +374,32 @@ class Zebra_Pagination {
                 // the current page is set in the URL
                 preg_match('/\b' . str_replace('/', '\/', preg_quote(($this->_properties['variable_name'] === '' ? $this->_properties['base_url'] . '/' : '') . $this->_properties['variable_name'])) . '([0-9]+)\b/i', $_SERVER['REQUEST_URI'], $matches) > 0
 
-            )
+            ) {
 
                 // set the current page to whatever it is indicated in the URL
                 $this->set_page((int)$matches[1]);
 
             // if page propagation is done through GET and the current page is set in $_GET
-            elseif (isset($_GET[$this->_properties['variable_name']]))
+            } elseif (isset($_GET[$this->_properties['variable_name']])) {
 
                 // set the current page to whatever it was set to
                 $this->set_page((int)$_GET[$this->_properties['variable_name']]);
+
+            }
 
         }
 
         // if showing records in reverse order we must know the total number of records and the number of records per page
         // *before* calling the "get_page" method
-        if ($this->_properties['reverse'] && $this->_properties['records'] == '') trigger_error('When showing records in reverse order you must specify the total number of records (by calling the "records" method) *before* the first use of the "get_page" method!', E_USER_ERROR);
+        if ($this->_properties['reverse'] && $this->_properties['records'] == '') {
 
-        if ($this->_properties['reverse'] && $this->_properties['records_per_page'] == '') trigger_error('When showing records in reverse order you must specify the number of records per page (by calling the "records_per_page" method) *before* the first use of the "get_page" method!', E_USER_ERROR);
+            trigger_error('When showing records in reverse order you must specify the total number of records (by calling the "records" method) *before* the first use of the "get_page" method!', E_USER_ERROR);
+
+        } elseif ($this->_properties['reverse'] && $this->_properties['records_per_page'] == '') {
+
+            trigger_error('When showing records in reverse order you must specify the number of records per page (by calling the "records_per_page" method) *before* the first use of the "get_page" method!', E_USER_ERROR);
+
+        }
 
         // get the total number of pages
         $this->_properties['total_pages'] = $this->get_pages();
@@ -392,20 +409,28 @@ class Zebra_Pagination {
 
             // if current page is beyond the total number pages
             /// make the current page be the last page
-            if ($this->_properties['page'] > $this->_properties['total_pages']) $this->_properties['page'] = $this->_properties['total_pages'];
+            if ($this->_properties['page'] > $this->_properties['total_pages']) {
+
+                $this->_properties['page'] = $this->_properties['total_pages'];
 
             // if current page is smaller than 1
             // make the current page 1
-            elseif ($this->_properties['page'] < 1) $this->_properties['page'] = 1;
+            } elseif ($this->_properties['page'] < 1) {
+
+                $this->_properties['page'] = 1;
+
+            }
 
         }
 
         // if we're just starting and we have to display links in reverse order
         // set the first to the last one rather then first
-        if (!$this->_properties['page_set'] && $this->_properties['reverse']) $this->set_page($this->_properties['total_pages']);
+        if (!$this->_properties['page_set'] && $this->_properties['reverse']) {
+            $this->set_page($this->_properties['total_pages']);
+        }
 
         // return the current page
-        return $this->_properties['page'];
+        return (int)$this->_properties['page'];
 
     }
 
@@ -418,6 +443,8 @@ class Zebra_Pagination {
      *  // get the total number of pages
      *  echo $pagination->get_pages();
      *  </code>
+     *
+     *  @return int     The total number of available pages
      *
      *  @since  2.1
      */
@@ -500,7 +527,7 @@ class Zebra_Pagination {
      *
      *                              Default is `get`.
      *
-     *  @returns void
+     *  @return void
      */
     public function method($method = 'get') {
 
@@ -604,7 +631,7 @@ class Zebra_Pagination {
     }
 
     /**
-     *  Generates the HTML markup for the pagination.
+     *  Generates and outputs or returns the HTML markup for the pagination.
      *
      *  <code>
      *  // generate output
@@ -620,25 +647,29 @@ class Zebra_Pagination {
      *
      *                                          Default is `FALSE`.
      *
-     *  @return void
+     *  @return mixed
      */
     public function render($return_output = false) {
 
         // "base_url" must be explicitly declared if "variable_name" is an empty string and "method" is "url"
-        if ($this->_properties['variable_name'] === '' && $this->_properties['method'] == 'url' && !$this->_properties['base_url_explicit'])
+        if ($this->_properties['variable_name'] === '' && $this->_properties['method'] == 'url' && !$this->_properties['base_url_explicit']) {
 
-            trigger_error('<strong>base_url</strong> must be explicitly declared if <strong>variable_name</strong> is <strong>an empty string</strong>' , E_USER_ERROR);
+            trigger_error('<strong>base_url</strong> must be explicitly declared if <strong>variable_name</strong> is <strong>an empty string</strong>', E_USER_ERROR);
 
         // "variable_name" cannot be an empty string when "method" is "get"
-        if ($this->_properties['variable_name'] === '' && $this->_properties['method'] == 'get')
+        } elseif ($this->_properties['variable_name'] === '' && $this->_properties['method'] == 'get') {
 
-            trigger_error('<strong>variable_name</strong> must not be an empty when <strong>method</strong> is <strong>get</strong>' , E_USER_ERROR);
+            trigger_error('<strong>variable_name</strong> must not be an empty when <strong>method</strong> is <strong>get</strong>', E_USER_ERROR);
+
+        }
 
         // get some properties of the class
         $this->get_page();
 
         // if there is a single page or no pages at all, and we don't have to always display navigation, don't display anything
-        if ($this->_properties['total_pages'] <= 1 && !$this->_properties['always_show_navigation']) return '';
+        if ($this->_properties['total_pages'] <= 1 && !$this->_properties['always_show_navigation']) {
+            return '';
+        }
 
         // start building output
         $output = '<div class="Zebra_Pagination"><ol' . ($this->_properties['css_classes']['list'] != '' ? ' class="' . trim($this->_properties['css_classes']['list']) . '"' : '') . '>';
@@ -647,35 +678,43 @@ class Zebra_Pagination {
         if ($this->_properties['reverse']) {
 
             // if "next page" and "previous page" links need to be shown to the left of the links to individual pages
-            if ($this->_properties['navigation_position'] == 'left')
+            if ($this->_properties['navigation_position'] == 'left') {
 
                 // first show next/previous and then page links
                 $output .= $this->_show_next() . $this->_show_previous() . $this->_show_pages();
 
             // if "next page" and "previous page" links need to be shown to the right of the links to individual pages
-            elseif ($this->_properties['navigation_position'] == 'right')
+            } elseif ($this->_properties['navigation_position'] == 'right') {
 
                 $output .= $this->_show_pages() . $this->_show_next() . $this->_show_previous();
 
             // if "next page" and "previous page" links need to be shown on the outside of the links to individual pages
-            else $output .= $this->_show_next() . $this->_show_pages() . $this->_show_previous();
+            } else {
+
+                $output .= $this->_show_next() . $this->_show_pages() . $this->_show_previous();
+
+            }
 
         // if we're showing records in natural order
         } else {
 
             // if "next page" and "previous page" links need to be shown to the left of the links to individual pages
-            if ($this->_properties['navigation_position'] == 'left')
+            if ($this->_properties['navigation_position'] == 'left') {
 
                 // first show next/previous and then page links
                 $output .= $this->_show_previous() . $this->_show_next() . $this->_show_pages();
 
             // if "next page" and "previous page" links need to be shown to the right of the links to individual pages
-            elseif ($this->_properties['navigation_position'] == 'right')
+            } elseif ($this->_properties['navigation_position'] == 'right') {
 
                 $output .= $this->_show_pages() . $this->_show_previous() . $this->_show_next();
 
             // if "next page" and "previous page" links need to be shown on the outside of the links to individual pages
-            else $output .= $this->_show_previous() . $this->_show_pages() . $this->_show_next();
+            } else {
+
+                $output .= $this->_show_previous() . $this->_show_pages() . $this->_show_next();
+
+            }
 
         }
 
@@ -684,7 +723,9 @@ class Zebra_Pagination {
 
         // if $return_output is TRUE
         // return the generated content
-        if ($return_output) return $output;
+        if ($return_output) {
+            return $output;
+        }
 
         // if script gets this far, print generated content to the screen
         echo $output;
@@ -745,7 +786,9 @@ class Zebra_Pagination {
         $this->_properties['selectable_pages'] = (int)$selectable_pages;
 
         // if less than 5 selectable pages, turn "condensed" mode on
-        if ($this->_properties['selectable_pages'] < 5) $this->condensed();
+        if ($this->_properties['selectable_pages'] < 5) {
+            $this->condensed();
+        }
 
     }
 
@@ -772,7 +815,9 @@ class Zebra_Pagination {
 
         // if the number is lower than one
         // make it '1'
-        if ($this->_properties['page'] < 1) $this->_properties['page'] = 1;
+        if ($this->_properties['page'] < 1) {
+            $this->_properties['page'] = 1;
+        }
 
         // set a flag so that the "get_page" method doesn't change this value
         $this->_properties['page_set'] = true;
@@ -829,9 +874,13 @@ class Zebra_Pagination {
     }
 
     /**
-     *  Generate the link for the page given as argument.
+     *  Returns the URL for the page given as argument.
      *
-     *  @return void
+     *  @param  integer $page   The page number for which to build the URL for
+     *
+     *  @access private
+     *
+     *  @return string
      */
     private function _build_uri($page) {
 
@@ -840,40 +889,40 @@ class Zebra_Pagination {
 
             // see if the current page is already set in the URL
             // when "variable_name" is an empty string we'll also factor in "base_url" (which is mandatory in this case)
-            if (preg_match(
-                '/\b' . str_replace('/', '\/', preg_quote(($this->_properties['variable_name'] === '' ? $this->_properties['base_url'] . '/' : '') . $this->_properties['variable_name'])) . '([0-9]+)\b/i',
-                $this->_properties['variable_name'] === '' ? $_SERVER['REQUEST_URI'] : $this->_properties['base_url']
-            ) > 0) {
+            if (
+                preg_match(
+                    '/\b' . str_replace('/', '\/', preg_quote(($this->_properties['variable_name'] === '' ? $this->_properties['base_url'] . '/' : '') . $this->_properties['variable_name'])) . '([0-9]+)\b/i',
+                    $this->_properties['variable_name'] === '' ? $_SERVER['REQUEST_URI'] : $this->_properties['base_url']
+                ) > 0
+            ) {
 
                 // build string
                 $url = str_replace('//', '/', preg_replace(
-
                     // replace the currently existing value
                     // (also handle the case when "variable_name" is an empty string)
                     '/\b' . str_replace('/', '\/', preg_quote(($this->_properties['variable_name'] === '' ? $this->_properties['base_url'] . '/' : '') . $this->_properties['variable_name'])) . '([0-9]+)\b/i',
-
                     // if on the first page and we are avoiding duplicate content, remove page number
                     // (also handle the case when "variable_name" is an empty string)
                     ($this->_properties['variable_name'] === '' ? $this->_properties['base_url'] . '/' : '') . ($page == 1 && $this->_properties['avoid_duplicate_content'] ? '' : $this->_properties['variable_name'] . $page),
-
                     // handle the case when "variable_name" is an empty string
                     $this->_properties['variable_name'] === '' ? $_SERVER['REQUEST_URI'] : $this->_properties['base_url']
-
                 ));
 
             // if the current page is not yet in the URL, set it, unless we're on the first page
             // case in which we don't set it in order to avoid duplicate content
-            } else $url = ($this->_properties['variable_name'] !== '' ? $this->_properties['base_url'] . '/' : '') . $this->_properties['variable_name'] . $page;
+            } else {
+
+                $url = ($this->_properties['variable_name'] !== '' ? $this->_properties['base_url'] . '/' : '') . $this->_properties['variable_name'] . $page;
+
+            }
 
             // handle trailing slash according to preferences
             $url = rtrim($url, '/') . ($this->_properties['trailing_slash'] ? '/' : '');
 
             // if values in the query string - other than those set through base_url() - are not to be preserved
             // preserve only those set initially
-            if (!$this->_properties['preserve_query_string']) $query = implode('&', $this->_properties['base_url_query']);
-
             // otherwise, get the current query string
-            else $query = $_SERVER['QUERY_STRING'];
+            $query = !$this->_properties['preserve_query_string'] ? implode('&', $this->_properties['base_url_query']) : $_SERVER['QUERY_STRING'];
 
             // return the built string also appending the query string, if any
             $uri =  $url . ($query != '' ? '?' . $query : '');
@@ -883,21 +932,29 @@ class Zebra_Pagination {
 
             // if values in the query string - other than those set through base_url() - are not to be preserved
             // preserve only those set initially
-            if (!$this->_properties['preserve_query_string']) $query = $this->_properties['base_url_query'];
+            if (!$this->_properties['preserve_query_string']) {
+
+                $query = $this->_properties['base_url_query'];
 
             // otherwise, get the current query string, if any, and transform it to an array
-            else parse_str($_SERVER['QUERY_STRING'], $query);
+            } else {
+
+                parse_str($_SERVER['QUERY_STRING'], $query);
+
+            }
 
             // if we are avoiding duplicate content and if not the first/last page (depending on whether the pagination links are shown in natural or reversed order)
-            if (!$this->_properties['avoid_duplicate_content'] || ($page != ($this->_properties['reverse'] ? $this->_properties['total_pages'] : 1)))
+            if (!$this->_properties['avoid_duplicate_content'] || ($page != ($this->_properties['reverse'] ? $this->_properties['total_pages'] : 1))) {
 
                 // add/update the page number
                 $query[$this->_properties['variable_name']] = $page;
 
             // if we are avoiding duplicate content, don't use the "page" variable on the first/last page
-            elseif ($this->_properties['avoid_duplicate_content'] && $page == ($this->_properties['reverse'] ? $this->_properties['total_pages'] : 1))
+            } elseif ($this->_properties['avoid_duplicate_content'] && $page == ($this->_properties['reverse'] ? $this->_properties['total_pages'] : 1)) {
 
                 unset($query[$this->_properties['variable_name']]);
+
+            }
 
             // make sure the returned HTML is W3C compliant
             $uri = htmlspecialchars(html_entity_decode($this->_properties['base_url']) . (!empty($query) ? '?' . http_build_query($query) : ''));
@@ -911,7 +968,11 @@ class Zebra_Pagination {
     }
 
     /**
-     *  Generates the *next page* link, depending on whether the pagination links are shown in natural or reversed order.
+     *  Returns the *next page* URL, depending on whether the pagination links are shown in natural or reversed order.
+     *
+     *  @access private
+     *
+     *  @return string
      */
     private function _show_next() {
 
@@ -926,7 +987,9 @@ class Zebra_Pagination {
             $css_classes = isset($this->_properties['css_classes']['list_item']) && $this->_properties['css_classes']['list_item'] != '' ? array(trim($this->_properties['css_classes']['list_item'])) : array();
 
             // if we're on the last page, the link is disabled
-            if ($this->_properties['page'] == $this->_properties['total_pages']) $css_classes[] = 'disabled';
+            if ($this->_properties['page'] == $this->_properties['total_pages']) {
+                $css_classes[] = 'disabled';
+            }
 
             // generate markup
             $output = '<li' .
@@ -951,15 +1014,19 @@ class Zebra_Pagination {
     }
 
     /**
-     *  Generates the pagination links (minus "next" and "previous"), depending on whether the pagination links are shown
+     *  Returns the pagination URLs (minus "next" and "previous"), depending on whether the pagination links are shown
      *  in natural or reversed order.
+     *
+     *  @access private
+     *
+     *  @return string
      */
     private function _show_pages() {
 
         $output = '';
 
         // if the total number of pages is lesser than the number of selectable pages and we are not in "condensed" mode
-        if ($this->_properties['total_pages'] <= $this->_properties['selectable_pages'] && !$this->_properties['condensed'])
+        if ($this->_properties['total_pages'] <= $this->_properties['selectable_pages'] && !$this->_properties['condensed']) {
 
             // iterate ascendingly or descendingly, depending on whether we're showing links in reverse order or not
             for (
@@ -974,7 +1041,9 @@ class Zebra_Pagination {
                 $css_classes = isset($this->_properties['css_classes']['list_item']) && $this->_properties['css_classes']['list_item'] != '' ? array(trim($this->_properties['css_classes']['list_item'])) : array();
 
                 // if this the currently selected page, highlight it
-                if ($this->_properties['page'] == $i) $css_classes[] = 'active';
+                if ($this->_properties['page'] == $i) {
+                    $css_classes[] = 'active';
+                }
 
                 // generate markup
                 $output .= '<li' .
@@ -993,7 +1062,7 @@ class Zebra_Pagination {
             }
 
         // if the total number of pages is greater than the number of selectable pages, or we are in "condensed" mode
-        else {
+        } else {
 
             // start with a link to the first page (or last, if we are displaying links in reverse order)
 
@@ -1004,7 +1073,9 @@ class Zebra_Pagination {
                 $css_classes = isset($this->_properties['css_classes']['list_item']) && $this->_properties['css_classes']['list_item'] != '' ? array(trim($this->_properties['css_classes']['list_item'])) : array();
 
                 // highlight if the page is currently selected
-                if ($this->_properties['page'] == ($this->_properties['reverse'] ? $this->_properties['total_pages'] : 1)) $css_classes[] = 'active';
+                if ($this->_properties['page'] == ($this->_properties['reverse'] ? $this->_properties['total_pages'] : 1)) {
+                    $css_classes[] = 'active';
+                }
 
                 // generate markup
                 $output .= '<li' .
@@ -1033,7 +1104,9 @@ class Zebra_Pagination {
             $adjacent = floor(($this->_properties['selectable_pages'] - 3) / 2);
 
             // this number must be at least 1
-            if ($adjacent == 0) $adjacent = 1;
+            if ($adjacent == 0) {
+                $adjacent = 1;
+            }
 
             // find the page number after we need to show the first "..."
             // (depending on whether we're showing links in reverse order or not)
@@ -1070,11 +1143,16 @@ class Zebra_Pagination {
                     ($this->_properties['reverse'] && $starting_page < ($this->_properties['selectable_pages'] - 1)) ||
                     (!$this->_properties['reverse'] && $this->_properties['total_pages'] - $starting_page < ($this->_properties['selectable_pages'] - 2))
 
-                )
+                ) {
 
                     // adjust the value of $starting_page again
-                    if ($this->_properties['reverse']) $starting_page = $this->_properties['selectable_pages'] - 1;
-                    else $starting_page -= ($this->_properties['selectable_pages'] - 2) - ($this->_properties['total_pages'] - $starting_page);
+                    if ($this->_properties['reverse']) {
+                        $starting_page = $this->_properties['selectable_pages'] - 1;
+                    } else {
+                        $starting_page -= ($this->_properties['selectable_pages'] - 2) - ($this->_properties['total_pages'] - $starting_page);
+                    }
+
+                }
 
                 // put the "..." after the link to the first/last page, depending on whether we're showing links in reverse order or not
                 $output .= '<li' .
@@ -1098,15 +1176,21 @@ class Zebra_Pagination {
             // if we're showing links in natural order and ending page would be greater than the total number of pages minus 1
             // (minus one because we don't take into account the very last page which we output automatically)
             // adjust the ending page
-            if ($this->_properties['reverse'] && $ending_page < 2) $ending_page = 2;
+            if ($this->_properties['reverse'] && $ending_page < 2) {
+
+                $ending_page = 2;
 
             // or, if we're showing links in reverse order, and ending page would be smaller than 2
             // (2 because we don't take into account the very first page which we output automatically)
             // adjust the ending page
-            elseif (!$this->_properties['reverse'] && $ending_page > $this->_properties['total_pages'] - 1) $ending_page = $this->_properties['total_pages'] - 1;
+            } elseif (!$this->_properties['reverse'] && $ending_page > $this->_properties['total_pages'] - 1) {
+
+                $ending_page = $this->_properties['total_pages'] - 1;
+
+            }
 
             // if we are not in "condensed" mode
-            if (!$this->_properties['condensed'])
+            if (!$this->_properties['condensed']) {
 
                 // render pagination links
                 for ($i = $starting_page; $this->_properties['reverse'] ? $i >= $ending_page : $i <= $ending_page; $this->_properties['reverse'] ? $i-- : $i++) {
@@ -1115,7 +1199,9 @@ class Zebra_Pagination {
                     $css_classes = isset($this->_properties['css_classes']['list_item']) && $this->_properties['css_classes']['list_item'] != '' ? array(trim($this->_properties['css_classes']['list_item'])) : array();
 
                     // highlight the currently selected page
-                    if ($this->_properties['page'] == $i) $css_classes[] = 'active';
+                    if ($this->_properties['page'] == $i) {
+                        $css_classes[] = 'active';
+                    }
 
                     // generate markup
                     $output .= '<li' .
@@ -1127,11 +1213,13 @@ class Zebra_Pagination {
                         (isset($this->_properties['css_classes']['anchor']) && $this->_properties['css_classes']['anchor'] != '' ? ' class="' . trim($this->_properties['css_classes']['anchor']) . '"' : '') . '>' .
 
                         // apply padding if required
-                        ($this->_properties['padding'] ? str_pad($i, strlen($this->_properties['total_pages']), '0', STR_PAD_LEFT) : $i) .
+                        ($this->_properties['padding'] ? str_pad((string)$i, strlen($this->_properties['total_pages']), '0', STR_PAD_LEFT) : $i) .
 
                         '</a></li>';
 
                 }
+
+            }
 
             // if we are in "condensed" mode
             if ($this->_properties['condensed']) {
@@ -1165,7 +1253,7 @@ class Zebra_Pagination {
                 (($this->_properties['reverse'] && $ending_page > 2) ||
                 (!$this->_properties['reverse'] && $this->_properties['total_pages'] - $ending_page > 1))
 
-            )
+            ) {
 
                 // generate markup
                 $output .= '<li' .
@@ -1178,6 +1266,8 @@ class Zebra_Pagination {
 
                     '&hellip;</span></li>';
 
+            }
+
             // now we put a link to the last page (or first if we are showing links in reverse order)
 
             // if we are not in "extra condensed" mode
@@ -1187,7 +1277,9 @@ class Zebra_Pagination {
                 $css_classes = isset($this->_properties['css_classes']['list_item']) && $this->_properties['css_classes']['list_item'] != '' ? array(trim($this->_properties['css_classes']['list_item'])) : array();
 
                 // highlight if the page is currently selected
-                if ($this->_properties['page'] == ($this->_properties['reverse'] ? 1 : $this->_properties['total_pages'])) $css_classes[] = 'active';
+                if ($this->_properties['page'] == ($this->_properties['reverse'] ? 1 : $this->_properties['total_pages'])) {
+                    $css_classes[] = 'active';
+                }
 
                 // generate markup
                 $output .= '<li' .
@@ -1213,7 +1305,11 @@ class Zebra_Pagination {
     }
 
     /**
-     *  Generates the *previous page* link, depending on whether the pagination links are shown in natural or reversed order.
+     *  Generates the URL for the *previous page*, depending on whether the pagination links are shown in natural or reversed order.
+     *
+     *  @access private
+     *
+     *  @return string
      */
     private function _show_previous() {
 
@@ -1228,7 +1324,9 @@ class Zebra_Pagination {
             $css_classes = isset($this->_properties['css_classes']['list_item']) && $this->_properties['css_classes']['list_item'] != '' ? array(trim($this->_properties['css_classes']['list_item'])) : array();
 
             // if we're on the first page, the link is disabled
-            if ($this->_properties['page'] == 1) $css_classes[] = 'disabled';
+            if ($this->_properties['page'] == 1) {
+                $css_classes[] = 'disabled';
+            }
 
             // generate markup
             $output = '<li' .
