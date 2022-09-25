@@ -1,3 +1,7 @@
+## version 2.4.4 (September 25, 2022)
+
+- lots of minor bug fixes and source code formatting because we are now using [PHPStan](https://github.com/phpstan/phpstan) for static code analysis and [PHP CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) for detecting coding standards violations, which are now [PSR12](https://www.php-fig.org/psr/psr-12/)-ish with a few of the rules excluded
+
 ## version 2.4.3 (February 04, 2022)
 
 - fixed a bug when having arrays in the URL (like `select-products?&example[family]=MyFamily&example[subfamily]=Mysubfamily&other_param=Other`); see [#36](https://github.com/stefangabos/Zebra_Pagination/pull/36); thanks [Franck Dupont](https://github.com/kyfr59)!
