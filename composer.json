@@ -1,7 +1,7 @@
 {
     "name": "stefangabos/zebra_pagination",
     "type": "library",
-    "description": "A generic, Twitter Bootsrap compatible, PHP pagination library that automatically generates navigation links",
+    "description": "A generic, Twitter Bootstrap compatible, PHP pagination library that automatically generates navigation links",
     "keywords": ["php","pagination", "paging", "paginator", "paginate"],
     "homepage": "https://github.com/stefangabos/Zebra_Pagination",
     "license": "LGPL-3.0",
@@ -20,5 +20,9 @@
         "classmap": [
             "Zebra_Pagination.php"
         ]
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.8",
+        "squizlabs/php_codesniffer": "*"
     }
 }
