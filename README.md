@@ -135,33 +135,47 @@ $pagination->render();
 
 Would result is something like
 
-![Zebra_Pagination](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-natural.png?raw=true)
+![Zebra_Pagination, default layout](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-natural.png?raw=true)
 
 You can set the navigation links' position to the left or to the right of the pagination links using the [navigation_position()](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html#methodnavigation_position) method:
 
 ```php
 $pagination->navigation_position('left');
 ```
-![Zebra_Pagination](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-buttons-left.png?raw=true)
+![Zebra_Pagination, position next/previous buttons on the left](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-buttons-left.png?raw=true)
 
 ```php
 $pagination->navigation_position('right');
 ```
-![Zebra_Pagination](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-buttons-right.png?raw=true)
+![Zebra_Pagination, position next/previous buttons on the right](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-buttons-right.png?raw=true)
 
 Labels for "Previous" and "Next" links can be changed with the [labels()](https://stefangabos.github.io/Zebra_Pagination/Zebra_Pagination/Zebra_Pagination.html#methodlabels) method:
 
 ```php
 $pagination->labels('Previous', 'Next');
 ```
-![Zebra_Pagination](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-labels.png?raw=true)
+![Zebra_Pagination, using labels for navigating to next/previous pages](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-labels.png?raw=true)
 
 You can also have HTML markup as labels making it easy to include font icons like the ones from [Font Awesome](https://fontawesome.com/)
 
 ```php
 $pagination->labels('<i class="fa fa-arrow-left"></i>', '<i class="fa fa-arrow-right"></i>');
 ```
-![Zebra_Pagination](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-labels-icon-font.png?raw=true)
+![Zebra_Pagination, using icons for navigating to next/previous pages](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-labels-icon-font.png?raw=true)
+
+Using *condensed navigation* where only links to first, last, next and previous pages are available. Useful when there isn't enough space for a full blown pagination.
+
+```php
+$pagination->condensed();
+```
+![Zebra_Pagination, condensed navigation](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-condensed.png?raw=true)
+
+Using *extra condensed navigation* where only links next and previous pages are available. Useful when there isn't enough space for a full blown pagination.
+
+```php
+$pagination->condensed(true);
+```
+![Zebra_Pagination, condensed navigation](https://github.com/stefangabos/Zebra_Pagination/blob/master/docs/media/example-very-condensed.png?raw=true)
 
 Paginate data from MySQL:
 
