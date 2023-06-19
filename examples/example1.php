@@ -121,7 +121,7 @@
     // records per page
     $pagination->records_per_page($records_per_page);
 
-    // here's the magick: we need to display *only* the records for the current page
+    // here's the magic: we need to display *only* the records for the current page
     $countries = array_slice(
         $countries,                                             //  from the original array we extract
         (($pagination->get_page() - 1) * $records_per_page),    //  starting with these records
