@@ -1233,8 +1233,8 @@ class Zebra_Pagination {
                 // generate markup
                 $output .= '<li' .
 
-                    // add CSS classes to the list item, if necessary
-                    (!empty($css_classes) ? ' class="' . implode(' ', $css_classes) . '"' : '') . '><span' .
+                    // add CSS classes to the list item
+                    ' class="' . implode(' ', $css_classes) . '"><span' .
 
                     // add CSS classes to the anchor, if necessary
                     (isset($this->_properties['css_classes']['anchor']) && $this->_properties['css_classes']['anchor'] != '' ? ' class="' . trim($this->_properties['css_classes']['anchor']) . '"' : '') . '>' .
