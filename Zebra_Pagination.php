@@ -998,7 +998,7 @@ class Zebra_Pagination {
                 (!empty($css_classes) ? ' class="' . implode(' ', $css_classes) . '"' : '') . '><a href="' .
 
                 // the href is different if we're on the last page
-                ($this->_properties['page'] == $this->_properties['total_pages'] ? 'javascript:void(0)' : $this->_build_uri($this->_properties['page'] + 1)) . '"' .
+                (in_array('disabled', $css_classes) ? 'javascript:void(0)' : $this->_build_uri($this->_properties['page'] + 1)) . '"' .
 
                 // add CSS classes to the anchor, if necessary
                 (isset($this->_properties['css_classes']['anchor']) && $this->_properties['css_classes']['anchor'] != '' ? ' class="' . trim($this->_properties['css_classes']['anchor']) . '"' : '') . '>' .
@@ -1335,7 +1335,7 @@ class Zebra_Pagination {
                 (!empty($css_classes) ? ' class="' . implode(' ', $css_classes) . '"' : '') . '><a href="' .
 
                 // the href is different if we're on the first page
-                ($this->_properties['page'] == 1 ? 'javascript:void(0)' : $this->_build_uri($this->_properties['page'] - 1)) . '"' .
+                (in_array('disabled', $css_classes) ? 'javascript:void(0)' : $this->_build_uri($this->_properties['page'] - 1)) . '"' .
 
                 // add CSS classes to the anchor, if necessary
                 (isset($this->_properties['css_classes']['anchor']) && $this->_properties['css_classes']['anchor'] != '' ? ' class="' . trim($this->_properties['css_classes']['anchor']) . '"' : '') . '>' .
