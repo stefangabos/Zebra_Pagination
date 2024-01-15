@@ -9,8 +9,8 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Pagination/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.4.5 (last revision: June 19, 2023)
- *  @copyright  © 2009 - 2023 Stefan Gabos
+ *  @version    2.4.6 (last revision: January 15, 2024)
+ *  @copyright  © 2009 - 2024 Stefan Gabos
  *  @license    https://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pagination
  */
@@ -22,7 +22,7 @@ class Zebra_Pagination {
      *  @var    array<mixed>
      *  @access private
      */
-    private $_properties = array(
+    protected $_properties = array(
 
         // should the "previous page" and "next page" links be always visible
         'always_show_navigation'    =>  true,
@@ -882,7 +882,7 @@ class Zebra_Pagination {
      *
      *  @return string
      */
-    private function _build_uri($page) {
+    protected function _build_uri($page) {
 
         // if page propagation method is through SEO friendly URLs
         if ($this->_properties['method'] == 'url') {
@@ -974,7 +974,7 @@ class Zebra_Pagination {
      *
      *  @return string
      */
-    private function _show_next() {
+    protected function _show_next() {
 
         $output = '';
 
@@ -1021,7 +1021,7 @@ class Zebra_Pagination {
      *
      *  @return string
      */
-    private function _show_pages() {
+    protected function _show_pages() {
 
         $output = '';
 
@@ -1311,7 +1311,7 @@ class Zebra_Pagination {
      *
      *  @return string
      */
-    private function _show_previous() {
+    protected function _show_previous() {
 
         $output = '';
 
