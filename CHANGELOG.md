@@ -1,3 +1,7 @@
+## version 2.4.6 (January 15, 2024)
+
+- changed private methods to protected; see #[38](https://github.com/stefangabos/Zebra_Pagination/issues/38); thanks [Bilge](https://github.com/Bilge)!
+
 ## version 2.4.5 (June 19, 2023)
 
 - fixed an issue when the library was in `condensed` mode and there were no records available
