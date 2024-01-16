@@ -92,6 +92,7 @@ $countries = array(
 $records_per_page = 10;
 
 // include the pagination class
+// (you don't need this if you are using composer)
 require 'path/to/Zebra_Pagination.php';
 
 // instantiate the pagination object
@@ -189,6 +190,7 @@ $connection = mysqli_connect($host, $username, $password, $database);
 $records_per_page = 10;
 
 // include the pagination class
+// (you don't need this if you are using composer)
 require 'path/to/Zebra_Pagination.php';
 
 // instantiate the pagination object
