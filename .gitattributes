@@ -8,5 +8,6 @@ composer.json export-ignore
 composer.lock export-ignore
 phpstan.neon export-ignore
 run-tests.bat export-ignore
+run-tests.sh export-ignore
 coding-standards.xml export-ignore
 /.github export-ignore
