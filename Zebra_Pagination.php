@@ -9,7 +9,7 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Pagination/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.4.6 (last revision: January 15, 2024)
+ *  @version    2.4.7 (last revision: January 16, 2024)
  *  @copyright  © 2009 - 2024 Stefan Gabos
  *  @license    https://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pagination
@@ -22,7 +22,7 @@ class Zebra_Pagination {
      *  @var    array<mixed>
      *  @access private
      */
-    protected $_properties = array(
+    private $_properties = array(
 
         // should the "previous page" and "next page" links be always visible
         'always_show_navigation'    =>  true,
