@@ -1,6 +1,10 @@
+## version 2.4.7 (January 16, 2024)
+
+- minor ammendments to previous commit; see #[38](https://github.com/stefangabos/Zebra_Pagination/issues/38)
+
 ## version 2.4.6 (January 15, 2024)
 
-- changed private methods to protected; see #[38](https://github.com/stefangabos/Zebra_Pagination/issues/38); thanks [Bilge](https://github.com/Bilge)!
+- changed some internal private methods to protected; see #[38](https://github.com/stefangabos/Zebra_Pagination/issues/38); thanks [Bilge](https://github.com/Bilge)!
 
 ## version 2.4.5 (June 19, 2023)
 
