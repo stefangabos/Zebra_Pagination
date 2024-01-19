@@ -1,6 +1,6 @@
 ## version 2.4.7 (January 16, 2024)
 
-- minor ammendments to previous commit; see #[38](https://github.com/stefangabos/Zebra_Pagination/issues/38)
+- minor amendments to previous commit; see #[38](https://github.com/stefangabos/Zebra_Pagination/issues/38)
 
 ## version 2.4.6 (January 15, 2024)
 
