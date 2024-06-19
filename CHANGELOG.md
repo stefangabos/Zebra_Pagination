@@ -1,3 +1,7 @@
+## version 2.4.8 (June 19, 2024)
+
+- fix for preventing potential warnings if superglobal is not present
+
 ## version 2.4.7 (January 16, 2024)
 
 - minor amendments to previous commit; see #[38](https://github.com/stefangabos/Zebra_Pagination/issues/38)
