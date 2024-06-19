@@ -9,7 +9,7 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Pagination/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.4.7 (last revision: January 16, 2024)
+ *  @version    2.4.8 (last revision: June 19, 2024)
  *  @copyright  © 2009 - 2024 Stefan Gabos
  *  @license    https://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pagination
@@ -922,7 +922,7 @@ class Zebra_Pagination {
             // if values in the query string - other than those set through base_url() - are not to be preserved
             // preserve only those set initially
             // otherwise, get the current query string
-            $query = !$this->_properties['preserve_query_string'] ? implode('&', $this->_properties['base_url_query']) : $_SERVER['QUERY_STRING'];
+            $query = !$this->_properties['preserve_query_string'] ? implode('&', $this->_properties['base_url_query']) : (isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '');
 
             // return the built string also appending the query string, if any
             $uri =  $url . ($query != '' ? '?' . $query : '');
@@ -939,7 +939,7 @@ class Zebra_Pagination {
             // otherwise, get the current query string, if any, and transform it to an array
             } else {
 
-                parse_str($_SERVER['QUERY_STRING'], $query);
+                parse_str(isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '', $query);
 
             }
 
