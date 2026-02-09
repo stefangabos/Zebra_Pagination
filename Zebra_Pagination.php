@@ -9,8 +9,8 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Pagination/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.4.8 (last revision: June 19, 2024)
- *  @copyright  © 2009 - 2024 Stefan Gabos
+ *  @version    2.4.9 (last revision: February 09, 2026)
+ *  @copyright  © 2009 - 2026 Stefan Gabos
  *  @license    https://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pagination
  */
@@ -1067,7 +1067,7 @@ class Zebra_Pagination {
             // start with a link to the first page (or last, if we are displaying links in reverse order)
 
             // if we are not in "extra condensed" mode
-            if ($this->_properties['condensed'] !== true) {
+            if ($this->_properties['condensed'] !== true && ceil($this->_properties['records'] / $this->_properties['records_per_page']) > 2) {
 
                 // CSS classes to be applied to the list item, if any
                 $css_classes = isset($this->_properties['css_classes']['list_item']) && $this->_properties['css_classes']['list_item'] != '' ? array(trim($this->_properties['css_classes']['list_item'])) : array();
@@ -1271,7 +1271,7 @@ class Zebra_Pagination {
             // now we put a link to the last page (or first if we are showing links in reverse order)
 
             // if we are not in "extra condensed" mode
-            if ($this->_properties['condensed'] !== true) {
+            if ($this->_properties['condensed'] !== true && ceil($this->_properties['records'] / $this->_properties['records_per_page']) > 2) {
 
                 // CSS classes to be applied to the list item, if any
                 $css_classes = isset($this->_properties['css_classes']['list_item']) && $this->_properties['css_classes']['list_item'] != '' ? array(trim($this->_properties['css_classes']['list_item'])) : array();
