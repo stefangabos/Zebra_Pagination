@@ -1,3 +1,7 @@
+## version 2.4.8 (February 09, 2026)
+
+- don't show first/last pages when in "condensed" mode and there are less than 3 pages available
+
 ## version 2.4.8 (June 19, 2024)
 
 - fix for preventing potential warnings if superglobal is not present
