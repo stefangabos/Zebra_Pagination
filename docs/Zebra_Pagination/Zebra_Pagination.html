@@ -53,7 +53,7 @@ I have a few other projects that you might be interested in — <a href="https:/
 </p>
 </div>
 </td>
-<td style="background: #FFF">
+<td style="background: #FFF; width: 100%">
 <div id="doc_content">
 <h2>Class: <strong>Zebra_Pagination</strong></h2>
 <h6><strong>source file:</strong> /Zebra_Pagination.php</h6>
@@ -65,7 +65,7 @@ I have a few other projects that you might be interested in — <a href="https:/
 </ul>
 <h4>Version:</h4>
 <ul>
-<li>2.4.8 (last revision: June 19, 2024)<br>See <a href="https://github.com/stefangabos/Zebra_Pagination/blob/master/CHANGELOG.md" class="projects-homepage">CHANGELOG</a></li>
+<li>2.4.9 (last revision: February 09, 2026)<br>See <a href="https://github.com/stefangabos/Zebra_Pagination/blob/master/CHANGELOG.md" class="projects-homepage">CHANGELOG</a></li>
 </ul>
 <h4>License:</h4>
 <ul>
@@ -73,7 +73,7 @@ I have a few other projects that you might be interested in — <a href="https:/
 </ul>
 <h4>Copyright:</h4>
 <ul>
-<li>© 2009 - 2024 Stefan Gabos</li>
+<li>© 2009 - 2026 Stefan Gabos</li>
 </ul>
 <div id="top" class="doc_toc">
 <div class="left">
@@ -143,7 +143,7 @@ void
 <tr>
 <td><em>boolean</em></td>
 <td><strong>$status</strong></td>
-<td><p>(Optional) If set to <code>FALSE</code>, the <em>previous page</em> and <em>next page</em> links will only be                               shown if there are more pages than <a href="../Zebra_Pagination/Zebra_Pagination.html#methodselectable_pages">selectable pages</a>.</p><p>Default is <code>TRUE</code>.</p></td>
+<td><p><span class="optional">Optional</span> If set to <code>FALSE</code>, the <em>previous page</em> and <em>next page</em> links will only be                               shown if there are more pages than <a href="../Zebra_Pagination/Zebra_Pagination.html#methodselectable_pages">selectable pages</a>.</p><p>Default is <code>TRUE</code>.</p></td>
 </tr>
 </table>
 <h5>Tags</h5>
@@ -179,7 +179,7 @@ void
 <tr>
 <td><em>boolean</em></td>
 <td><strong>$status</strong></td>
-<td><p>(Optional) If set to <code>FALSE</code>, the library will have for the first page (or last,                                   if you are displaying links in <a href="../Zebra_Pagination/Zebra_Pagination.html#methodreverse">reverse</a> order) a different path than the                                   one you have when you are accessing the page for the first (un-paginated) time.</p><p>Default is <code>TRUE</code>.</p></td>
+<td><p><span class="optional">Optional</span> If set to <code>FALSE</code>, the library will have for the first page (or last,                                   if you are displaying links in <a href="../Zebra_Pagination/Zebra_Pagination.html#methodreverse">reverse</a> order) a different path than the                                   one you have when you are accessing the page for the first (un-paginated) time.</p><p>Default is <code>TRUE</code>.</p></td>
 </tr>
 </table>
 <h5>Tags</h5>
@@ -220,12 +220,12 @@ void
 <tr>
 <td><em>string</em></td>
 <td><strong>$base_url</strong></td>
-<td><p>(Optional) The base URL to be used when generating the navigation                                                   links</p><p>Defaults is whatever returned by                                                   <a href="https://www.php.net/manual/en/reserved.variables.server.php">$_SERVER['REQUEST_URI']</a></p></td>
+<td><p><span class="optional">Optional</span> The base URL to be used when generating the navigation                                                   links</p><p>Defaults is whatever returned by                                                   <a href="https://www.php.net/manual/en/reserved.variables.server.php">$_SERVER['REQUEST_URI']</a></p></td>
 </tr>
 <tr>
 <td><em>boolean</em></td>
 <td><strong>$preserve_query_string</strong></td>
-<td><p>(Optional) Indicates whether values in query strings, other than                                                   those set in <code>base_url</code>, should be preserved</p><p>Default is <code>TRUE</code></p></td>
+<td><p><span class="optional">Optional</span> Indicates whether values in query strings, other than                                                   those set in <code>base_url</code>, should be preserved</p><p>Default is <code>TRUE</code></p></td>
 </tr>
 </table>
 <a href="#top" class="top">top</a>
@@ -402,17 +402,17 @@ void
 <tr>
 <td><em>string</em></td>
 <td><strong>$previous</strong></td>
-<td><p>(Optional) The label for the <em>previous page</em> link.</p><p>Default is <code>&amp;laquo;</code> (which looks like <code>«</code>)</p></td>
+<td><p><span class="optional">Optional</span> The label for the <em>previous page</em> link.</p><p>Default is <code>&amp;laquo;</code> (which looks like <code>«</code>)</p></td>
 </tr>
 <tr>
 <td><em>string</em></td>
 <td><strong>$next</strong></td>
-<td><p>(Optional) The label for the <em>next page</em> link.</p><p>Default is <code>&amp;raquo;</code> (which looks like <code>»</code>).</p></td>
+<td><p><span class="optional">Optional</span> The label for the <em>next page</em> link.</p><p>Default is <code>&amp;raquo;</code> (which looks like <code>»</code>).</p></td>
 </tr>
 <tr>
 <td><em>string</em></td>
 <td><strong>$progress</strong></td>
-<td><p>(Optional) The label for showing the current progress when in <a href="../Zebra_Pagination/Zebra_Pagination.html#methodcondensed">condensed</a> mode.</p><p>Default is <code>%d / %d</code></p><p>First <code>%d</code> will be replaced with the current page while the second one with the                               number of total pages.</p></td>
+<td><p><span class="optional">Optional</span> The label for showing the current progress when in <a href="../Zebra_Pagination/Zebra_Pagination.html#methodcondensed">condensed</a> mode.</p><p>Default is <code>%d / %d</code></p><p>First <code>%d</code> will be replaced with the current page while the second one with the                               number of total pages.</p></td>
 </tr>
 </table>
 <h5>Tags</h5>
@@ -448,7 +448,7 @@ void
 <tr>
 <td><em>string</em></td>
 <td><strong>$method</strong></td>
-<td><p>(Optional) The method to be used for page propagation.</p><p>Valid values are:</p><p><ul><li><code>url</code> - page propagation is done in a SEO friendly way</li></ul><p>                               This method requires the <a href="https://httpd.apache.org/docs/current/mod/mod_rewrite.html">mod_rewrite</a>                               module to be enabled on your Apache server (or the equivalent for other web servers).</p><p>When using this method, the current page will be passed in the URL as</p><p><code>https://youwebsite.com/yourpage/[variable name][page number]/</code></p><p>where <code>variable name</code> is set through <a href="../Zebra_Pagination/Zebra_Pagination.html#methodvariable_name">variable_name</a> and <code>page number</code>                               represents the current page.</p><p><ul><li><code>get</code> - page propagation is done through <code>GET</code></li></ul><p>                               When using this method, the current page will be passed in the URL as</p><p><code>https://youwebsite.com/yourpage?[variable name]=[page number]</code></p><p>where <code>variable name</code> is set through <a href="../Zebra_Pagination/Zebra_Pagination.html#methodvariable_name">variable_name</a> and <code>page number</code>                               represents the current page.</p><p>Default is <code>get</code>.</p></td>
+<td><p><span class="optional">Optional</span> The method to be used for page propagation.</p><p>Valid values are:</p><p><ul><li><code>url</code> - page propagation is done in a SEO friendly way</li></ul><p>                               This method requires the <a href="https://httpd.apache.org/docs/current/mod/mod_rewrite.html">mod_rewrite</a>                               module to be enabled on your Apache server (or the equivalent for other web servers).</p><p>When using this method, the current page will be passed in the URL as</p><p><code>https://youwebsite.com/yourpage/[variable name][page number]/</code></p><p>where <code>variable name</code> is set through <a href="../Zebra_Pagination/Zebra_Pagination.html#methodvariable_name">variable_name</a> and <code>page number</code>                               represents the current page.</p><p><ul><li><code>get</code> - page propagation is done through <code>GET</code></li></ul><p>                               When using this method, the current page will be passed in the URL as</p><p><code>https://youwebsite.com/yourpage?[variable name]=[page number]</code></p><p>where <code>variable name</code> is set through <a href="../Zebra_Pagination/Zebra_Pagination.html#methodvariable_name">variable_name</a> and <code>page number</code>                               represents the current page.</p><p>Default is <code>get</code>.</p></td>
 </tr>
 </table>
 <a href="#top" class="top">top</a>
@@ -506,7 +506,7 @@ void
 <tr>
 <td><em>boolean</em></td>
 <td><strong>$status</strong></td>
-<td><p>(Optional) Setting this property to <code>FALSE</code> will disable padding.</p><p>Default is <code>TRUE</code>.</p></td>
+<td><p><span class="optional">Optional</span> Setting this property to <code>FALSE</code> will disable padding.</p><p>Default is <code>TRUE</code>.</p></td>
 </tr>
 </table>
 <a href="#top" class="top">top</a>
@@ -586,7 +586,7 @@ mixed
 <tr>
 <td><em>boolean</em></td>
 <td><strong>$return_output</strong></td>
-<td><p>(Optional) Setting this argument to <code>TRUE</code> will instruct the script to                                           return the generated output rather than outputting it to the screen.</p><p>Default is <code>FALSE</code>.</p></td>
+<td><p><span class="optional">Optional</span> Setting this argument to <code>TRUE</code> will instruct the script to                                           return the generated output rather than outputting it to the screen.</p><p>Default is <code>FALSE</code>.</p></td>
 </tr>
 </table>
 <a href="#top" class="top">top</a>
@@ -615,7 +615,7 @@ void
 <tr>
 <td><em>boolean</em></td>
 <td><strong>$reverse</strong></td>
-<td><p>(Optional) Set it to <code>TRUE</code> to generate navigation links in reverse order.</p><p>Default is <code>FALSE</code>.</p></td>
+<td><p><span class="optional">Optional</span> Set it to <code>TRUE</code> to generate navigation links in reverse order.</p><p>Default is <code>FALSE</code>.</p></td>
 </tr>
 </table>
 <h5>Tags</h5>
@@ -701,7 +701,7 @@ void
 <tr>
 <td><em>boolean</em></td>
 <td><strong>$status</strong></td>
-<td><p>(Optional) Setting this property to <code>FALSE</code> will disable trailing slashes on generated                                   URLs when <a href="../Zebra_Pagination/Zebra_Pagination.html#methodmethod">method</a> is <code>url</code>.</p><p>Default is <code>TRUE</code> (trailing slashes are enabled by default).</p></td>
+<td><p><span class="optional">Optional</span> Setting this property to <code>FALSE</code> will disable trailing slashes on generated                                   URLs when <a href="../Zebra_Pagination/Zebra_Pagination.html#methodmethod">method</a> is <code>url</code>.</p><p>Default is <code>TRUE</code> (trailing slashes are enabled by default).</p></td>
 </tr>
 </table>
 <a href="#top" class="top">top</a>
@@ -740,7 +740,7 @@ void
 </tr>
 </table>
 <div id="doc_footer">
-Documentation generated on <span>Wed, 19 June 2024</span>
+Documentation generated on <span>Mon, 09 February 2026</span>
 </div>
 </div>
 <!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-0301ZD47Q7"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-0301ZD47Q7');</script></body>
