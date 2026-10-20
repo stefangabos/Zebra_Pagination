@@ -9,7 +9,7 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Pagination/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.4.9 (last revision: February 09, 2026)
+ *  @version    2.4.10 (last revision: October 20, 2026)
  *  @copyright  © 2009 - 2026 Stefan Gabos
  *  @license    https://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Pagination
@@ -922,10 +922,11 @@ class Zebra_Pagination {
             // if values in the query string - other than those set through base_url() - are not to be preserved
             // preserve only those set initially
             // otherwise, get the current query string
-            $query = !$this->_properties['preserve_query_string'] ? implode('&', $this->_properties['base_url_query']) : (isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '');
+            $query = !$this->_properties['preserve_query_string'] ? http_build_query($this->_properties['base_url_query']) : (isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '');
 
             // return the built string also appending the query string, if any
-            $uri =  $url . ($query != '' ? '?' . $query : '');
+            // (and make sure the returned HTML is W3C compliant)
+            $uri = htmlspecialchars(html_entity_decode($url) . ($query != '' ? '?' . $query : ''));
 
         // if page propagation is to be done through GET
         } else {
@@ -963,7 +964,9 @@ class Zebra_Pagination {
 
         // if for whatever reason the URI is an empty string it means it should be pointing to the root ("/")
         // we can't leave this as an empty string or it will point to whatever URL is currently open in the browser
-        return $uri !== '' ? rawurldecode($uri) : '/';
+        // the square brackets of array parameters are kept readable while every other character stays encoded, so that
+        // values containing characters like "&", "+", "#" or "%" survive, and nothing can break out of the "href" attribute
+        return $uri !== '' ? str_replace(array('%5B', '%5D'), array('[', ']'), $uri) : '/';
 
     }
 

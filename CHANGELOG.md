@@ -1,4 +1,11 @@
-## version 2.4.8 (February 09, 2026)
+## version 2.4.10 (October 20, 2026)
+
+- fixed a bug where values containing characters like `&`, `+`, `#` or `%` were broken in the generated links, because the whole URL was decoded after being built; only the square brackets of array parameters are now kept readable
+- fixed a security issue where a crafted query string could inject HTML into the page through the generated links, as the URL was decoded after being HTML-escaped
+- fixed the query string set through `base_url()` losing its parameter names when `method` is `url` and `preserve_query_string` is off
+- links are now HTML-escaped also when `method` is `url`
+
+## version 2.4.9 (February 09, 2026)
 
 - don't show first/last pages when in "condensed" mode and there are less than 3 pages available
 
